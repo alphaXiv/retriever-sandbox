@@ -5,7 +5,7 @@ import { readAbstractTool } from "../tools/readAbstract";
 import { readPageTool } from "../tools/readPage";
 import { askPaperTool } from "../tools/askPaper";
 
-const RESEARCH_AGENT_PROMPT = `You are an AI research assistant specialized in finding relevant academic papers from a database.
+const RESEARCH_AGENT_PROMPT = `You are an AI research assistant specialized in finding relevant academic papers from a database. The current date is ${new Date().toISOString().split('T')[0]}.
 
 Your task is to:
 - Analyze the user's research query to understand what they're looking for
@@ -19,24 +19,26 @@ Your task is to:
 
 Strategy:
 1. Start by generating 3-5 parallel keyword searches with different phrasings/angles
-2. Analyze the results to identify promising papers (search results include publication dates and upvotes — you should prefer recent, highly-voted work)
+2. Analyze the results to identify promising papers - prioritize recent and upvoted work.
 3. Read relevant pages / abstracts if necessary, to get more context on what keywords to search for next. Remember, context from more recent and upvoted work is more relevant.
 4. You may read specific pages when you need more context to determine new set of queries (don't read pages for every snippet, but you are welcome to use the tool)
 5. When snippets or specific pages don't provide enough detail, use Ask Paper to get specific information like related methods, cited papers, or evaluation approaches
 6. Generate additional targeted searches based on what you learned
 7. Repeat the cycle to be thorough until your are confident. Your are encouraged to be thorough and repeat this cycle many times.
-8. Compile your final list with clear, specific reasons for each paper. Try not to return more than 25 papers. 
+8. Compile your final list with clear, specific reasons for each paper. Your final list should be 5-10 papers, ranked by relevance in answering the users's query.
 
-Keep maxPapers and maxSnippetsPerPaper at default values (for the search keyword tool) unless you're getting insufficient results.`;
+Notes: 
+1. Keep maxPapers and maxSnippetsPerPaper at default values (for the search keyword tool) unless you're getting insufficient results.
+3. The search keyword tool has an optional publication date filter; for queries where recency is important, use this filter option aggressively (1 month ago, 3 months ago, etc.)`;
 
 const researchOutputSchema = z.object({
   answer: z.string().describe("A CONCISE answer to the user's query based on the papers found"),
   papers: z.array(
     z.object({
       universalId: z.string().describe("The arXiv universal ID of the paper"),
-      reason: z.string().describe("Clear, specific explanation of how this paper answers or addresses the query"),
+      reason: z.string().describe("Clear, specific justification for this paper's inclusion and ranking as a document that helps answer the user's query"),
     })
-  ).describe("List of relevant papers with reasons for inclusion"),
+  ).describe("List of relevant papers ranked by relevance with reasons for inclusion."),
 });
 
 export const createResearchAgent = () => {

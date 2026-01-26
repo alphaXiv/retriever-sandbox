@@ -12,6 +12,10 @@ const route = createRoute({
       keyword: z.string().openapi({ example: "gsm8k vision" }),
       maxPapers: z.coerce.number().int().positive().optional().default(50).openapi({ example: 50 }),
       maxSnippetsPerPaper: z.coerce.number().int().positive().optional().default(10).openapi({ example: 10 }),
+      minPublicationDate: z.iso.datetime().optional().openapi({ 
+        example: new Date(Date.now() - 3 * 30 * 24 * 60 * 60 * 1000).toISOString(),
+        description: "Minimum publication date (ISO 8601 string)"
+      }),
     }),
   },
   responses: {
@@ -23,7 +27,7 @@ const route = createRoute({
               universalId: z.string(),
               paperTitle: z.string(),
               votes: z.number(),
-              publicationDate: z.date(),
+              publicationDate: z.iso.datetime(),
               occurrences: z.array(z.object({
                 pageNumber: z.number(),
                 snippet: z.string(),
@@ -40,11 +44,14 @@ const route = createRoute({
 });
 
 const handler: RouteHandler<typeof route> = async (c) => {
-  const { keyword, maxPapers, maxSnippetsPerPaper } = c.req.valid("query");
+  const { keyword, maxPapers, maxSnippetsPerPaper, minPublicationDate: minPublicationDateStr } = c.req.valid("query");
+  
+  const minPublicationDate = minPublicationDateStr ? new Date(minPublicationDateStr) : undefined;
   
   const results = await searchPaperPagesByKeyword(keyword, {
     maxPapers,
     maxSnippetsPerPaper,
+    minPublicationDate,
   });
 
   const totalOccurrences = results.reduce((sum, paper) => sum + paper.occurrences.length, 0);

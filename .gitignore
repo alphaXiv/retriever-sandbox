@@ -7,3 +7,4 @@ dist
 *.tsbuildinfo
 *.log
 *.gen.ts
+outputs/

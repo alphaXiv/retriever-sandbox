@@ -1,4 +1,4 @@
-import { eq, inArray, sql } from "drizzle-orm";
+import { and, eq, gte, inArray, sql } from "drizzle-orm";
 import { db } from "../client";
 import { papers, paperPages } from "../schemas/papers";
 import { generate } from "../../lib/uuidv7";
@@ -175,10 +175,19 @@ export const searchPaperPagesByKeyword = async (
   options: {
     maxPapers?: number;
     maxSnippetsPerPaper?: number;
+    minPublicationDate?: Date;
   } = {}
 ) => {
-  const { maxPapers = 10, maxSnippetsPerPaper = 10 } = options;
+  const { maxPapers = 10, maxSnippetsPerPaper = 10, minPublicationDate } = options;
   const tsQuery = keyword.trim().split(/\s+/).join(' & ');
+  
+  const whereConditions = [
+    sql`to_tsvector('english', ${paperPages.text}) @@ to_tsquery('english', ${tsQuery})`,
+  ];
+  
+  if (minPublicationDate !== undefined) {
+    whereConditions.push(gte(papers.publicationDate, minPublicationDate));
+  }
   
   const results = await db
     .select({
@@ -192,7 +201,7 @@ export const searchPaperPagesByKeyword = async (
     })
     .from(paperPages)
     .innerJoin(papers, eq(paperPages.paperId, papers.id))
-    .where(sql`to_tsvector('english', ${paperPages.text}) @@ to_tsquery('english', ${tsQuery})`)
+    .where(and(...whereConditions))
     .limit(maxPapers * maxSnippetsPerPaper);
 
   const paperMap = new Map<PaperId, {

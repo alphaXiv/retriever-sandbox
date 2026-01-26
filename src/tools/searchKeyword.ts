@@ -12,7 +12,8 @@ Use this tool to find papers that discuss specific topics, methods, or concepts.
 Examples:
 - Search for "transformer architecture": { "keyword": "transformer architecture", "maxPapers": 20, "maxSnippetsPerPaper": 5 }
 - Search for "gsm8k vision": { "keyword": "gsm8k vision" }
-- Find papers about "reinforcement learning": { "keyword": "reinforcement learning", "maxPapers": 50 }`,
+- Find papers about "reinforcement learning": { "keyword": "reinforcement learning", "maxPapers": 50 }
+- Find the latest papers about continual learning: { "keyword": "continual learning", "maxPapers": 50, "minPublicationDate": "2026-10-01" }`,
   parameters: z.object({
     keyword: z.string().describe("Keyword or phrase to search for (can contain spaces)"),
     maxPapers: z
@@ -29,20 +30,26 @@ Examples:
       .optional()
       .default(10)
       .describe("Maximum number of snippets per paper (default: 10)"),
+    minPublicationDate: z.iso.datetime().optional().describe("Minimum publication date to return papers from (ISO 8601 string)"),
   }),
   async execute({ param }) {
     try {
-      const { keyword, maxPapers, maxSnippetsPerPaper} = param as {
+      const { keyword, maxPapers, maxSnippetsPerPaper, minPublicationDate: minPublicationDateStr } = param as {
         keyword: string;
         maxPapers?: number;
         maxSnippetsPerPaper?: number;
+        minPublicationDate?: string;
       };
 
+      const minPublicationDate = minPublicationDateStr ? new Date(minPublicationDateStr) : undefined;
+      
       console.info("executing with keyword", keyword)
+      console.info("executing with minPublicationDate", minPublicationDate?.toISOString());
 
       const results = await searchPaperPagesByKeyword(keyword, {
         maxPapers,
         maxSnippetsPerPaper,
+        minPublicationDate,
       });
 
       if (results.length === 0) {
