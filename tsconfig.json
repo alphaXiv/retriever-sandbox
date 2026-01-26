@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
