@@ -1,7 +1,6 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { cors } from "hono/cors";
 import * as searchKeywordController from "./controllers/search-keyword.controller";
-import * as searchEmbeddingController from "./controllers/search-embedding.controller";
 import * as readPageController from "./controllers/read-page.controller";
 import * as readAbstractController from "./controllers/read-abstract.controller";
 import * as researchController from "./controllers/research.controller";
@@ -27,7 +26,6 @@ app.get("/health", (c) => c.json({ status: "ok" }));
 
 const apiRoutes = new OpenAPIHono();
 apiRoutes.openapi(searchKeywordController.route, searchKeywordController.handler);
-apiRoutes.openapi(searchEmbeddingController.route, searchEmbeddingController.handler);
 apiRoutes.openapi(readPageController.route, readPageController.handler);
 apiRoutes.openapi(readAbstractController.route, readAbstractController.handler);
 apiRoutes.openapi(researchController.route, researchController.handler);
