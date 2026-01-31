@@ -1,8 +1,8 @@
 import { and, eq, gte, inArray, sql } from "drizzle-orm";
 import { db } from "../client";
-import { papers, paperPages } from "../schemas/papers";
+import { papers, paperPages, paperAbstractEmbeddings } from "../schemas/papers";
 import { generate } from "../../lib/uuidv7";
-import type { PaperId, PaperPageId } from "../../lib/id";
+import type { PaperAbstractEmbeddingId, PaperId, PaperPageId } from "../../lib/id";
 
 export const getPaperByUniversalId = async (universalId: string) => {
   const [paper] = await db.select().from(papers).where(eq(papers.universalId, universalId)).limit(1);
@@ -278,3 +278,19 @@ function extractSnippets(text: string, keyword: string, windowSize: number = 400
   
   return snippets;
 }
+
+export const insertPaperAbstractEmbedding = async (paperId: PaperId, embedding: number[]) => {
+  if (embedding.length !== 3072) {
+    throw new Error("Invalid embedding: must be an array of 3072 numbers");
+  }
+
+  await db
+    .insert(paperAbstractEmbeddings)
+    .values({
+      id: generate<PaperAbstractEmbeddingId>(),
+      paperId,
+      abstractEmbedding: embedding,
+      abstractEmbeddingHalf: embedding,
+    })
+    .onConflictDoNothing();
+};
