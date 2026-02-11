@@ -1,0 +1,29 @@
+When prompting Gemini models for reasoning, what are good values for top p and top k?
+I'm working on a retrieval model, but I'm not seeing improvements in online performance because the gains seem to be diluted by the ranker and downstream steps. Any ideas on how to address this?
+What are strategies for structural encoding or tokenization for language models in low resource settings?
+What are new algorithms for modeling risk? Do not include any learning algorithms. 
+What are strategies for getting high quality results from small datasets when training an LLM?
+What are some recent advances in using human demonstrations in online reinforcement learning for robotics?
+Find me papers which introduce multi-object tracking in query based systems for outdoor lidar data like DIntr.
+Find me value-based reinforcement learning methods for continuous action-spaces.
+What is the state of the art animation inbetweening character animation models? Are the newest ones mostly using diffusion models? 
+Find me iterations of VGGT that make it more robust and/or ram efficient.
+What are the most popular ways to create synthetic, high-quality math datasets?
+How can I guide attention-based models to focus on part of some objects in images and neglect the background?
+How can we design reinforcement learning methods that don't depend on counterfactual reasoning about alternative actions?
+What are the most suitable and progressive metrics for ASR (in IT domain)?
+How to use off-policy samples in RL, especially with LLMs?
+What are techniques for sample-efficient pre-training of small language models?
+What is the most popular approach for multi-vector retrieval for RAG at the moment?
+Why there is no open source models that is using next scale prediction for autoregressive image generation ? Is it a problem with the idea or there is something missing?
+What do the KoLeo regularizer and Gram anchor loss do in DINOv3? What are their equations, what is their purpose, and why are they necessary?
+How can I edit factual knowledge in LLMs with MOE architectures?
+Is there any work that uses DPO to change the reasoning language a model uses?
+My goal is to fine-tune a model on a particular domain database for text to SQL task. However, the challenge is to finetune the model with very limited domain data. I dont need suggestions on the dataset enhancement side but making efficient training which captures all available information and converges efficiently(especially using better LoRA initialization)
+For efficient inference of LLMs and MLLMs, I know many techniques such as token pruning, model compression (distillation, low-rank compression, pruning), efficient attention (flash attention, linear attention), the speedup of decoding (speculative decoding). Are there any other key techniques? 
+Find new audio deepfake datasets from 2025 or later.
+Why does training a model with AdamW sometimes cause the loss to reach 0 then spike back up quickly then decrease back down slowly?
+In the case of multi-hop question answering, where two tasks are chained together, do circuits for both tasks compose?
+What is the minimum storage/memory requirement of LoRA and FedLoRA?
+What is the best method to make transformer model predict continuous vectors in one step?
+I want to implement single channel speech enhancement audio front end, can you help me search what is the current sota?

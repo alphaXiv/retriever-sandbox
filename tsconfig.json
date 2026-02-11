@@ -16,7 +16,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "allowUnreachableCode": false,
-    "types": ["node"],
+    "types": ["node", "bun"],
     "baseUrl": ".",
     "paths": {
       "#*": ["./src/*"]

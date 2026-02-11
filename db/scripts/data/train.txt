@@ -1,0 +1,76 @@
+What are tricks for converging during pre-training that popular open source models use?
+What are tricks to improve stability during post-training?
+What's the typical ratio of learning rates between pre-training and SFT fine-tuning for LLMs?
+Which OCR methods do best on OmniDocBench?
+What techniques are used to optimize LLMs for inference on local devices (phones, laptops, etc)?
+What are the common techniques to extend the context window of an LLM that was using RoPE embeddings?
+What are the best positional embedding techniques for LLMs?
+When does adding a KL penalty with the reference policy help when RL fine-tuning?
+What are some strategies for maximizing GPU utilization and minimizing data staleness when doing distributed RL fine-tuning of LLMs?
+What are the most important and trusted benchmarks for evaluating OCR models?
+What are the most important benchmarks for evaluating LLM agents in mulit-turn long horizon settings?
+What are good methods for dealing with extremely long context lengths with LLMs?
+What are common techniques for improving LLM pre-training instability?
+What are specific regularization techniques for reducing LLM pre-training instability?
+What are good benchmarks to assess LLM's tool calling abilities?
+What's a good preference optimization algorithm to use if instead of having paired preference data I have raw responses like upvote/downvote from users?
+What architectural changes can I make to improve convergence when training my model?
+How does sequence packing affect model accuracy for LLMs during Supervised Fine Tuning?
+What are the three most important hyperparameters that influence LLM preference optimization fine-tuning specifically?
+Which papers use transformers in a recursive architecture to solve puzzles?
+What techniques exist for when I want to fine-tune my LLM with RL but I don't have easily verifiable rewards?
+What are techniques to mitigate reward-hacking when RL fine-tuning LLMs for reasoning?
+What are some good datasets to do SFT LLM post-training on to learn reasoning?
+What is currently the best performing model (both open source and closed source) on the multi-turn benchmark Tau bench?
+What are some important considerations when doing RL fine-tuning for agents in a multi-turn setting as opposed to just single-turn envs?
+What are popular optimization objectives for RL fine-tuning LLMs today?
+Which open-source LLM is best to do RL fine-tuning on top of?
+What are the best benchmarks to test an LLM in its ability to do "deep research"?
+What is more prone to inducing catastrophic forgetting in LLMs: supervised fine-tuning or RL fine-tuning?
+Which factor plays a larger role in mitigating catastrophic forgetting for RL fine-tuning LLMs: the KL divergence term or the usage of on-policy data?
+Describe the pareto frontier that RL and SFT fine-tuning for LLMs sit on. What are the tradeoffs of each method?
+What learning rate schedules work best for RL post-training LLMs?
+What are typical batch sizes, number of prompts, and number of rollouts per prompt used during GRPO training?
+What are new RL post-training algorithms to address model collapse?
+Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?
+What improvements can be made to GRPO to improve stability when RL fine-tuning MOE models?
+What scale of reward should I provide in RLVR for LLM-finetuning with PPO? Especially when introducing something like format rewards or additional signal besides binary
+How can I encourage my LLM to actually make tool calls when RL fine-tuning it for a specific task?
+What is the impact of introducing negative gradients when doing alignment fine-tuning for LLMs?
+Is sample reuse ok when doing alignment fine-tuning for LLMs?
+Is DPO superior to PPO for LLM Alignment?
+When fine-tuning for alignment how do offline, semi-online, and online DPO compare with each other?
+What are some tricks to stabilize training when RL fine-tuning a large MoE model?
+Which, if any, popular open source models adopt sliding window attention?
+Which, if any, popular open source models train with FP8?
+What are good math benchmarks for evaluating an LLM's ability to do math reasoning?
+In attention-based architectures and models, where are the common placements of the normalization layer within an attention block?
+What is the largest open-source LLM released in terms of parameter count?
+Is dropout used when training modern state-of-the-art LLMs?
+What do LLM architectures use instead of GELU these days for activations?
+What normalization methods are researchers trying besides Layernorm for training LLMs?
+Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?
+Which papers have done comprehensive studies comparing DPO to PPO for alignment?
+What are some simulation benchmarks for the Franka robot arm?
+What is a good pre-trained base model to fine-tune on top of for VLA tasks?
+What strategies do code-generating agent frameworks use to manage exploding context windows?
+What are works that fine-tune video models specifically for use as VLA control models?
+Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
+In what situations is an SFT phase commonly used between pre-training and RL and when is it excluded?
+What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?
+What are some continual learning strategies that do not update weights at test-time?
+What architectures do foundation models for robotics use?
+How do VLA models generate actions from vision-language features?
+How do VLA models represent actions across different robot embodiments?
+Do today's SOTA VLA models support cross-robot-platform action spaces? If so, how?
+How are researchers addressing the problem of models even from different families producing homogenous, non-diverse content?
+How do multimodal model architectures handle the different embedding spaces of images and text? Do images get treated as tokens or are they handled separately in the attention layer?
+How are positional embeddings assigned to multimodal architectures that tokenize images?
+What to be mindful of when introducing MoE to a multimodal model?
+Which open multimodal models uses the SigLIP image encoder and cross-attention between image and text modalities?
+Are there any multimodal architectures that use the next-token-prediction paradigm for generating images, instead of diffusion?
+What differentiates each stage in multi-stage RL training setups?
+When RL fine-tuning a retrieval agent that has access to tools, how should I shape the rewards? Are outcome-based rewards sufficient or do I need to add process-oriented rewards centered around tool-query quality, etc?
+Have people tried using intermediate rewards with GRPO? I don't know how that would look like
+I am training a multi-turn agent RL policy for multi-hop search. One issue is, while it is correctly using the search tools a lot, the queries are not diverse. Someone told me that I should embed the tool called queries and do cosine similarity to punish similar queries. Do any papers actually propose or do this?
+When fine-tuning a Qwen model for multi-hop search, does it make more sense to fine-tune with thinking enabled or disabled?
