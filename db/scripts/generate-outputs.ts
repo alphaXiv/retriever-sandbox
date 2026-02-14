@@ -6,7 +6,7 @@ import pLimit from "p-limit";
 
 // Load queries from text file (one query per line)
 const currentFileDir = dirname(fileURLToPath(import.meta.url));
-const queriesFile = Bun.file(join(currentFileDir, "data", "test2.txt"));
+const queriesFile = Bun.file(join(currentFileDir, "data", "test-niah2.txt"));
 const queriesText = await queriesFile.text();
 const queries: string[] = queriesText.split("\n").map((l: string) => l.trim()).filter(Boolean);
 

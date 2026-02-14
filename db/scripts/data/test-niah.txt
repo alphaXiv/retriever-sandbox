@@ -1,0 +1,20 @@
+Find me papers on wheelchair propulsion tracking and classification using wearables.
+Find me papers that use manifold projection for medical image segmentation.
+What are some very recent studies on multi-turn evaluations of LLMs?
+Look for papers on decision diffusion. 
+Pull all of the latest papers on RL for gpu kernel optimization.
+Find me the latest works in interpretability in tabular ML.
+Which paper introduces GRPO?
+List papers that use implicit neural representations (neural fields) for video compression. 
+I want papers about improving LLM response diversity. 
+Find me papers that are about knowledge-free, inductive reasoning.
+Find me papers discussing in-context learning or few-shot of large audio language models.
+Find papers about math intuition behind Transformers.
+Find recent papers on attacks on contextual integrity of AI agents.
+What are papers about contact prediction in robotic manipulation?
+What are papers about KV cache compression?
+Search for papers from 2024 to 2026 focusing on **AI Agents** or **Multi-Agent Systems** applied to **Protein Representation Learning** and **De novo Protein Design**. I am specifically interested in frameworks where LLM agents call external tools (like AlphaFold, ProteinMPNN, or Rosetta) or collaborate to solve protein engineering tasks.
+Find me papers that cover high performance 3d simulations.
+ Latest research on: AI-generated, LLM-generated, machine-generated code detection.
+Did anyone investigate if subnormal numbers are useful for LLM training and inference?
+Find me recent papers on hierarchical diffusion language models. 

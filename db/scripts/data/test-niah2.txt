@@ -1,0 +1,5 @@
+Search for papers from 2024 to 2026 focusing on **AI Agents** or **Multi-Agent Systems** applied to **Protein Representation Learning** and **De novo Protein Design**. I am specifically interested in frameworks where LLM agents call external tools (like AlphaFold, ProteinMPNN, or Rosetta) or collaborate to solve protein engineering tasks.
+Find me papers that cover high performance 3d simulations.
+Latest research on: AI-generated, LLM-generated, machine-generated code detection.
+Did anyone investigate if subnormal numbers are useful for LLM training and inference?
+Find me recent papers on hierarchical diffusion language models. 
