@@ -1,4 +1,4 @@
-import { and, eq, gte, inArray, sql } from "drizzle-orm";
+import { and, desc, eq, gte, inArray, sql } from "drizzle-orm";
 import { db } from "../client";
 import { papers, paperPages, paperAbstractEmbeddings } from "../schemas/papers";
 import { generate } from "../../lib/uuidv7";
@@ -202,6 +202,7 @@ export const searchPaperPagesByKeyword = async (
     .from(paperPages)
     .innerJoin(papers, eq(paperPages.paperId, papers.id))
     .where(and(...whereConditions))
+    .orderBy(desc(papers.votes))
     .limit(maxPapers * maxSnippetsPerPaper);
 
   const paperMap = new Map<PaperId, {

@@ -22,6 +22,13 @@
       "when": 1769826585081,
       "tag": "0002_heavy_marvel_zombies",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1771032219602,
+      "tag": "0003_index",
+      "breakpoints": true
     }
   ]
 }

@@ -4,6 +4,7 @@ import * as searchKeywordController from "./controllers/search-keyword.controlle
 import * as readPageController from "./controllers/read-page.controller";
 import * as readAbstractController from "./controllers/read-abstract.controller";
 import * as researchController from "./controllers/research.controller";
+import * as researchFastController from "./controllers/research-fast.controller";
 import * as searchEmbeddingController from "./controllers/search-embedding.controller";
 
 export const app = new OpenAPIHono();
@@ -30,6 +31,7 @@ apiRoutes.openapi(searchKeywordController.route, searchKeywordController.handler
 apiRoutes.openapi(readPageController.route, readPageController.handler);
 apiRoutes.openapi(readAbstractController.route, readAbstractController.handler);
 apiRoutes.openapi(researchController.route, researchController.handler);
+apiRoutes.openapi(researchFastController.route, researchFastController.handler);
 apiRoutes.openapi(searchEmbeddingController.route, searchEmbeddingController.handler);
 
 app.route("/api", apiRoutes);

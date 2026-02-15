@@ -72,18 +72,30 @@ const MAX_TURNS = 10;
 function formatSearchResultsAsXML(data: any): string {
   const results = data.results || [];
   
-  return results.map((paper: any) => {
+  const formatted = results.map((paper: any) => {
     const snippets = paper.occurrences?.map((occ: any) => occ.snippet).join("\n") || "";
-    return `<doc id="${paper.universalId}" title="${paper.paperTitle}">\n${snippets}\n</doc>`;
+    return `<doc id="${paper.universalId}" title="${paper.paperTitle}" publicationDate="${paper.publicationDate}">\n${snippets}\n</doc>`;
   }).join("\n\n");
+  
+  console.log("\n--- formatSearchResultsAsXML output ---");
+  console.log(formatted);
+  console.log("--- end ---\n");
+  
+  return formatted;
 }
 
 function formatEmbeddingSearchResultsAsXML(data: any): string {
   const results = data.results || [];
   
-  return results.map((paper: any) => {
-    return `<doc id="${paper.universalId}" title="${paper.title}">\n${paper.abstract}\n</doc>`;
+  const formatted = results.map((paper: any) => {
+    return `<doc id="${paper.universalId}" title="${paper.title}" publicationDate="${paper.publicationDate}">\n${paper.abstract}\n</doc>`;
   }).join("\n\n");
+  
+  console.log("\n--- formatEmbeddingSearchResultsAsXML output ---");
+  console.log(formatted);
+  console.log("--- end ---\n");
+  
+  return formatted;
 }
 
 function formatPageAsXML(data: any): string {
@@ -261,6 +273,6 @@ async function runAgentLoop(query: string) {
   return { messages, reportedIds, turnCount: turn };
 }
 
-const query = "Find papers that frame prompt optimization as a gradient descent problem over discrete tokens.";
+const query = "Which paper introduced GRPO?";
 const result = await runAgentLoop(query);
 console.log("\nAgent loop completed:", result.turnCount, "turns");

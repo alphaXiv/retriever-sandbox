@@ -17,7 +17,7 @@ interface TopPaperResponse {
 const API_BASE = "https://api.alphaxiv.org/retrieve/v1";
 const BATCH_SIZE = 10;
 const MAX_PAPERS = 100000;
-const SKIP_PAPERS = 124000;
+const SKIP_PAPERS = 0;
 
 async function fetchTopPapers(limit: number, skip: number): Promise<TopPaperResponse> {
   const url = `${API_BASE}/top-papers?limit=${limit}&skip=${skip}`;

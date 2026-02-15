@@ -1,0 +1,1 @@
+CREATE INDEX "papers_votes_idx" ON "papers" USING btree ("votes" DESC NULLS LAST);

@@ -11,7 +11,8 @@ export const papers = pgTable("papers", {
   publicationDate: timestamp({ withTimezone: true }).notNull(),
   votes: integer().notNull().default(0)
 }, (table) => ({
-  universalIdUnique: uniqueIndex("papers_universal_id_idx").on(table.universalId)
+  universalIdUnique: uniqueIndex("papers_universal_id_idx").on(table.universalId),
+  votesIndex: index("papers_votes_idx").on(table.votes.desc())
 }));
 
 export const paperPages = pgTable("paper_pages", {
