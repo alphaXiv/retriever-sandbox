@@ -15,6 +15,32 @@ What are papers about contact prediction in robotic manipulation?
 What are papers about KV cache compression?
 Search for papers from 2024 to 2026 focusing on **AI Agents** or **Multi-Agent Systems** applied to **Protein Representation Learning** and **De novo Protein Design**. I am specifically interested in frameworks where LLM agents call external tools (like AlphaFold, ProteinMPNN, or Rosetta) or collaborate to solve protein engineering tasks.
 Find me papers that cover high performance 3d simulations.
- Latest research on: AI-generated, LLM-generated, machine-generated code detection.
+Latest research on: AI-generated, LLM-generated, machine-generated code detection.
 Did anyone investigate if subnormal numbers are useful for LLM training and inference?
-Find me recent papers on hierarchical diffusion language models. 
+Find me recent papers on hierarchical diffusion language models.
+Which paper frames RL as an n-th order approximation of maximum likelihood?
+Identify methods where a Large Language Model acts as a meta-optimizer for another model's instructions, effectively treating prompt engineering as a black-box optimization problem without access to gradients.
+I need studies that investigate the "faithfulness" of Chain-of-Thought reasoning, specifically showing cases where the model's generated explanation is a post-hoc rationalization that does not reflect the actual internal features used for prediction.
+Find adaptations of Direct Preference Optimization (DPO) that are applied specifically to Multimodal Large Language Models (MLLMs) to align them with human visual preferences without training a separate reward model.
+What are the seminal papers that originally introduced the paradigm of combining a parametric generator with a non-parametric retrieval system to access external documents during the generation process?
+Find papers that debate whether the sudden appearance of new capabilities in scaled-up models is a genuine "phase transition" or merely a statistical artifact resulting from the use of discontinuous evaluation metrics.
+I want to see research demonstrating that small language models (SLMs) can rival much larger foundational models if they are trained primarily on "textbook quality" synthetic data generated to teach reasoning and coding fundamentals.
+Find theoretical and empirical studies that analyze why standard Transformer architectures struggle with systematic compositionality in tasks like multi-digit arithmetic or counting, even when provided with Chain-of-Thought supervision.
+Identify research describing the counter-intuitive training dynamic where a model achieves near-zero training error (memorization) but fails to generalize, only to suddenly achieve high test accuracy much later in training, often visible in algorithmic tasks.
+I need papers that describe a hybrid system combining a neural language model with a symbolic deduction engine or program search algorithm to solve high-level mathematical proofs, specifically achieving gold-medal performance in geometry.
+Find algorithms that accelerate Large Language Model inference by using a small "draft" model to generate candidate tokens which are then verified in parallel by the larger target model, or by using multiple heads to predict future tokens simultaneously.
+I am looking for techniques that combine the parameters of several fine-tuned checkpoints into a single robust model without incurring additional inference costs, specifically by performing arithmetic operations like averaging or interference resolution on the weights themselves.
+Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory (HBM) reads/writes (IO-awareness)
+I need research addressing the memory bottleneck of infinite-length generation by selectively evicting non-essential Key-Value pairs from the cache while strictly retaining specific "heavy hitter" or "attention sink" tokens to maintain coherence.
+Identify papers that tackle the performance degradation of LLMs at extreme low-bit settings (3 or 4-bit) by focusing on salient weight protection based on activation magnitude outliers or second-order Hessian information.
+I am looking for frameworks that frame text-to-audio or text-to-speech not as continuous signal processing, but as a hierarchical classification task where a Transformer predicts discrete acoustic codebooks derived from a neural audio codec.
+Find research that uses standard diffusion-based video generation in favor of an autoregressive transformer approach, where video frames are tokenized into discrete units and treated as a sequence modeling task identical to text generation.
+I need papers that move beyond fixed-class segmentation by training on over 1 billion masks to create a general-purpose "foundation model" for vision that accepts points, boxes, or text as prompts to isolate objects in zero-shot scenarios.
+Are there papers that show LLMs can teach themselves to reason by bootstrapping their own chain-of-thought rationales?
+What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?
+What are papers that propose using State Space Models (SSMs) as a selective replacement for Transformers to achieve linear scaling?
+Are there papers that assess reasoning abilities of llms without specifically fine-tuning for it?
+Are there papers that use recursive abstractions for language models to solve puzzle tasks?
+What are some papers that introduce frameworks for fine tuning agents specifically for tasks that involve tool use reasoning with qwen?
+What are examples of sparse deep learning frameworks that are alternatives to pytorch?
+
