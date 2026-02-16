@@ -143,3 +143,8 @@ making databases faster with llm evolutionary sampling
 Compare the paper 'RLP: Reinforcement as a Pretraining Objective' with 'STaR' to determine if it is a continuation, and explain how information gain is defined and calculated in RLP
 Which paper implements a soft overlong penalty and noticed that truncation of long reasoning traces was inducing bias?
 Which paper suggests that the token-level importance weighting of GRPO is misguided and that it instead needs to be done at the sequence level?
+Which paper utilizes an evolutionary framework on top of an existing LLM to discover new SOTA algorithms?
+Agentic frameworks for autonomously generating code repositories from scientific papers
+Linear alternatives to standard transformer architectures
+Which paper maintains log N memory states to reduce inference of a token to O (log N)
+Which paper RL tunes algorithms to create high-quality fine-tuning signal for self-edits to better learn?
