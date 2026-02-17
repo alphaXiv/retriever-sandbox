@@ -148,3 +148,19 @@ Agentic frameworks for autonomously generating code repositories from scientific
 Linear alternatives to standard transformer architectures
 Which paper maintains log N memory states to reduce inference of a token to O (log N)
 Which paper RL tunes algorithms to create high-quality fine-tuning signal for self-edits to better learn?
+Are there any papers showing that evolutionary strategies are more robust than RL across different base model families?
+Have people tried gradient-free optimization methods that have been successfully applied to LLM fine-tuning?
+What is the best population size to use for evolutionary strategies?
+Have people tried using evolutionary strategies when fine-tuning large LLMs (models greater than 30B parameters)?
+What are some types of tasks where evolutionary strategies outperform RL?
+Are there any papers showing the trade-offs in speed between evolutionary strategies and RL when fine-tuning LLMs at scale?
+Have people tried doing preference tuning like RLHF or DPO etc techniques using ES?
+How data efficient ES is compared to RL techniques like GRPO specifically?
+How effective is fine tuning non-instruct or base models using ES than something like vanilla GRPO or variants of the same?
+ES for continual learning, I am thinking of using ES because of how data efficient it could be so using it to learn a task with a few examples on the fly can be huge so any papers showing that?
+Have people tried using LoRA/QloRA or any PEFT techniques with ES, especially when tuning large models?
+Papers showing comparison between various gradient free optimization techniques, not limited to current ES strategies paper for tuning LLMs  and others for training neural nets?
+I think wrapping rewards with an optimizer would be better in terms of convergence for ES tuning of neural nets instead of using base reward multiplied by learning rate, any papers doing that?
+Are there any studies showing the use of QK norm in attention calculation vs not using them at all for training vision language models? 
+How does attention calculation get affected by the use of unimodal vs multi modal data mixtures when training models in terms of saturated probability distribution?
+Papers showing comparison between using tied weights embeddings vs not for different model comparison and how does it help in convergence of said models.
