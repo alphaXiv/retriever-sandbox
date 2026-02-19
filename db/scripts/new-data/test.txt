@@ -1,0 +1,40 @@
+What are some recent advances in using human demonstrations in online reinforcement learning for robotics?
+Find me papers which introduce multi-object tracking in query based systems for outdoor lidar data like DIntr.
+Find me value-based reinforcement learning methods for continuous action-spaces.
+What is the state of the art animation inbetweening character animation models? Are the newest ones mostly using diffusion models? 
+Find me iterations of VGGT that make it more robust and/or ram efficient.
+What are the most popular ways to create synthetic, high-quality math datasets?
+What are the most suitable and progressive metrics for ASR (in IT domain)?
+What are techniques for sample-efficient pre-training of small language models?
+What do the KoLeo regularizer and Gram anchor loss do in DINOv3? What are their equations, what is their purpose, and why are they necessary?
+How can I edit factual knowledge in LLMs with MOE architectures?
+Is there any work that uses DPO to change the reasoning language a model uses?
+Find me papers on wheelchair propulsion tracking and classification using wearables.
+Find me papers that use manifold projection for medical image segmentation.
+Find me important works in interpretability in tabular ML.
+List papers that use implicit neural representations (neural fields) for video compression. 
+Which paper frames RL as an n-th order approximation of maximum likelihood?
+Identify methods where a Large Language Model acts as a meta-optimizer for another model's instructions, effectively treating prompt engineering as a black-box optimization problem without access to gradients.
+I need studies that investigate the "faithfulness" of Chain-of-Thought reasoning, specifically showing cases where the model's generated explanation is a post-hoc rationalization that does not reflect the actual internal features used for prediction.
+Find adaptations of Direct Preference Optimization (DPO) that are applied specifically to Multimodal Large Language Models (MLLMs) to align them with human visual preferences without training a separate reward model.
+What are the seminal papers that originally introduced the paradigm of combining a parametric generator with a non-parametric retrieval system to access external documents during the generation process?
+Find papers that debate whether the sudden appearance of new capabilities in scaled-up models is a genuine "phase transition" or merely a statistical artifact resulting from the use of discontinuous evaluation metrics.
+I want to see research demonstrating that small language models (SLMs) can rival much larger foundational models if they are trained primarily on "textbook quality" synthetic data generated to teach reasoning and coding fundamentals.
+Find theoretical and empirical studies that analyze why standard Transformer architectures struggle with systematic compositionality in tasks like multi-digit arithmetic or counting, even when provided with Chain-of-Thought supervision.
+I need papers that describe a hybrid system combining a neural language model with a symbolic deduction engine or program search algorithm to solve high-level mathematical proofs, specifically achieving gold-medal performance in geometry.
+Find algorithms that accelerate Large Language Model inference by using a small "draft" model to generate candidate tokens which are then verified in parallel by the larger target model, or by using multiple heads to predict future tokens simultaneously.
+I am looking for techniques that combine the parameters of several fine-tuned checkpoints into a single robust model without incurring additional inference costs, specifically by performing arithmetic operations like averaging or interference resolution on the weights themselves.
+I need research addressing the memory bottleneck of infinite-length generation by selectively evicting non-essential Key-Value pairs from the cache while strictly retaining specific "heavy hitter" or "attention sink" tokens to maintain coherence.
+Identify papers that tackle the performance degradation of LLMs at extreme low-bit settings (3 or 4-bit) by focusing on salient weight protection based on activation magnitude outliers or second-order Hessian information.
+Find research that uses standard diffusion-based video generation in favor of an autoregressive transformer approach, where video frames are tokenized into discrete units and treated as a sequence modeling task identical to text generation.
+I need papers that move beyond fixed-class segmentation by training on over 1 billion masks to create a general-purpose "foundation model" for vision that accepts points, boxes, or text as prompts to isolate objects in zero-shot scenarios.
+What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?
+What are papers that propose using State Space Models (SSMs) as a selective replacement for Transformers to achieve linear scaling?
+What is the paper from Meta FAIR that suggests the best visual embeddings are not at the output of the network?
+Foundation model for multimodal understanding from OpenGVLab
+Wan video generative models from the Alibaba group
+Flow-based generative foundation models from ByteDance
+Diffusion models for image synthesis from the Beihang University
+Matryoshka diffusion models paper from Apple
+Attention-less diffusion models from Apple and Cornell
+SSMs for faster diffusion from the University of Parma
