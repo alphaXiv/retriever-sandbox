@@ -436,5 +436,155 @@
     "papers": [
       "2508.10104"
     ]
+  },
+  {
+    "query": "Identify papers from Google DeepMind that propose hybrid architectures combining gated linear recurrences (SSMs) with local attention to achieve better efficiency than standard Transformers while maintaining competitive performance on long-context tasks.",
+    "papers": [
+      "2402.19427",
+      "2408.00118"
+    ]
+  },
+  {
+    "query": "Find research on 'Self-Rewarding Language Models' where the LLM is used to generate its own preference labels for RLHF, effectively creating a self-improving loop for alignment without human-labeled reward data.",
+    "papers": [
+      "2401.10020",
+      "2407.12665",
+      "2501.12948"
+    ]
+  },
+  {
+    "query": "I am looking for papers that introduce the 'Mixture-of-Depths' approach, where the model learns to dynamically skip computation for certain tokens to optimize FLOPs per forward pass, or similar early-exit strategies.",
+    "papers": [
+      "2404.02258",
+      "2404.16710"
+    ]
+  },
+  {
+    "query": "Find studies investigating the 'Lost in the Middle' phenomenon in long-context language models, specifically focusing on how retrieval performance drops when relevant information is placed in the center of the input window.",
+    "papers": [
+      "2307.03172",
+      "2401.18058"
+    ]
+  },
+  {
+    "query": "What are the papers that use Sparse Autoencoders (SAEs) to decompose LLM activations into millions of interpretable, monosemantic features for mechanistic interpretability?",
+    "papers": [
+      "2310.01423",
+      "2405.12250",
+      "2406.04093"
+    ]
+  },
+  {
+    "query": "Which papers from Microsoft Research introduce the 'phi' series of models (phi-1, phi-2, phi-3, phi-4) and demonstrate the 'textbook is all you need' philosophy for small language model pre-training?",
+    "papers": [
+      "2306.11644",
+      "2309.05463",
+      "2404.14219",
+      "2412.03516"
+    ]
+  },
+  {
+    "query": "Find techniques for KV cache compression that use 2-bit quantization or error-resilient strategies (like KIVI or GEAR) to allow for extremely long context generation on consumer hardware.",
+    "papers": [
+      "2402.01361",
+      "2403.07528"
+    ]
+  },
+  {
+    "query": "Identify research that moves away from fixed subword tokenization by proposing 'token-free' or byte-level models that operate directly on UTF-8 bytes while maintaining Transformer-level performance.",
+    "papers": [
+      "2105.13626",
+      "2305.07185",
+      "2401.13660"
+    ]
+  },
+  {
+    "query": "What are the seminal papers regarding 'Process-based Reward Models' (PRMs) as opposed to 'Outcome-based Reward Models' (ORMs) for improving reasoning in mathematical problem solving?",
+    "papers": [
+      "2305.20050",
+      "2402.01626",
+      "2406.14283"
+    ]
+  },
+  {
+    "query": "Find me papers that explore 'Activation Beaconing' or 'Infini-attention' to extend the effective context window of LLMs beyond their training length without fine-tuning on long sequences.",
+    "papers": [
+      "2401.03462",
+      "2404.06654"
+    ]
+  },
+  {
+    "query": "Find research from FAIR (Meta) that introduces the V-JEPA or I-JEPA architectures, focusing on non-generative, joint-embedding predictive architectures for self-supervised visual learning.",
+    "papers": [
+      "2301.08243",
+      "2404.08471"
+    ]
+  },
+  {
+    "query": "Identify papers that discuss the 'Reversal Curse,' where an LLM trained on 'A is B' cannot generalize to 'B is A,' and explore the implications for logical symmetry in language models.",
+    "papers": [
+      "2309.12288"
+    ]
+  },
+  {
+    "query": "Find papers that address 'task interference' in model merging by identifying and zeroing out redundant parameter shifts or using sign-consensus (like TIES-Merging or DARE) to combine multiple fine-tuned models into one without performance degradation.",
+    "papers": [
+      "2306.01708",
+      "2311.03099",
+      "2403.01753"
+    ]
+  },
+  {
+    "query": "Identify research proposing 'Contrastive Decoding' or 'DoLa' (Decoding by Contrasting Layers) where hallucinations are reduced by comparing the output distributions of mature layers against premature layers or smaller 'amateur' models.",
+    "papers": [
+      "2210.15097",
+      "2309.03883",
+      "2310.15091"
+    ]
+  },
+  {
+    "query": "Find theoretical and empirical studies on 'Grokking' in neural networks, specifically focusing on the phase transition where a model suddenly moves from memorization to perfect generalization long after the training loss has plateaued.",
+    "papers": [
+      "2201.02177",
+      "2210.01117",
+      "2303.01118"
+    ]
+  },
+  {
+    "query": "I need papers that introduce 'Ring Attention' or similar block-parallel attention mechanisms designed to scale context windows to millions of tokens by distributing the KV cache across a ring of GPUs.",
+    "papers": [
+      "2310.01803",
+      "2410.13840"
+    ]
+  },
+  {
+    "query": "Identify papers that propose preference optimization techniques which do not require paired rankings (A > B), but instead use 'Kahneman-Tversky Optimization' (KTO) to align models based on binary signals of utility and prospect theory.",
+    "papers": [
+      "2402.01306"
+    ]
+  },
+  {
+    "query": "Find research on 'Chameleon' or 'Unified Multimodal' architectures that treat images and text as a single sequence of discrete tokens, using a unified Transformer for both generation and understanding without separate vision encoders like CLIP.",
+    "papers": [
+      "2305.20104",
+      "2405.09818"
+    ]
+  },
+  {
+    "query": "Which papers propose 'Speculative Decoding' using multiple parallel 'medusa heads' or draft models to predict and verify multiple tokens per forward pass to accelerate inference speeds?",
+    "papers": [
+      "2211.17192",
+      "2401.10774",
+      "2310.06194"
+    ]
+  },
+  {
+    "query": "Identify studies that use 'Influence Functions' or 'Data Models' to trace an LLM's specific output back to its training data, attempting to find which training examples were most responsible for a particular model behavior.",
+    "papers": [
+      "2308.03296",
+      "2405.05364",
+      "2303.14139"
+    ]
   }
+
 ]
