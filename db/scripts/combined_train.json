@@ -1,0 +1,1220 @@
+[
+  {
+    "query": "Training free N-gram analysis to detect AI-generated text",
+    "papers": [
+      "2305.17359",
+      "2310.05130",
+      "2301.11305",
+      "2401.12070"
+    ]
+  },
+  {
+    "query": "MaxRL from Fahim Tajwar",
+    "papers": [
+      "2602.02710"
+    ]
+  },
+  {
+    "query": "What is that main work that Quiet-Star is built on top of?",
+    "papers": [
+      "2203.14465"
+    ]
+  },
+  {
+    "query": "Which paper introduces convolutions into an LSTM architecture to produce forecasted images?",
+    "papers": [
+      "1506.04214"
+    ]
+  },
+  {
+    "query": "Evolutionary policy optimization from CMU",
+    "papers": [
+      "2503.19037"
+    ]
+  },
+  {
+    "query": "Paper(s) asserting that for fine-tuning models, SFT memorizes and RL generalizes",
+    "papers": [
+      "2501.17161",
+      "2508.05629",
+      "2506.01939",
+      "2508.16546",
+      "2509.04259",
+      "2505.00551",
+      "2601.18734"
+    ]
+  },
+  {
+    "query": "LLM released by Cohere specifically for enterprise use-cases",
+    "papers": [
+      "2504.00698"
+    ]
+  },
+  {
+    "query": "Which paper first introduced residual connections to deep neural networks and made significant strides on ImageNet?",
+    "papers": [
+      "1512.03385"
+    ]
+  },
+  {
+    "query": "Benchmarking agents for legal tasks such as issue identification, rule recall, and drawing conclusions.",
+    "papers": [
+      "2308.11462",
+      "2505.12864",
+      "2309.16289",
+      "2503.16040",
+      "2409.20288",
+      "2504.04945",
+      "2410.21306",
+      "2504.01840"
+    ]
+  },
+  {
+    "query": "How can I scale evolution strategies to train billion-parameter neural networks efficiently using low-rank perturbations?",
+    "papers": [
+      "2511.16652",
+      "2507.04453",
+      "2509.24372",
+      "2503.24322",
+      "2305.17333",
+      "2503.19037",
+      "2503.01155"
+    ]
+  },
+  {
+    "query": "Which papers benchmark molecular embedding models for representation learning?",
+    "papers": [
+      "2506.15792",
+      "2505.08762",
+      "2404.11568",
+      "2404.02058",
+      "2504.06196",
+      "2503.19168",
+      "2212.13350",
+      "2503.16278"
+    ]
+  },
+  {
+    "query": "Important RL works from the Prime Intellect team",
+    "papers": [
+      "2505.07291",
+      "2512.16144",
+      "2412.01152",
+      "2501.16007",
+      "2505.14065",
+      "2510.06828",
+      "2505.11821",
+      "2508.06813"
+    ]
+  },
+  {
+    "query": "Which paper maintains log N memory states to reduce inference of a token to O (log N)",
+    "papers": [
+      "2506.04761"
+    ]
+  },
+  {
+    "query": "Which paper(s) examine the effect of holding data fixed but with increased compute-scaling during pre-training?",
+    "papers": [
+      "2305.16264",
+      "2507.15857",
+      "2503.19206",
+      "2509.14786",
+      "2503.07879",
+      "2511.03276",
+      "2510.04071",
+      "2203.15556",
+      "2509.15248"
+    ]
+  },
+  {
+    "query": "Benchmark to assess LLMs abilities to replicate paper codebases",
+    "papers": [
+      "2504.01848",
+      "2409.11363",
+      "2504.00255",
+      "2504.17192",
+      "2410.07095",
+      "2506.22419",
+      "2512.07921"
+    ]
+  },
+  {
+    "query": "Language models finetuned specifically for finance tasks from Bloomberg",
+    "papers": [
+      "2303.17564",
+      "2306.05443",
+      "2406.11903"
+    ]
+  },
+  {
+    "query": "What papers introduce an open-ended embodied agent that learns to play Minecraft without human demonstrations?",
+    "papers": [
+      "2305.16291",
+      "2301.04104",
+      "2305.17144",
+      "2206.08853",
+      "2410.03618",
+      "2408.03615",
+      "2502.19902"
+    ]
+  },
+  {
+    "query": "How can reinforcement learning be applied to optimize GPU operations such as scheduling, memory management, and kernel execution?",
+    "papers": [
+      "2507.14111",
+      "2310.05205",
+      "2504.15465",
+      "2501.08071",
+      "2512.02551",
+      "2502.10517",
+      "2409.19256",
+      "2504.15930",
+      "2509.07506",
+      "2509.14279"
+    ]
+  },
+  {
+    "query": "Paper from a joint collaboration between UNC and Salesforce Research that has agents improve in a self-reinforcing cycle on tasks with tools",
+    "papers": [
+      "2511.16043"
+    ]
+  },
+  {
+    "query": "Benchmarks for evaluating physical perception and reasoning in LLMs",
+    "papers": [
+      "2504.16074",
+      "2503.15558",
+      "2501.09038",
+      "2501.16411",
+      "2509.20328"
+    ]
+  },
+  {
+    "query": "Fine-tuning language models for writing code in esoteric languages like the Q programming language",
+    "papers": [
+      "2508.06813",
+      "2402.19173",
+      "2504.04152",
+      "2504.10178"
+    ]
+  },
+  {
+    "query": "Benchmarks that evaluate LLMs on machine learning engineering tasks",
+    "papers": [
+      "2410.07095",
+      "2310.03302",
+      "2504.17192",
+      "2409.07703",
+      "2502.14499",
+      "2504.09702",
+      "2504.01848",
+      "2502.13138",
+      "2410.20424",
+      "2411.03562"
+    ]
+  },
+  {
+    "query": "Papers showing comparison between using tied weights embeddings vs not for different model comparison and how does it help in convergence of said models.",
+    "papers": [
+      "1608.05859",
+      "1909.11942",
+      "2412.15115",
+      "2406.07887",
+      "2306.11397",
+      "2505.10202"
+    ]
+  },
+  {
+    "query": "Datasets of high-quality math reasoning traces from Stanford University",
+    "papers": [
+      "2501.19393",
+      "2502.17387",
+      "2506.04178",
+      "2504.04736",
+      "2203.14465",
+      "2504.18116",
+      "2501.04682",
+      "2305.20050"
+    ]
+  },
+  {
+    "query": "Deepseek paper that first introduced GRPO",
+    "papers": [
+      "2402.03300"
+    ]
+  },
+  {
+    "query": "Method to detect AI-generated text by looking at log probs of perturbations of sample text",
+    "papers": [
+      "2301.11305",
+      "2310.05130",
+      "2305.17359",
+      "2412.10432",
+      "2501.02406"
+    ]
+  },
+  {
+    "query": "Which models do best on Terminal Bench 2.0?",
+    "papers": [
+      "2601.11868",
+      "2602.02276",
+      "2512.02556",
+      "2602.03786",
+      "2601.02780"
+    ]
+  },
+  {
+    "query": "Which open source models have architectures using Deepseek's sparse attention architecture?",
+    "papers": [
+      "2412.19437",
+      "2405.04434",
+      "2501.12948",
+      "2510.26692",
+      "2507.20534",
+      "2509.01322",
+      "2512.24618",
+      "2601.07372",
+      "2502.14837",
+      "2502.07864"
+    ]
+  },
+  {
+    "query": "Surveys on AI generated text detection",
+    "papers": [
+      "2310.14724",
+      "2312.07913",
+      "2504.03765",
+      "2504.02898",
+      "2301.11305",
+      "2312.02003",
+      "2401.05561",
+      "2404.05783"
+    ]
+  },
+  {
+    "query": "Fine-tuning LLMs for specifically cyber-security related tasks",
+    "papers": [
+      "2504.21039",
+      "2504.04699",
+      "2412.20787",
+      "2504.04222",
+      "2503.23175",
+      "2510.00240",
+      "2402.09497",
+      "2512.07533",
+      "2503.09334",
+      "2504.16877"
+    ]
+  },
+  {
+    "query": "Are there papers that introduce a 1-bit architecture for large language models to drastically reduce memory footprint?",
+    "papers": [
+      "2402.17764",
+      "2504.12285",
+      "2504.18415",
+      "2411.04965"
+    ]
+  },
+  {
+    "query": "Joint collaboration between AMD and John Hopkins on designing a fully autonomous lab with agents",
+    "papers": [
+      "2501.04227"
+    ]
+  },
+  {
+    "query": "Open source vision language action model from Stanford University",
+    "papers": [
+      "2406.09246"
+    ]
+  },
+  {
+    "query": "Which open source models score best on Humanity's Last Exam?",
+    "papers": [
+      "2509.13309",
+      "2511.11793",
+      "2510.24701",
+      "2512.02556",
+      "2501.14249",
+      "2508.06471",
+      "2507.20534",
+      "2509.06283"
+    ]
+  },
+  {
+    "query": "Works using language models for molecular property prediction",
+    "papers": [
+      "2506.15792",
+      "2504.06196",
+      "2405.04912",
+      "2310.12798",
+      "2503.16278",
+      "2503.21686"
+    ]
+  },
+  {
+    "query": "What papers discuss the phenomena where LLMs fail to deduce \"B is A\" after learning \"A is B\"?",
+    "papers": [
+      "2309.12288",
+      "2504.01928",
+      "2405.04669",
+      "2406.05183",
+      "2310.10322",
+      "2403.13799",
+      "2509.16189",
+      "2504.05571"
+    ]
+  },
+  {
+    "query": "Which paper(s) use rule-based RL to improve reasoning for LLMs?",
+    "papers": [
+      "2501.12948",
+      "2502.14768",
+      "2501.17161",
+      "2504.02495",
+      "2504.16828",
+      "2503.19470",
+      "2504.11536"
+    ]
+  },
+  {
+    "query": "Methods that fine-tune LLMs with FP4 quantization",
+    "papers": [
+      "2305.14314",
+      "2505.14669",
+      "2509.25149",
+      "2510.11696",
+      "2501.17116",
+      "2310.16836",
+      "2505.11594",
+      "2601.22813",
+      "2401.07159",
+      "2404.02948"
+    ]
+  },
+  {
+    "query": "What papers discuss \"Reflexion\" where agents verbally reinforce themselves to improve performance on subsequent trials?",
+    "papers": [
+      "2303.11366"
+    ]
+  },
+  {
+    "query": "Which paper from Nvidia improves upon GRPO by decoupling the normalization of individual reward components?",
+    "papers": [
+      "2601.05242"
+    ]
+  },
+  {
+    "query": "Which LoRA variants insert a new matrix between the A and B decomposition matrices?",
+    "papers": [
+      "2303.10512",
+      "2405.17604",
+      "2503.23869",
+      "2402.02030",
+      "2310.11454",
+      "2503.19859",
+      "2403.14608"
+    ]
+  },
+  {
+    "query": "What papers discuss extending the context window of LLMs using \"Ring\" communication topology?",
+    "papers": [
+      "2310.01889",
+      "2310.03294",
+      "2411.17116",
+      "2401.02669",
+      "2407.00079",
+      "2405.11143",
+      "2408.04093"
+    ]
+  },
+  {
+    "query": "What are some open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters?",
+    "papers": [
+      "2504.05299",
+      "2402.14289",
+      "2408.01800",
+      "2503.19786",
+      "2504.01990"
+    ]
+  },
+  {
+    "query": "Papers that examine LLMs abilities to self-debug their own code",
+    "papers": [
+      "2303.11366",
+      "2405.18649",
+      "2304.05128",
+      "2409.12917",
+      "2407.01489",
+      "2502.18449"
+    ]
+  },
+  {
+    "query": "What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?",
+    "papers": [
+      "2305.10601",
+      "2308.09687",
+      "2310.04406",
+      "2501.04519",
+      "2406.11537",
+      "2305.04091",
+      "2402.11814",
+      "2309.03409",
+      "2502.12993"
+    ]
+  },
+  {
+    "query": "Are there studies that assert for RL fine-tuning the data needs to be at the boundary of difficult but not too difficult and also claim the importance of mid-training?",
+    "papers": [
+      "2512.07783",
+      "2506.20512",
+      "2504.03380",
+      "2504.05520",
+      "2505.13261",
+      "2504.09710",
+      "2505.08364",
+      "2507.10532"
+    ]
+  },
+  {
+    "query": "Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory",
+    "papers": [
+      "2205.14135",
+      "2307.08691",
+      "2407.08608",
+      "2410.20399",
+      "2503.14376",
+      "2312.06635",
+      "2309.06180",
+      "2502.12082"
+    ]
+  },
+  {
+    "query": "Find papers that frame prompt optimization as a gradient descent problem over discrete tokens.",
+    "papers": [
+      "2305.03495",
+      "2307.15043",
+      "2205.12548",
+      "2309.03409",
+      "2309.08532"
+    ]
+  },
+  {
+    "query": "Benchmarks for general AI assistants that go beyond narrow tasks",
+    "papers": [
+      "2504.02670",
+      "2406.04770",
+      "2406.19314",
+      "2410.10813",
+      "2504.16078"
+    ]
+  },
+  {
+    "query": "How can I learn contrastive representations that capture conditional dependencies between more than two modalities, rather than just pairwise relationships like CLIP?",
+    "papers": [
+      "2411.01053",
+      "2305.05665",
+      "2310.08884",
+      "2104.11178",
+      "2106.13043",
+      "2107.00135",
+      "2302.09019",
+      "2209.03430"
+    ]
+  },
+  {
+    "query": "Paper from Xuandong Zhao that introduces RL from internal feedback?",
+    "papers": [
+      "2505.19590"
+    ]
+  },
+  {
+    "query": "Paper from Xiancai Chen on Self-debugging for codegen",
+    "papers": [
+      "2501.12793"
+    ]
+  },
+  {
+    "query": "Which papers provide a benchmark that attempts to test frontier model performance on tasks that are deemed truly economically useful?",
+    "papers": [
+      "2510.04374",
+      "2509.25721",
+      "2502.12115",
+      "2412.14161",
+      "2503.14499",
+      "2509.09677"
+    ]
+  },
+  {
+    "query": "Which open multimodal models uses the SigLIP image encoder and cross-attention between image and text modalities?",
+    "papers": [
+      "2407.01449",
+      "2408.04840",
+      "2405.01483",
+      "2408.01800",
+      "2504.05299"
+    ]
+  },
+  {
+    "query": "Are there papers that benchmark the ability of LLMs to use tools via API calls?",
+    "papers": [
+      "2406.12045",
+      "2307.16789",
+      "2304.08244",
+      "2305.15334",
+      "2311.12983",
+      "2310.03128",
+      "2504.13958",
+      "2504.19678"
+    ]
+  },
+  {
+    "query": "Agentic frameworks for autonomously generating code repositories from scientific papers",
+    "papers": [
+      "2504.17192",
+      "2512.07921",
+      "2509.06917",
+      "2504.01848",
+      "2501.04227",
+      "2408.06292",
+      "2504.08066",
+      "2503.18102",
+      "2505.13400",
+      "2511.02824"
+    ]
+  },
+  {
+    "query": "Find papers that simulate a town of generative agents interacting socially with each other.",
+    "papers": [
+      "2304.03442",
+      "2411.10109",
+      "2502.08691",
+      "2411.11581",
+      "2504.10157",
+      "2506.21805",
+      "2411.00114",
+      "2504.07830",
+      "2504.14538"
+    ]
+  },
+  {
+    "query": "Paper from Yann Lecun introducing self-supervised video models",
+    "papers": [
+      "2404.08471",
+      "2506.09985",
+      "2301.08243"
+    ]
+  },
+  {
+    "query": "Who has introduced multimodal foundation models specifically for radiology?",
+    "papers": [
+      "2303.00915",
+      "2308.02463",
+      "2401.12208",
+      "2410.06542",
+      "2404.15272",
+      "2406.06512",
+      "2406.04449",
+      "2509.06830",
+      "2211.12737"
+    ]
+  },
+  {
+    "query": "What are some papers that introduce frameworks for fine tuning agents specifically for tasks that involve tool use reasoning with qwen?",
+    "papers": [
+      "2503.04625",
+      "2504.11536",
+      "2504.13958",
+      "2510.21618",
+      "2508.13167"
+    ]
+  },
+  {
+    "query": "Which paper introduces the LoRA technique for parameter-efficient fine-tuning?",
+    "papers": [
+      "2106.09685"
+    ]
+  },
+  {
+    "query": "Vision Language foundation models for MRI interpretation",
+    "papers": [
+      "2503.13939",
+      "2502.19634",
+      "2506.07044",
+      "2507.05201",
+      "2404.15272",
+      "2406.06512",
+      "2404.00578",
+      "2503.20047",
+      "2504.06908",
+      "2504.15929"
+    ]
+  },
+  {
+    "query": "Which paper from Xiaohongshu has \\\"L1: Controlling how long a reasoning model thinks with reinforcement learning\\\" as its first citation?",
+    "papers": [
+      "2504.03234"
+    ]
+  },
+  {
+    "query": "Which OCR methods do best on OmniDocBench?",
+    "papers": [
+      "2601.21957",
+      "2511.19575",
+      "2511.10390",
+      "2601.20552",
+      "2509.22186",
+      "2510.14528",
+      "2511.21631",
+      "2512.02498",
+      "2412.07626"
+    ]
+  },
+  {
+    "query": "Benchmark to assess LLMs abilities to autonomously conduct post-training runs with a 10 hour time limit",
+    "papers": [
+      "2410.07095",
+      "2502.14499",
+      "2504.01848",
+      "2503.14499",
+      "2504.09702",
+      "2503.18102",
+      "2507.02554"
+    ]
+  },
+  {
+    "query": "What are examples of sparse deep learning frameworks that are alternatives to pytorch?",
+    "papers": [
+      "2405.16883",
+      "2207.04606",
+      "1804.10112",
+      "2512.02550",
+      "2211.15841",
+      "2304.14082",
+      "1903.02428"
+    ]
+  },
+  {
+    "query": "Long context reasoning extension paper from the Qwen team",
+    "papers": [
+      "2505.17667"
+    ]
+  },
+  {
+    "query": "Fetch me the Qwen3 technical report",
+    "papers": [
+      "2505.09388"
+    ]
+  },
+  {
+    "query": "Find the preference optimization method that simplifies DPO by removing the need for a reference model entirely, relying instead on the average log-probability margin between winning and losing responses.",
+    "papers": [
+      "2405.14734"
+    ]
+  },
+  {
+    "query": "Pre-trained latent video diffusion model from Nvidia",
+    "papers": [
+      "2501.03575",
+      "2503.14492",
+      "2503.15558"
+    ]
+  },
+  {
+    "query": "Papers that compare DPO and PPO for LLM alignment",
+    "papers": [
+      "2305.18290",
+      "2405.14734",
+      "2402.03300",
+      "2509.20357",
+      "2510.00977",
+      "2504.11343",
+      "2411.15124",
+      "2503.01067",
+      "2502.21321",
+      "2509.02547"
+    ]
+  },
+  {
+    "query": "How can language models learn to communicate and coordinate in social deduction games without human demonstration data?",
+    "papers": [
+      "2502.06060",
+      "2501.14225",
+      "2506.24119",
+      "2510.24684",
+      "2502.04686",
+      "2510.23595",
+      "2503.14481",
+      "2504.04072",
+      "2506.17788"
+    ]
+  },
+  {
+    "query": "Are there any works that attempt to use RL during the pre-training phase?",
+    "papers": [
+      "2506.08007",
+      "2502.19402",
+      "2505.03335",
+      "2501.12948",
+      "2503.18866",
+      "2504.13837"
+    ]
+  },
+  {
+    "query": "World model joint collaboration between Sony and UW",
+    "papers": [
+      "2510.19818"
+    ]
+  },
+  {
+    "query": "Paper that solicits Olympiad medalists to grade LLMs on difficult coding competitions",
+    "papers": [
+      "2506.11928"
+    ]
+  },
+  {
+    "query": "Papers that compare test-time scaling LLMs on legal reasoning tasks",
+    "papers": [
+      "2503.16040",
+      "2505.12864",
+      "2504.04945",
+      "2501.19393",
+      "2502.21321",
+      "2504.02590",
+      "2503.06072",
+      "2504.13534"
+    ]
+  },
+  {
+    "query": "Which paper(s) focus on examining LLMs abilities to reason in anticipatory games like deal or no deal, prisoner's dilemma, etc?",
+    "papers": [
+      "2502.09053",
+      "2305.16867",
+      "2402.05863",
+      "2411.05990",
+      "2402.12348",
+      "2503.12722",
+      "2502.12504",
+      "2503.15752",
+      "2501.14225",
+      "2502.20432"
+    ]
+  },
+  {
+    "query": "Which paper draws connections between LLM RL with binary rewards to transformations like log loss and arcsine of the square root?",
+    "papers": [
+      "2510.13651",
+      "2510.23049"
+    ]
+  },
+  {
+    "query": "Which paper introduces autonomously generates terminal-use tasks without humans in the loop?",
+    "papers": [
+      "2601.16443"
+    ]
+  },
+  {
+    "query": "Important RL papers from DeepSeek",
+    "papers": [
+      "2501.12948",
+      "2402.03300",
+      "2412.19437",
+      "2405.04434",
+      "2504.21801"
+    ]
+  },
+  {
+    "query": "Are there papers that assess reasoning abilities of llms without specifically fine-tuning for it?",
+    "papers": [
+      "2504.13837",
+      "2504.09858",
+      "2503.18866",
+      "2504.16828",
+      "2502.05171"
+    ]
+  },
+  {
+    "query": "Which paper uses RL for interleaved reasoning on tasks like Knights and Knaves?",
+    "papers": [
+      "2505.19640"
+    ]
+  },
+  {
+    "query": "Papers from Mostafa Elhoushi while he's been at Cerebras systems",
+    "papers": [
+      "2510.01631"
+    ]
+  },
+  {
+    "query": "Are there papers that introduce a framework for LLMs to interact with external code interpreters to solve math problems?",
+    "papers": [
+      "2504.11536",
+      "2503.04625",
+      "2503.23383",
+      "2505.01441",
+      "2508.19201",
+      "2306.01337",
+      "2402.03300",
+      "2511.16043",
+      "2504.13958",
+      "2504.04736"
+    ]
+  },
+  {
+    "query": "Papers proposing overlong reward shaping, token-level policy gradients, and dynamic sampling",
+    "papers": [
+      "2503.14476",
+      "2504.05118",
+      "2508.08221",
+      "2510.11701",
+      "2601.05242"
+    ]
+  },
+  {
+    "query": "I am looking for methods that allow a weak LLM to become a strong one by engaging in a zero-sum game against its previous iteration, effectively removing the need for external human-annotated pairs during fine-tuning.",
+    "papers": [
+      "2401.01335",
+      "2506.24119",
+      "2405.00675",
+      "2508.05004",
+      "2505.03335",
+      "2510.23595",
+      "2511.16043",
+      "2504.19162",
+      "2312.00886",
+      "2410.23223"
+    ]
+  },
+  {
+    "query": "Find papers that discuss \"jailbreaking\" LLMs by automatically generating adversarial suffixes.",
+    "papers": [
+      "2307.15043",
+      "2404.07921",
+      "2405.21018",
+      "2404.16873",
+      "2503.08990",
+      "2404.02151",
+      "2503.15754",
+      "2503.01781"
+    ]
+  },
+  {
+    "query": "What is that paper where Nathan Lambert is one of the authors that suggests if you fine-tuning Qwen with random rewards evals can go up?",
+    "papers": [
+      "2506.10947"
+    ]
+  },
+  {
+    "query": "What is that spurious rewards paper from the University of Washington?",
+    "papers": [
+      "2506.10947"
+    ]
+  },
+  {
+    "query": "Which paper introduces the Tiny Recursive Model (TRM)?",
+    "papers": [
+      "2510.04871"
+    ]
+  },
+  {
+    "query": "What are often-referenced benchmarks for testing multimodal understanding?",
+    "papers": [
+      "2503.24235",
+      "2504.10479",
+      "2502.13923",
+      "2504.05299",
+      "2505.07062",
+      "2504.08748",
+      "2504.01017",
+      "2504.07491"
+    ]
+  },
+  {
+    "query": "Kimi model that utilizes both curriculum and prioritized sampling to scale RL for LLMs",
+    "papers": [
+      "2501.12599",
+      "2504.09710"
+    ]
+  },
+  {
+    "query": "Which paper(s) compare simple rejection-sampling frameworks for LLM reasoning with more advanced techniques like GRPO and iterative dpo?",
+    "papers": [
+      "2504.11343",
+      "2402.03300",
+      "2504.13837",
+      "2502.19613",
+      "2503.14476",
+      "2504.05118",
+      "2501.12948",
+      "2502.21321"
+    ]
+  },
+  {
+    "query": "Which papers discovered that LLMs did significantly worse on the 2025 USAMO than what was advertised?",
+    "papers": [
+      "2503.21934",
+      "2505.23281",
+      "2511.01846",
+      "2504.01995"
+    ]
+  },
+  {
+    "query": "Work from Andrew Zhao that discovers self-play reasoning without any external data",
+    "papers": [
+      "2505.03335"
+    ]
+  },
+  {
+    "query": "Which variation of the self-taught reasoner learns to generate thoughts on top of any text, trained with reinforce to generate thoughts that correctly predict the next token?",
+    "papers": [
+      "2403.09629"
+    ]
+  },
+  {
+    "query": "How are AI agents being applied to materials science research and discovery?",
+    "papers": [
+      "2504.01990",
+      "2503.21460",
+      "2508.14111",
+      "2503.08979",
+      "2501.04227",
+      "2506.20743",
+      "2504.00741",
+      "2510.09901",
+      "2503.24047",
+      "2411.09429"
+    ]
+  },
+  {
+    "query": "Paper that replaces RLHF using a separate reward model with a preference objective",
+    "papers": [
+      "2305.18290",
+      "2405.14734",
+      "2402.01306",
+      "2405.20304",
+      "2402.03300"
+    ]
+  },
+  {
+    "query": "Identify key studies that quantify the massive CO2 emissions and energy consumption associated with training large NLP models, advocating for efficiency metrics alongside accuracy.",
+    "papers": [
+      "1906.02243",
+      "1907.10597",
+      "2211.05100",
+      "2104.10350",
+      "2302.13971",
+      "2109.05472",
+      "2311.16863",
+      "2304.03271",
+      "2504.17674",
+      "2410.12032"
+    ]
+  },
+  {
+    "query": "Linear alternatives to standard transformer architectures",
+    "papers": [
+      "2312.00752",
+      "2501.00663",
+      "2406.06484",
+      "2503.14456",
+      "2510.26692",
+      "2407.04620",
+      "2504.05298",
+      "2405.21060",
+      "2504.13173",
+      "2412.06464"
+    ]
+  },
+  {
+    "query": "Open-source model from Google fine-tuned specifically for a range of medical tasks",
+    "papers": [
+      "2507.05201",
+      "2504.06196",
+      "2503.19786",
+      "2405.03162"
+    ]
+  },
+  {
+    "query": "Quantum neural networks introduced as sequence of parametrized unitary transformations acting on N-qubit input state plus one readout qubit state.",
+    "papers": [
+      "1802.06002",
+      "1907.02085",
+      "1803.00745",
+      "2511.15969",
+      "2502.01146",
+      "2401.15871",
+      "2408.12739"
+    ]
+  },
+  {
+    "query": "QSPR modeling with deep neural networks",
+    "papers": [
+      "2404.02058",
+      "2506.15792",
+      "1712.02034",
+      "2211.16712",
+      "2406.04727"
+    ]
+  },
+  {
+    "query": "Paper introducing Mamba SSMs from CMU authors",
+    "papers": [
+      "2312.00752"
+    ]
+  },
+  {
+    "query": "Methods from NVIDIA to improve reasoning with longer-horizon RL training for LLMs",
+    "papers": [
+      "2505.24864",
+      "2505.00949",
+      "2512.20856",
+      "2507.12507",
+      "2406.11704",
+      "2406.08673",
+      "2310.05344",
+      "2407.21077"
+    ]
+  },
+  {
+    "query": "GRPO improvement from the Qwen team which introduces sequence level importance ratios",
+    "papers": [
+      "2507.18071",
+      "2505.09388",
+      "2511.20347",
+      "2512.01374"
+    ]
+  },
+  {
+    "query": "Paper from OpenAI exploring evolutionary strategies as a viable alternative to RL",
+    "papers": [
+      "1703.03864"
+    ]
+  },
+  {
+    "query": "What frameworks allow for building multi-agent conversation systems where agents can be assigned specific roles like \"coder\" or \"critic\"?",
+    "papers": [
+      "2308.00352",
+      "2411.04468",
+      "2303.17760",
+      "2503.13657",
+      "2504.19678",
+      "2503.23037",
+      "2504.01990",
+      "2510.12399"
+    ]
+  },
+  {
+    "query": "Model releases from DeepSeek before Deepseek-R1",
+    "papers": [
+      "2401.02954",
+      "2401.14196",
+      "2401.06066",
+      "2402.03300",
+      "2405.04434",
+      "2412.19437"
+    ]
+  },
+  {
+    "query": "Are there papers that show LLMs can teach themselves to reason by bootstrapping their own chain-of-thought rationales?",
+    "papers": [
+      "2203.14465",
+      "2403.09629",
+      "2501.12948",
+      "2503.18866",
+      "2505.03335",
+      "2411.04282",
+      "2412.02674",
+      "2412.17256",
+      "2401.08967",
+      "2501.04682"
+    ]
+  },
+  {
+    "query": "Identify papers that connect a pre-trained vision encoder (like CLIP) to a large language model using a simple projection layer to enable visual instruction tuning, effectively treating image patches as foreign language tokens.",
+    "papers": [
+      "2304.08485",
+      "2304.10592",
+      "2208.10442",
+      "2301.12597",
+      "2503.20680",
+      "2311.10122",
+      "2409.17146",
+      "2308.12966"
+    ]
+  },
+  {
+    "query": "I am looking for a specific architectural innovation that replaces fixed activation functions in MLPs with learnable activation functions on edges",
+    "papers": [
+      "2404.19756"
+    ]
+  },
+  {
+    "query": "Find frameworks that abstract away manual prompt engineering by treating LM pipelines as declarative programs that can be \"compiled\" and automatically optimized using bootstrapping or textual gradients.",
+    "papers": [
+      "2310.03714",
+      "2406.07496",
+      "2309.03409",
+      "2406.11695",
+      "2504.04365",
+      "2507.19457",
+      "2211.01910",
+      "2309.08532",
+      "2410.10762",
+      "2312.07104"
+    ]
+  },
+  {
+    "query": "Byte dance framework for value augmented PPO",
+    "papers": [
+      "2504.05118",
+      "2503.14476",
+      "2503.01491",
+      "2504.13914"
+    ]
+  },
+  {
+    "query": "Paper from ETH Zurich on doing RL with self-distillation",
+    "papers": [
+      "2601.20802"
+    ]
+  },
+  {
+    "query": "Deep Research model released by the Tongyi lab",
+    "papers": [
+      "2510.24701"
+    ]
+  },
+  {
+    "query": "Which paper claims that advantage estimation in GRPO is biased?",
+    "papers": [
+      "2503.20783"
+    ]
+  },
+  {
+    "query": "Papers examining the impact of mid-training in between pre-training and RL fine-tuning",
+    "papers": [
+      "2512.07783",
+      "2509.13310",
+      "2506.20512",
+      "2510.24701",
+      "2512.20491",
+      "2510.02387",
+      "2509.08827",
+      "2601.18795",
+      "2508.06471",
+      "2509.18883"
+    ]
+  },
+  {
+    "query": "14B math reasoning model from Microsoft trained to achieve better results than DeepSeek-R1 on the AIME",
+    "papers": [
+      "2504.21318"
+    ]
+  },
+  {
+    "query": "Most efficient version of DetectGPT claimed to be 340x faster",
+    "papers": [
+      "2310.05130"
+    ]
+  }
+]

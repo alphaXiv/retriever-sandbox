@@ -1,5 +1,5 @@
 import { createResearchAgent } from "../../src/agents/research.agent";
-import { mkdir, writeFile } from "fs/promises";
+import { mkdir, writeFile, readdir, readFile } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import pLimit from "p-limit";
@@ -7,7 +7,7 @@ import { getPapersByUniversalIds } from "../services/papers";
 
 // Load queries from text file (one query per line)
 const currentFileDir = dirname(fileURLToPath(import.meta.url));
-const queriesFile = Bun.file(join(currentFileDir, "new-data", "train_easy.txt"));
+const queriesFile = Bun.file(join(currentFileDir, "data", "test.txt"));
 const queriesText = await queriesFile.text();
 const queries: string[] = queriesText.split("\n").map((l: string) => l.trim()).filter(Boolean);
 
@@ -19,13 +19,52 @@ async function generateOutputs() {
   const outputsDir = join(repoRoot, "outputs");
   await mkdir(outputsDir, { recursive: true });
 
+  // Build a set of already-processed queries
+  const processedQueries = new Set<string>();
+  try {
+    const existingFiles = await readdir(outputsDir);
+    for (const file of existingFiles) {
+      if (file.endsWith('.json')) {
+        try {
+          const content = await readFile(join(outputsDir, file), 'utf-8');
+          const data = JSON.parse(content);
+          if (data.query) {
+            processedQueries.add(data.query);
+          }
+        } catch (e) {
+          // Skip malformed files
+        }
+      }
+    }
+    console.log(`Found ${processedQueries.size} already-processed queries\n`);
+  } catch (e) {
+    // outputs directory might not exist yet
+  }
+
   const limit = pLimit(5);
   let completed = 0;
+  let skipped = 0;
   const total = queries.length;
   const progressInterval = Math.max(1, Math.floor(total / 20));
 
   const processQuery = async (query: string, index: number) => {
     if (!query) return;
+
+    // Skip if already processed
+    if (processedQueries.has(query)) {
+      console.log(`⏭️  [${index + 1}/${total}] Skipping (already exists): ${query}`);
+      completed++;
+      skipped++;
+      
+      // Log progress
+      if (completed % progressInterval === 0 || completed === total) {
+        const percentage = Math.round((completed / total) * 100);
+        process.stdout.write(
+          `\rProgress: ${completed}/${total} (${percentage}%)`
+        );
+      }
+      return;
+    }
 
     try {
       console.log(`[${index + 1}/${total}] Starting query: ${query}`);
@@ -97,6 +136,7 @@ async function generateOutputs() {
   process.stdout.write("\r" + " ".repeat(50) + "\r");
   
   console.log(`\nCompleted processing ${queries.length} queries`);
+  console.log(`Skipped: ${skipped}, Processed: ${completed - skipped}`);
 }
 
 generateOutputs()

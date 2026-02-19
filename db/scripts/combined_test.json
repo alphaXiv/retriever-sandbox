@@ -1,0 +1,440 @@
+[
+  {
+    "query": "What is the paper from Meta FAIR that suggests the best visual embeddings are not at the output of the network?",
+    "papers": [
+      "2504.13181"
+    ]
+  },
+  {
+    "query": "Identify papers that tackle the performance degradation of LLMs at extreme low-bit settings (3 or 4-bit) by focusing on salient weight protection based on activation magnitude outliers or second-order Hessian information.",
+    "papers": [
+      "2306.00978",
+      "2210.17323",
+      "2306.07629",
+      "2306.03078",
+      "2405.14917",
+      "2402.04291",
+      "2504.07389",
+      "2402.14866",
+      "2310.00034",
+      "2405.16406"
+    ]
+  },
+  {
+    "query": "Find me iterations of VGGT that make it more robust and/or ram efficient.",
+    "papers": [
+      "2509.02560",
+      "2507.11539",
+      "2507.16443",
+      "2601.02281",
+      "2509.21302",
+      "2601.01204",
+      "2512.04939",
+      "2511.14751",
+      "2505.12549"
+    ]
+  },
+  {
+    "query": "What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?",
+    "papers": [
+      "2305.10601",
+      "2305.14992",
+      "2501.04519",
+      "2406.07394",
+      "2502.16235",
+      "2406.18629"
+    ]
+  },
+  {
+    "query": "I want to see research demonstrating that small language models (SLMs) can rival much larger foundational models if they are trained primarily on \"textbook quality\" synthetic data generated to teach reasoning and coding fundamentals.",
+    "papers": [
+      "2306.11644",
+      "2412.08905",
+      "2305.07759",
+      "2502.02737",
+      "2502.03387",
+      "2503.19551",
+      "2503.18866",
+      "2508.10975"
+    ]
+  },
+  {
+    "query": "Which paper frames RL as an n-th order approximation of maximum likelihood?",
+    "papers": [
+      "2602.02710"
+    ]
+  },
+  {
+    "query": "Find theoretical and empirical studies that analyze why standard Transformer architectures struggle with systematic compositionality in tasks like multi-digit arithmetic or counting, even when provided with Chain-of-Thought supervision.",
+    "papers": [
+      "2402.12875",
+      "2310.07923",
+      "2305.18654",
+      "2510.00184",
+      "2408.05506",
+      "2503.07604",
+      "2210.10749",
+      "2511.09030",
+      "2406.05183",
+      "2503.03961"
+    ]
+  },
+  {
+    "query": "I am looking for techniques that combine the parameters of several fine-tuned checkpoints into a single robust model without incurring additional inference costs, specifically by performing arithmetic operations like averaging or interference resolution on the weights themselves.",
+    "papers": [
+      "2203.05482",
+      "2212.04089",
+      "2306.01708",
+      "2311.03099",
+      "2310.02575"
+    ]
+  },
+  {
+    "query": "Find adaptations of Direct Preference Optimization (DPO) that are applied specifically to Multimodal Large Language Models (MLLMs) to align them with human visual preferences without training a separate reward model.",
+    "papers": [
+      "2410.17637",
+      "2504.15619",
+      "2311.16839"
+    ]
+  },
+  {
+    "query": "Find me important works in interpretability in tabular ML.",
+    "papers": [
+      "1908.07442",
+      "1705.07874",
+      "1912.09363",
+      "2207.01848",
+      "2503.21321"
+    ]
+  },
+  {
+    "query": "Find me papers on wheelchair propulsion tracking and classification using wearables.",
+    "papers": [
+      "2109.03631",
+      "2509.19939",
+      "2311.07395",
+      "2503.23537"
+    ]
+  },
+  {
+    "query": "What are papers that propose using State Space Models (SSMs) as a selective replacement for Transformers to achieve linear scaling?",
+    "papers": [
+      "2312.00752",
+      "2405.21060",
+      "2111.00396",
+      "2307.08621",
+      "2503.14456"
+    ]
+  },
+  {
+    "query": "I need studies that investigate the \"faithfulness\" of Chain-of-Thought reasoning, specifically showing cases where the model's generated explanation is a post-hoc rationalization that does not reflect the actual internal features used for prediction.",
+    "papers": [
+      "2305.04388",
+      "2505.05410",
+      "2405.15092",
+      "2510.24941",
+      "2403.05518",
+      "2510.09312"
+    ]
+  },
+  {
+    "query": "I need papers that move beyond fixed-class segmentation by training on over 1 billion masks to create a general-purpose \"foundation model\" for vision that accepts points, boxes, or text as prompts to isolate objects in zero-shot scenarios.",
+    "papers": [
+      "2304.02643",
+      "2408.00714",
+      "2511.16719",
+      "2401.14159",
+      "2503.07465"
+    ]
+  },
+  {
+    "query": "What are the most suitable and progressive metrics for ASR (in IT domain)?",
+    "papers": [
+      "2507.16456",
+      "2601.18184",
+      "2601.06896"
+    ]
+  },
+  {
+    "query": "Is there any work that uses DPO to change the reasoning language a model uses?",
+    "papers": [
+      "2501.12948",
+      "2502.14768",
+      "2511.21631",
+      "2506.10910",
+      "2512.13607",
+      "2601.09668"
+    ]
+  },
+  {
+    "query": "Find me papers which introduce multi-object tracking in query based systems for outdoor lidar data like DIntr.",
+    "papers": [
+      "2504.03258",
+      "2405.08909",
+      "2409.16149",
+      "2503.08471"
+    ]
+  },
+  {
+    "query": "I need research addressing the memory bottleneck of infinite-length generation by selectively evicting non-essential Key-Value pairs from the cache while strictly retaining specific \"heavy hitter\" or \"attention sink\" tokens to maintain coherence.",
+    "papers": [
+      "2309.17453",
+      "2310.01801",
+      "2407.15891",
+      "2410.10819",
+      "2404.14469"
+    ]
+  },
+  {
+    "query": "List papers that use implicit neural representations (neural fields) for video compression.",
+    "papers": [
+      "2110.13903",
+      "2304.06544",
+      "2409.00953",
+      "2503.19604",
+      "2504.12899",
+      "2502.20762",
+      "2501.04782",
+      "2501.12060",
+      "2501.02427"
+    ]
+  },
+  {
+    "query": "SSMs for faster diffusion from the University of Parma",
+    "papers": [
+      "2504.13499",
+      "2409.10385"
+    ]
+  },
+  {
+    "query": "Foundation model for multimodal understanding from OpenGVLab",
+    "papers": [
+      "2504.10479",
+      "2508.18265",
+      "2412.05271",
+      "2312.14238",
+      "2404.16821",
+      "2403.15377"
+    ]
+  },
+  {
+    "query": "I need papers that describe a hybrid system combining a neural language model with a symbolic deduction engine or program search algorithm to solve high-level mathematical proofs, specifically achieving gold-medal performance in geometry.",
+    "papers": [
+      "2502.03544",
+      "2510.01346",
+      "2512.00097",
+      "2512.10534",
+      "2507.23726",
+      "2504.21801",
+      "2511.22570",
+      "2504.12773"
+    ]
+  },
+  {
+    "query": "What are techniques for sample-efficient pre-training of small language models?",
+    "papers": [
+      "2504.13161",
+      "2404.07965",
+      "2310.06694",
+      "2402.03300",
+      "2504.05299",
+      "2412.09871",
+      "2504.03624"
+    ]
+  },
+  {
+    "query": "Matryoshka diffusion models paper from Apple",
+    "papers": [
+      "2310.15111"
+    ]
+  },
+  {
+    "query": "What are the most popular ways to create synthetic, high-quality math datasets?",
+    "papers": [
+      "2501.04519",
+      "2502.17387",
+      "2504.16891",
+      "2402.03300",
+      "2505.03335",
+      "2504.04736",
+      "2504.11456",
+      "2501.19393"
+    ]
+  },
+  {
+    "query": "Find algorithms that accelerate Large Language Model inference by using a small \"draft\" model to generate candidate tokens which are then verified in parallel by the larger target model, or by using multiple heads to predict future tokens simultaneously.",
+    "papers": [
+      "2211.17192",
+      "2404.19737",
+      "2401.15077",
+      "2503.01840",
+      "2404.16710",
+      "2402.02057",
+      "2311.08252"
+    ]
+  },
+  {
+    "query": "Diffusion models for image synthesis from the Beihang University",
+    "papers": [
+      "2503.12590",
+      "2503.18352",
+      "2503.19462",
+      "2312.16476",
+      "2306.14685",
+      "2412.03558",
+      "2303.16491",
+      "2505.10999",
+      "2305.08192",
+      "2412.10437"
+    ]
+  },
+  {
+    "query": "Find me value-based reinforcement learning methods for continuous action-spaces.",
+    "papers": [
+      "2502.02538",
+      "1806.10293",
+      "1702.08165",
+      "2510.18828",
+      "2507.07969"
+    ]
+  },
+  {
+    "query": "Identify methods where a Large Language Model acts as a meta-optimizer for another model's instructions, effectively treating prompt engineering as a black-box optimization problem without access to gradients.",
+    "papers": [
+      "2309.03409",
+      "2406.07496",
+      "2211.01910",
+      "2309.08532",
+      "2309.16797",
+      "2310.16427",
+      "2406.11695",
+      "2501.16673",
+      "2502.06855",
+      "2503.16874"
+    ]
+  },
+  {
+    "query": "Attention-less diffusion models from Apple and Cornell",
+    "papers": [
+      "2504.05741",
+      "2512.07829",
+      "2510.11690",
+      "2504.10483",
+      "2410.07864"
+    ]
+  },
+  {
+    "query": "What are the seminal papers that originally introduced the paradigm of combining a parametric generator with a non-parametric retrieval system to access external documents during the generation process?",
+    "papers": [
+      "2005.11401",
+      "2002.08909",
+      "1911.00172",
+      "2004.04906",
+      "2112.04426"
+    ]
+  },
+  {
+    "query": "Find papers that debate whether the sudden appearance of new capabilities in scaled-up models is a genuine \"phase transition\" or merely a statistical artifact resulting from the use of discontinuous evaluation metrics.",
+    "papers": [
+      "2304.15004",
+      "2206.07682",
+      "2502.17356",
+      "2508.04401",
+      "2503.05788",
+      "2506.11135",
+      "2405.10938",
+      "2406.04391"
+    ]
+  },
+  {
+    "query": "What is the state of the art animation inbetweening character animation models? Are the newest ones mostly using diffusion models?",
+    "papers": [
+      "2508.10881",
+      "2503.08417",
+      "2408.15239",
+      "2502.17327"
+    ]
+  },
+  {
+    "query": "What are some recent advances in using human demonstrations in online reinforcement learning for robotics?",
+    "papers": [
+      "2410.21845",
+      "2511.14759",
+      "2509.09674",
+      "2502.05450",
+      "2510.14830",
+      "2412.09858",
+      "2601.03044",
+      "2506.15799",
+      "2509.19080",
+      "2510.12403"
+    ]
+  },
+  {
+    "query": "Find me papers that use manifold projection for medical image segmentation.",
+    "papers": [
+      "2505.19659",
+      "2207.05231",
+      "2305.02644"
+    ]
+  },
+  {
+    "query": "Flow-based generative foundation models from ByteDance",
+    "papers": [
+      "2502.04896",
+      "2503.14494",
+      "2504.08685",
+      "2410.08631",
+      "2506.09113",
+      "2504.11346",
+      "2509.20427",
+      "2507.16884",
+      "2601.02204",
+      "2503.07699"
+    ]
+  },
+  {
+    "query": "Wan video generative models from the Alibaba group",
+    "papers": [
+      "2503.20314",
+      "2509.14055",
+      "2512.08765",
+      "2508.18621",
+      "2503.07598",
+      "2504.14977",
+      "2503.21144",
+      "2504.02433",
+      "2504.04842",
+      "2504.14899",
+      "2502.06145"
+    ]
+  },
+  {
+    "query": "How can I edit factual knowledge in LLMs with MOE architectures?",
+    "papers": [
+      "2406.20030",
+      "2601.10639",
+      "2202.05262",
+      "2410.02355"
+    ]
+  },
+  {
+    "query": "Find research that uses standard diffusion-based video generation in favor of an autoregressive transformer approach, where video frames are tokenized into discrete units and treated as a sequence modeling task identical to text generation.",
+    "papers": [
+      "2404.02905",
+      "2312.17172",
+      "2503.16430",
+      "2504.11455",
+      "2503.19325",
+      "2504.08685",
+      "2310.05737",
+      "2504.17789"
+    ]
+  },
+  {
+    "query": "What do the KoLeo regularizer and Gram anchor loss do in DINOv3? What are their equations, what is their purpose, and why are they necessary?",
+    "papers": [
+      "2508.10104"
+    ]
+  }
+]

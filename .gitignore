@@ -9,3 +9,5 @@ dist
 *.gen.ts
 outputs/
 processed_outputs/
+outputs_train/
+processed_outputs_train/
