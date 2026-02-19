@@ -102,7 +102,6 @@ Which paper finds that the average of the gradients weighted over successful tra
 Which paper(s) compare simple rejection-sampling frameworks for LLM reasoning with more advanced techniques like GRPO and iterative dpo?
 Which paper(s) focus on examining LLMs abilities to reason in anticipatory games like deal or no deal, prisoner's dilemma, etc?
 Which paper draws connections between LLM RL with binary rewards to transformations like log loss and arcsine of the square root?
-Which paper provides a benchmark that attempts to test frontier model performance on tasks that are deemed truly economically useful?
 Which papers provide a benchmark that attempts to test frontier model performance on tasks that are deemed truly economically useful?
 Which papers provide scaffolding for agents to do autonomous data science?
 Which paper proposes recomputing log probs with the same model + feedback over the original attempt to get token-level advantage when learning with RL?
@@ -118,7 +117,7 @@ Summarize the research and techniques for using reinforcement learning as a pre-
 What are the key features and technical contributions of ABIDES and ABIDES-MARL for multi-agent reinforcement learning and high-fidelity market simulation in limit order books?
 What are the less-explored research directions and problems in video world models, beyond extensively studied areas like memory and physics-awareness?
 Find papers that related or exprimented models with RAVIR dataset
-Automated Evaluation with Rubric-Based Scoring for comparing referen e and student answer
+Automated Evaluation with Rubric-Based Scoring for comparing reference and student answer
 What are the current benchmarks for evaluating privacy in Vision Language Models (VLMs)?
 Explain the SEARCHD framework for advanced retrieval with text generation using large language models and cross-encoding re-ranking
 What are efficient credit assignment methods for reinforcement learning (RL) and Reinforcement Learning from Verifiable Rewards (RLVR), particularly in the context of self-distillation?

@@ -1,0 +1,52 @@
+Which paper from Xiaohongshu has \"L1: Controlling how long a reasoning model thinks with reinforcement learning\" as its first citation?
+Which OCR methods do best on OmniDocBench?
+Which open source models score best on Humanity's Last Exam?
+Which models do best on Terminal Bench 2.0?
+Are there studies that assert for RL fine-tuning the data needs to be at the boundary of difficult but not too difficult and also claim the importance of mid-training?
+How can reinforcement learning be applied to optimize GPU operations such as scheduling, memory management, and kernel execution?
+Identify papers that connect a pre-trained vision encoder (like CLIP) to a large language model using a simple projection layer to enable visual instruction tuning, effectively treating image patches as foreign language tokens.
+Find papers that discuss "jailbreaking" LLMs by automatically generating adversarial suffixes.
+Which other open source models does GLM 5 benchmark against?
+Model releases from DeepSeek before Deepseek-R1
+Papers showing comparison between using tied weights embeddings vs not for different model comparison and how does it help in convergence of said models.
+Which models perform best on Tau-Bench?
+What are the most commonly referenced benchmarks for testing LLM tool-use?
+What are often-referenced benchmarks for testing multimodal understanding?
+Which open source models have architectures using Deepseek's sparse attention architecture?
+I am looking for methods that allow a weak LLM to become a strong one by engaging in a zero-sum game against its previous iteration, effectively removing the need for external human-annotated pairs during fine-tuning.
+Identify key studies that quantify the massive CO2 emissions and energy consumption associated with training large NLP models, advocating for efficiency metrics alongside accuracy.
+Which open multimodal models uses the SigLIP image encoder and cross-attention between image and text modalities?
+What are some open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters?
+How are AI agents being applied to materials science research and discovery?
+Papers examining the impact of mid-training in between pre-training and RL fine-tuning
+Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory
+I am looking for a specific architectural innovation that replaces fixed activation functions in MLPs with learnable activation functions on edges
+Which paper(s) focus on examining LLMs abilities to reason in anticipatory games like deal or no deal, prisoner's dilemma, etc?
+What are commonly cited deep research benchmarks?
+What is the most common open-source model used in papers that perform some type of model fine-tuning techniques?
+What are the latest techniques and architectures for self-supervised depth estimation?
+Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a "constitution" to guide the model's self-critique and refinement process, often referred to as RLAIF.
+I need papers that describe a statistical method for embedding a detectable signal into an LLM's output by biasing the sampling probability distribution (logits) based on the hash of previous tokens, creating "green" and "red" lists.
+Which papers show the best results for HotpotQA?
+What are the most popular multi-hop reasoning benchmarks?
+Which, if any, popular open source models adopt sliding window attention?
+Which, if any, popular open source models train with FP8?
+What are good math benchmarks for evaluating an LLM's ability to do math reasoning?
+Which are the best performing alternatives optimizers to the traditional ones like Adam, Momentum, and SGD?
+Papers that assess feasbility of Muon optimizer at large scale
+Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?
+What do LLM architectures use instead of GELU these days for activations?
+What normalization methods are researchers trying besides Layernorm for training LLMs?
+Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?
+Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
+In what situations is an SFT phase commonly used between pre-training and RL and when is it excluded?
+What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?
+What are some continual learning strategies that do not update weights at test-time?
+LLM as a judge can be noisy for continual learning. Are there methods that attempt to use LLMs to compare different trajectories (suggesting that pair-wise comparison could be more stable than just having an LLM assign a reward out of the blue)?
+Papers analyzing the impact of process rewards when doing GRPO
+When RL fine-tuning a retrieval agent that has access to tools, how should I shape the rewards? Are outcome-based rewards sufficient or do I need to add process-oriented rewards centered around tool-query quality, etc?
+Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
+What strategies do code-generating agent frameworks use to manage exploding context windows?
+What are some simulation benchmarks for the Franka robot arm?
+What is the largest open-source LLM released in terms of parameter count?
+Is dropout used when training modern state-of-the-art LLMs?

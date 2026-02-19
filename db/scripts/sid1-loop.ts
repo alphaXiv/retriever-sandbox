@@ -20,7 +20,7 @@ const client = new OpenAI({
 const systemPrompt = `You are an expert research assistant that retrieves relevant arXiv papers for a given research query. Your task is to find all arXiv paper IDs that are relevant to answering the research question.
 
 Steps:
-1. Reflect on what information is needed to answer the research question and use search or text_search to find relevant arXiv papers. Each paper has an arXiv ID.
+1. Reflect on what information is needed to answer the research question and use text_search to find relevant arXiv papers. Each paper has an arXiv ID.
 2. Repeat step 1 until all papers necessary and sufficient to answer the question have been found. Take as many turns and searches as needed - you can make multiple searches per turn! Most questions will require multiple turns. Most questions require at least 5-8 search requests. Many will need more.
 3. Use the report_helpful_ids tool to report the most helpful arXiv paper IDs. List the most helpful paper IDs first (important!).
 
@@ -29,8 +29,6 @@ The interaction ends once report_helpful_ids is called. You will be scored based
 
 You have access to the following tools:
 
-- search: performs a semantic search with the query
-  - Arguments: query (required), limit (optional, default 10, max 50)
 - text_search: performs a full-text search using Postgres TS_VECTOR webquery
   - Arguments: query (required), limit (optional, default 10, max 50)
 - read: reads the full content of an arXiv paper by its ID
@@ -41,20 +39,13 @@ You have access to the following tools:
 To use a tool, enclose it within <tool_call> tags with a Python dictionary containing "name" and "arguments". For example:
 
 <tool_call>
-{"name": "search", "arguments": {"query": "machine learning algorithms", "limit": 3}}
-</tool_call>
-
-The semantic search tool will match things that are conceptually related or use synonyms. This request above would also find texts that talk about linear regression, for example, although "linear regression" does not appear in the query directly. You can write long queries describing the paper you want precisely with this tool.
-
-
-<tool_call>
 {"name": "text_search", "arguments": {"query": "machine learning algorithms", "limit": 3}}
 </tool_call>
 
 For text_search queries, you can use "" (escaped double quotes) to find exact matches for a term. Since the query is inside a JSON string with double quotes, you need to escape the inner double quotes with backslashes ("dimensionality reduction").
 You can also use a - to exclude terms (like -PCA). You don't need to use "" or - operators, but it can be helpful. If your text_search query has too many terms, there might not be a paper that matches all the constraints and no data will be found.
 
-Both search tools return snippets (relevant excerpts) rather than full papers. Snippets are approximately 50 words long and show the most relevant portion of the paper based on your query. If the paper was truncated, you'll see "..." at the beginning or end.
+The search tool returns snippets (relevant excerpts) rather than full papers. Snippets are approximately 50 words long and show the most relevant portion of the paper based on your query. If the paper was truncated, you'll see "..." at the beginning or end.
 To read the full paper content, use the read tool with the arXiv paper ID from your search results. You can only read papers that were previously returned by search or text_search.
 
 <tool_call>
@@ -84,19 +75,19 @@ function formatSearchResultsAsXML(data: any): string {
   return formatted;
 }
 
-function formatEmbeddingSearchResultsAsXML(data: any): string {
-  const results = data.results || [];
+// function formatEmbeddingSearchResultsAsXML(data: any): string {
+//   const results = data.results || [];
   
-  const formatted = results.map((paper: any) => {
-    return `<doc id="${paper.universalId}" title="${paper.title}" publicationDate="${paper.publicationDate}">\n${paper.abstract}\n</doc>`;
-  }).join("\n\n");
+//   const formatted = results.map((paper: any) => {
+//     return `<doc id="${paper.universalId}" title="${paper.title}" publicationDate="${paper.publicationDate}">\n${paper.abstract}\n</doc>`;
+//   }).join("\n\n");
   
-  console.log("\n--- formatEmbeddingSearchResultsAsXML output ---");
-  console.log(formatted);
-  console.log("--- end ---\n");
+//   console.log("\n--- formatEmbeddingSearchResultsAsXML output ---");
+//   console.log(formatted);
+//   console.log("--- end ---\n");
   
-  return formatted;
-}
+//   return formatted;
+// }
 
 function formatPageAsXML(data: any): string {
   return `<doc id="${data.universalId}" title="${data.title}">\n${data.text}\n</doc>`;
@@ -106,16 +97,7 @@ async function callTool(toolName: string, args: Record<string, any>): Promise<st
   let endpoint: string;
   let queryParams: Record<string, string> = {};
 
-  if (toolName === "search") {
-    endpoint = "/api/search/embedding";
-    queryParams = {
-      query: args.query,
-      limit: String(args.limit || 10),
-    };
-    if (args.after) {
-      queryParams.minPublicationDate = args.after;
-    }
-  } else if (toolName === "text_search") {
+if (toolName === "text_search") {
     endpoint = "/api/search/keyword";
     queryParams = {
       keyword: args.query,
@@ -156,9 +138,7 @@ async function callTool(toolName: string, args: Record<string, any>): Promise<st
   const responseText = await response.text();
   const data = JSON.parse(responseText);
 
-  if (toolName === "search") {
-    return formatEmbeddingSearchResultsAsXML(data);
-  } else if (toolName === "text_search") {
+if (toolName === "text_search") {
     return formatSearchResultsAsXML(data);
   } else if (toolName === "read") {
     return formatPageAsXML(data);
@@ -207,7 +187,7 @@ async function runAgentLoop(query: string) {
       model: "sid-1",
       messages,
       tools: [
-        { type: "function", function: { name: "search" } },
+        // { type: "function", function: { name: "search" } },
         { type: "function", function: { name: "text_search" } },
         { type: "function", function: { name: "read" } },
         { type: "function", function: { name: "report_helpful_ids" } },
@@ -273,6 +253,6 @@ async function runAgentLoop(query: string) {
   return { messages, reportedIds, turnCount: turn };
 }
 
-const query = "Which paper introduced GRPO?";
+const query = "Which paper from Xiaohongshu has \"L1: Controlling how long a reasoning model thinks with reinforcement learning\" as its first citation?";
 const result = await runAgentLoop(query);
 console.log("\nAgent loop completed:", result.turnCount, "turns");

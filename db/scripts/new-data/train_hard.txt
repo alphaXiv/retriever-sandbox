@@ -1,0 +1,20 @@
+What are tricks for converging during pre-training that popular open source models use?
+What are tricks to improve stability during post-training?
+What's the typical ratio of learning rates between pre-training and SFT fine-tuning for LLMs?
+What are specific regularization techniques for reducing LLM pre-training instability?
+What are some tricks to stabilize training when RL fine-tuning a large MoE model?
+What is the best population size to use for evolutionary strategies?
+How are positional embeddings assigned to multimodal architectures that tokenize images?
+Identify research describing the counter-intuitive training dynamic where a model achieves near-zero training error (memorization) but fails to generalize, only to suddenly achieve high test accuracy much later in training, often visible in algorithmic tasks.
+What are the common techniques to extend the context window of an LLM that was using RoPE embeddings?
+What are the best positional embedding techniques for LLMs?
+When does adding a KL penalty with the reference policy help when RL fine-tuning?
+Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?
+What improvements can be made to GRPO to improve stability when RL fine-tuning MOE models?
+What scale of reward should I provide in RLVR for LLM-finetuning with PPO? Especially when introducing something like format rewards or additional signal besides binary
+In attention-based architectures and models, where are the common placements of the normalization layer within an attention block?
+What do LLM architectures use instead of GELU these days for activations?
+When fine-tuning a Qwen model for multi-hop search, does it make more sense to fine-tune with thinking enabled or disabled?
+Are there any multimodal architectures that use the next-token-prediction paradigm for generating images, instead of diffusion?
+Is sample reuse ok when doing alignment fine-tuning for LLMs?
+When fine-tuning for alignment how do offline, semi-online, and online DPO compare with each other?
