@@ -1,0 +1,172 @@
+What is that spurious rewards paper from the University of Washington?
+MaxRL from Fahim Tajwar
+Which paper introduces the Tiny Recursive Model (TRM)?
+Fetch me the Qwen3 technical report
+Paper from ETH Zurich on doing RL with self-distillation
+Which paper introduces the LoRA technique for parameter-efficient fine-tuning?
+Paper from Xuandong Zhao that introduces RL from internal feedback?
+Work from Andrew Zhao that discovers self-play reasoning without any external data
+Paper from a joint collaboration between UNC and Salesforce Research that has agents improve in a self-reinforcing cycle on tasks with tools 
+Which paper from Nvidia improves upon GRPO by decoupling the normalization of individual reward components?
+Pre-trained latent video diffusion model from Nvidia 
+Paper from OpenAI exploring evolutionary strategies as a viable alternative to RL
+Evolutionary policy optimization from CMU
+Joint collaboration between AMD and John Hopkins on designing a fully autonomous lab with agents
+Paper introducing Mamba SSMs from CMU authors
+Which paper uses RL for interleaved reasoning on tasks like Knights and Knaves?
+Important RL papers from DeepSeek
+Important RL works from the Prime Intellect team
+Which paper introduces autonomously generates terminal-use tasks without humans in the loop?
+Papers from Mostafa Elhoushi while he's been at Cerebras systems
+Methods that fine-tune LLMs with FP4 quantization
+Which paper(s) examine the effect of holding data fixed but with increased compute-scaling during pre-training?
+Benchmarks for general AI assistants that go beyond narrow tasks
+Which paper(s) use rule-based RL to improve reasoning for LLMs?
+Methods from NVIDIA to improve reasoning with longer-horizon RL training for LLMs
+What papers discuss "Reflexion" where agents verbally reinforce themselves to improve performance on subsequent trials?
+Are there papers that benchmark the ability of LLMs to use tools via API calls?
+LLM released by Cohere specifically for enterprise use-cases
+Deep Research model released by the Tongyi lab
+Papers that compare DPO and PPO for LLM alignment
+14B math reasoning model from Microsoft trained to achieve better results than DeepSeek-R1 on the AIME
+Paper(s) asserting that for fine-tuning models, SFT memorizes and RL generalizes
+Paper that replaces RLHF using a separate reward model with a preference objective
+Method to detect AI-generated text by looking at log probs of perturbations of sample text
+Surveys on AI generated text detection
+Most efficient version of DetectGPT claimed to be 340x faster
+Training free N-gram analysis to detect AI-generated text
+Open source vision language action model from Stanford University
+Which paper maintains log N memory states to reduce inference of a token to O (log N)
+What is that paper where Nathan Lambert is one of the authors that suggests if you fine-tuning Qwen with random rewards evals can go up?
+Which papers provide a benchmark that attempts to test frontier model performance on tasks that are deemed truly economically useful?
+Find papers that frame prompt optimization as a gradient descent problem over discrete tokens.
+What papers discuss the phenomena where LLMs fail to deduce "B is A" after learning "A is B"?
+Benchmark to assess LLMs abilities to replicate paper codebases
+Benchmark to assess LLMs abilities to autonomously conduct post-training runs with a 10 hour time limit
+Benchmarks that evaluate LLMs on machine learning engineering tasks
+Which variation of the self-taught reasoner learns to generate thoughts on top of any text, trained with reinforce to generate thoughts that correctly predict the next token?
+What is that main work that Quiet-Star is built on top of?
+Are there any works that attempt to use RL during the pre-training phase?
+Kimi model that utilizes both curriculum and prioritized sampling to scale RL for LLMs
+Deepseek paper that first introduced GRPO
+Papers proposing overlong reward shaping, token-level policy gradients, and dynamic sampling
+Paper from Yann Lecun introducing self-supervised video models
+World model joint collaboration between Sony and UW
+QSPR modeling with deep neural networks
+Works using language models for molecular property prediction
+Quantum neural networks introduced as sequence of parametrized unitary transformations acting on N-qubit input state plus one readout qubit state.
+Find papers that simulate a town of generative agents interacting socially with each other.
+What papers introduce an open-ended embodied agent that learns to play Minecraft without human demonstrations?
+Are there papers that introduce a framework for LLMs to interact with external code interpreters to solve math problems?
+Are there papers that show LLMs can teach themselves to reason by bootstrapping their own chain-of-thought rationales?
+What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?
+What papers discuss extending the context window of LLMs using "Ring" communication topology?
+Are there papers that introduce a 1-bit architecture for large language models to drastically reduce memory footprint?
+Are there papers that assess reasoning abilities of llms without specifically fine-tuning for it?
+What are examples of sparse deep learning frameworks that are alternatives to pytorch?
+What are some papers that introduce frameworks for fine tuning agents specifically for tasks that involve tool use reasoning with qwen?
+Which paper introduces convolutions into an LSTM architecture to produce forecasted images?
+Find the preference optimization method that simplifies DPO by removing the need for a reference model entirely, relying instead on the average log-probability margin between winning and losing responses.
+Which paper first introduced residual connections to deep neural networks and made significant strides on ImageNet?
+Which papers discovered that LLMs did significantly worse on the 2025 USAMO than what was advertised?
+Benchmarks for evaluating physical perception and reasoning in LLMs
+Paper that solicits Olympiad medalists to grade LLMs on difficult coding competitions
+Paper from Xiancai Chen on Self-debugging for codegen
+Papers that examine LLMs abilities to self-debug their own code 
+GRPO improvement from the Qwen team which introduces sequence level importance ratios
+Which paper claims that advantage estimation in GRPO is biased?
+Which papers benchmark molecular embedding models for representation learning?
+Fine-tuning LLMs for specifically cyber-security related tasks
+Datasets of high-quality math reasoning traces from Stanford University
+Fine-tuning language models for writing code in esoteric languages like the Q programming language
+Language models finetuned specifically for finance tasks from Bloomberg
+Benchmarking agents for legal tasks such as issue identification, rule recall, and drawing conclusions.
+Papers that compare test-time scaling LLMs on legal reasoning tasks
+Open-source model from Google fine-tuned specifically for a range of medical tasks
+Who has introduced multimodal foundation models specifically for radiology?
+Vision Language foundation models for MRI interpretation
+How can I learn contrastive representations that capture conditional dependencies between more than two modalities, rather than just pairwise relationships like CLIP?
+How can language models learn to communicate and coordinate in social deduction games without human demonstration data?
+How can I scale evolution strategies to train billion-parameter neural networks efficiently using low-rank perturbations?
+Agentic frameworks for autonomously generating code repositories from scientific papers
+Linear alternatives to standard transformer architectures
+Which LoRA variants insert a new matrix between the A and B decomposition matrices?
+Which paper draws connections between LLM RL with binary rewards to transformations like log loss and arcsine of the square root?
+Which paper(s) compare simple rejection-sampling frameworks for LLM reasoning with more advanced techniques like GRPO and iterative dpo?
+What papers introduce an open-ended embodied agent that learns to play Minecraft without human demonstrations?
+What frameworks allow for building multi-agent conversation systems where agents can be assigned specific roles like "coder" or "critic"?
+Find frameworks that abstract away manual prompt engineering by treating LM pipelines as declarative programs that can be "compiled" and automatically optimized using bootstrapping or textual gradients.
+Byte dance framework for value augmented PPO
+Long context reasoning extension paper from the Qwen team
+Which paper from Xiaohongshu has \"L1: Controlling how long a reasoning model thinks with reinforcement learning\" as its first citation?
+Which OCR methods do best on OmniDocBench?
+Which open source models score best on Humanity's Last Exam?
+Which models do best on Terminal Bench 2.0?
+Are there studies that assert for RL fine-tuning the data needs to be at the boundary of difficult but not too difficult and also claim the importance of mid-training?
+How can reinforcement learning be applied to optimize GPU operations such as scheduling, memory management, and kernel execution?
+Identify papers that connect a pre-trained vision encoder (like CLIP) to a large language model using a simple projection layer to enable visual instruction tuning, effectively treating image patches as foreign language tokens.
+Find papers that discuss "jailbreaking" LLMs by automatically generating adversarial suffixes.
+Which other open source models does GLM 5 benchmark against?
+Model releases from DeepSeek before Deepseek-R1
+Papers showing comparison between using tied weights embeddings vs not for different model comparison and how does it help in convergence of said models.
+Which models perform best on Tau-Bench?
+What are the most commonly referenced benchmarks for testing LLM tool-use?
+What are often-referenced benchmarks for testing multimodal understanding?
+Which open source models have architectures using Deepseek's sparse attention architecture?
+I am looking for methods that allow a weak LLM to become a strong one by engaging in a zero-sum game against its previous iteration, effectively removing the need for external human-annotated pairs during fine-tuning.
+Identify key studies that quantify the massive CO2 emissions and energy consumption associated with training large NLP models, advocating for efficiency metrics alongside accuracy.
+Which open multimodal models uses the SigLIP image encoder and cross-attention between image and text modalities?
+What are some open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters?
+How are AI agents being applied to materials science research and discovery?
+Papers examining the impact of mid-training in between pre-training and RL fine-tuning
+Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory
+I am looking for a specific architectural innovation that replaces fixed activation functions in MLPs with learnable activation functions on edges
+Which paper(s) focus on examining LLMs abilities to reason in anticipatory games like deal or no deal, prisoner's dilemma, etc?
+What are commonly cited deep research benchmarks?
+What is the most common open-source model used in papers that perform some type of model fine-tuning techniques?
+What are the latest techniques and architectures for self-supervised depth estimation?
+Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a "constitution" to guide the model's self-critique and refinement process, often referred to as RLAIF.
+I need papers that describe a statistical method for embedding a detectable signal into an LLM's output by biasing the sampling probability distribution (logits) based on the hash of previous tokens, creating "green" and "red" lists.
+Which papers show the best results for HotpotQA?
+What are the most popular multi-hop reasoning benchmarks?
+Which, if any, popular open source models adopt sliding window attention?
+Which, if any, popular open source models train with FP8?
+What are good math benchmarks for evaluating an LLM's ability to do math reasoning?
+Which are the best performing alternatives optimizers to the traditional ones like Adam, Momentum, and SGD?
+Papers that assess feasbility of Muon optimizer at large scale
+Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?
+What do LLM architectures use instead of GELU these days for activations?
+What normalization methods are researchers trying besides Layernorm for training LLMs?
+Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?
+Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
+In what situations is an SFT phase commonly used between pre-training and RL and when is it excluded?
+What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?
+What are some continual learning strategies that do not update weights at test-time?
+LLM as a judge can be noisy for continual learning. Are there methods that attempt to use LLMs to compare different trajectories (suggesting that pair-wise comparison could be more stable than just having an LLM assign a reward out of the blue)?
+Papers analyzing the impact of process rewards when doing GRPO
+When RL fine-tuning a retrieval agent that has access to tools, how should I shape the rewards? Are outcome-based rewards sufficient or do I need to add process-oriented rewards centered around tool-query quality, etc?
+Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
+What strategies do code-generating agent frameworks use to manage exploding context windows?
+What are some simulation benchmarks for the Franka robot arm?
+What is the largest open-source LLM released in terms of parameter count?
+Is dropout used when training modern state-of-the-art LLMs?
+What are tricks for converging during pre-training that popular open source models use?
+What are tricks to improve stability during post-training?
+What's the typical ratio of learning rates between pre-training and SFT fine-tuning for LLMs?
+What are specific regularization techniques for reducing LLM pre-training instability?
+What are some tricks to stabilize training when RL fine-tuning a large MoE model?
+What is the best population size to use for evolutionary strategies?
+How are positional embeddings assigned to multimodal architectures that tokenize images?
+Identify research describing the counter-intuitive training dynamic where a model achieves near-zero training error (memorization) but fails to generalize, only to suddenly achieve high test accuracy much later in training, often visible in algorithmic tasks.
+What are the common techniques to extend the context window of an LLM that was using RoPE embeddings?
+What are the best positional embedding techniques for LLMs?
+When does adding a KL penalty with the reference policy help when RL fine-tuning?
+Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?
+What improvements can be made to GRPO to improve stability when RL fine-tuning MOE models?
+What scale of reward should I provide in RLVR for LLM-finetuning with PPO? Especially when introducing something like format rewards or additional signal besides binary
+In attention-based architectures and models, where are the common placements of the normalization layer within an attention block?
+What do LLM architectures use instead of GELU these days for activations?
+When fine-tuning a Qwen model for multi-hop search, does it make more sense to fine-tune with thinking enabled or disabled?
+Are there any multimodal architectures that use the next-token-prediction paradigm for generating images, instead of diffusion?
+Is sample reuse ok when doing alignment fine-tuning for LLMs?
+When fine-tuning for alignment how do offline, semi-online, and online DPO compare with each other?

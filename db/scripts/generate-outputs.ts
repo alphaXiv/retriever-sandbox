@@ -3,10 +3,11 @@ import { mkdir, writeFile } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import pLimit from "p-limit";
+import { getPapersByUniversalIds } from "../services/papers";
 
 // Load queries from text file (one query per line)
 const currentFileDir = dirname(fileURLToPath(import.meta.url));
-const queriesFile = Bun.file(join(currentFileDir, "data", "test-niah2.txt"));
+const queriesFile = Bun.file(join(currentFileDir, "new-data", "train_easy.txt"));
 const queriesText = await queriesFile.text();
 const queries: string[] = queriesText.split("\n").map((l: string) => l.trim()).filter(Boolean);
 
@@ -32,6 +33,20 @@ async function generateOutputs() {
       const agent = createResearchAgent();
       const result = await agent.run(query);
 
+      // Fetch paper titles from universal IDs
+      const universalIds = result.output.papers.map((p: any) => p.universalId);
+      const paperRecords = await getPapersByUniversalIds(universalIds);
+      
+      // Create a map of universalId -> title
+      const titleMap = new Map(paperRecords.map(p => [p.universalId, p.title]));
+      
+      // Enrich papers with titles
+      const papersWithTitles = result.output.papers.map((p: any) => ({
+        universalId: p.universalId,
+        title: titleMap.get(p.universalId) || "Title not found",
+        reason: p.reason,
+      }));
+
       // Save output to file
       const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
       const filename = `research-${timestamp}.json`;
@@ -40,6 +55,7 @@ async function generateOutputs() {
       const outputData = {
         query,
         response: result.output,
+        papersWithTitles,
         timestamp: new Date().toISOString(),
       };
 
