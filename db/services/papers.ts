@@ -189,31 +189,60 @@ export const searchPaperPagesByKeyword = async (
 ) => {
   const { maxPapers = 10, maxSnippetsPerPaper = 10, minPublicationDate } = options;
   const tsQuery = keyword.trim().split(/\s+/).join(' & ');
-  
-  const whereConditions = [
-    sql`${paperPages.textSearchVector} @@ to_tsquery('english', ${tsQuery})`,
-  ];
-  
+
+  // Step 1: Fast GIN-only search to find distinct matching paper IDs (no join, no sort)
+  const matchingPaperIds = await db
+    .selectDistinct({ paperId: paperPages.paperId })
+    .from(paperPages)
+    .where(sql`${paperPages.textSearchVector} @@ to_tsquery('english', ${tsQuery})`)
+    .limit(maxPapers * 10); // Overfetch to account for date filtering
+
+  if (matchingPaperIds.length === 0) return [];
+
+  const paperIdList = matchingPaperIds.map((r) => r.paperId);
+
+  // Step 2: Look up those papers, apply date filter, sort by votes, take top N
+  const paperWhereConditions = [inArray(papers.id, paperIdList)];
   if (minPublicationDate !== undefined) {
-    whereConditions.push(gte(papers.publicationDate, minPublicationDate));
+    paperWhereConditions.push(gte(papers.publicationDate, minPublicationDate));
   }
-  
-  const results = await db
+
+  const topPapers = await db
+    .select({
+      id: papers.id,
+      title: papers.title,
+      universalId: papers.universalId,
+      votes: papers.votes,
+      publicationDate: papers.publicationDate,
+    })
+    .from(papers)
+    .where(and(...paperWhereConditions))
+    .orderBy(desc(papers.votes))
+    .limit(maxPapers);
+
+  if (topPapers.length === 0) return [];
+
+  const topPaperIds = topPapers.map((p) => p.id);
+
+  // Step 3: Fetch matching page snippets only for the top papers
+  const pageResults = await db
     .select({
       paperId: paperPages.paperId,
-      paperTitle: papers.title,
-      paperUniversalId: papers.universalId,
-      paperVotes: papers.votes,
-      paperPublicationDate: papers.publicationDate,
       pageNumber: paperPages.pageNumber,
       text: paperPages.text,
     })
     .from(paperPages)
-    .innerJoin(papers, eq(paperPages.paperId, papers.id))
-    .where(and(...whereConditions))
-    .orderBy(desc(papers.votes))
-    .limit(maxPapers * maxSnippetsPerPaper);
+    .where(
+      and(
+        inArray(paperPages.paperId, topPaperIds),
+        sql`${paperPages.textSearchVector} @@ to_tsquery('english', ${tsQuery})`,
+      )
+    );
 
+  // Build a lookup for paper details
+  const paperDetailsMap = new Map(topPapers.map((p) => [p.id, p]));
+
+  // Assemble results in votes-sorted order
   const paperMap = new Map<PaperId, {
     universalId: string;
     paperTitle: string;
@@ -225,33 +254,29 @@ export const searchPaperPagesByKeyword = async (
     }>;
   }>();
 
-  for (const result of results) {
-    if (paperMap.size >= maxPapers && !paperMap.has(result.paperId)) {
-      continue;
-    }
+  // Initialize in sorted order
+  for (const paper of topPapers) {
+    paperMap.set(paper.id, {
+      universalId: paper.universalId,
+      paperTitle: paper.title,
+      votes: paper.votes,
+      publicationDate: paper.publicationDate,
+      occurrences: [],
+    });
+  }
 
-    if (!paperMap.has(result.paperId)) {
-      paperMap.set(result.paperId, {
-        universalId: result.paperUniversalId,
-        paperTitle: result.paperTitle,
-        votes: result.paperVotes,
-        publicationDate: result.paperPublicationDate,
-        occurrences: [],
-      });
-    }
+  // Fill in snippets
+  for (const page of pageResults) {
+    const paper = paperMap.get(page.paperId);
+    if (!paper || paper.occurrences.length >= maxSnippetsPerPaper) continue;
 
-    const paper = paperMap.get(result.paperId)!;
-    if (paper.occurrences.length >= maxSnippetsPerPaper) {
-      continue;
-    }
+    const snippets = extractSnippets(page.text, keyword);
 
-    const snippets = extractSnippets(result.text, keyword);
-    
     for (const snippet of snippets) {
       if (paper.occurrences.length >= maxSnippetsPerPaper) break;
-      
+
       paper.occurrences.push({
-        pageNumber: result.pageNumber,
+        pageNumber: page.pageNumber,
         snippet,
       });
     }
