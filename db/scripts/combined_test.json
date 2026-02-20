@@ -486,8 +486,7 @@
   {
     "query": "Find techniques for KV cache compression that use 2-bit quantization or error-resilient strategies (like KIVI or GEAR) to allow for extremely long context generation on consumer hardware.",
     "papers": [
-      "2402.01361",
-      "2403.07528"
+      "2402.01361"
     ]
   },
   {
@@ -566,7 +565,6 @@
   {
     "query": "Find research on 'Chameleon' or 'Unified Multimodal' architectures that treat images and text as a single sequence of discrete tokens, using a unified Transformer for both generation and understanding without separate vision encoders like CLIP.",
     "papers": [
-      "2305.20104",
       "2405.09818"
     ]
   },
