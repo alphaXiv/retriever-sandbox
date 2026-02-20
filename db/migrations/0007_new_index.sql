@@ -1,0 +1,1 @@
+CREATE INDEX "paper_pages_paper_id_idx" ON "paper_pages" USING btree ("paper_id");

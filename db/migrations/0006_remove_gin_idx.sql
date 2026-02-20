@@ -1,0 +1,1 @@
+DROP INDEX "paper_pages_text_gin_idx";

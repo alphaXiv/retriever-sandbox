@@ -12,7 +12,8 @@ export const papers = pgTable("papers", {
   votes: integer().notNull().default(0)
 }, (table) => ({
   universalIdUnique: uniqueIndex("papers_universal_id_idx").on(table.universalId),
-  votesIndex: index("papers_votes_idx").on(table.votes.desc())
+  votesIndex: index("papers_votes_idx").on(table.votes.desc()),
+  idVotesIndex: index("papers_id_votes_idx").on(table.id, table.votes.desc()),
 }));
 
 export const paperPages = pgTable("paper_pages", {
@@ -22,9 +23,9 @@ export const paperPages = pgTable("paper_pages", {
   text: text().notNull(),
   textSearchVector: tsvector().notNull(),
 }, (table) => ({
-  textGinIndex: index("paper_pages_text_gin_idx").using("gin", sql`to_tsvector('english', ${table.text})`),
   textSearchVectorGinIndex: index("paper_pages_text_search_vector_gin_idx").using("gin", table.textSearchVector),
-  paperPageUnique: uniqueIndex("paper_pages_paper_id_page_number_idx").on(table.paperId, table.pageNumber)
+  paperPageUnique: uniqueIndex("paper_pages_paper_id_page_number_idx").on(table.paperId, table.pageNumber),
+  paperIdIndex: index("paper_pages_paper_id_idx").on(table.paperId),
 }));
 
 export const paperAbstractEmbeddings = pgTable("paper_abstract_embeddings", {
