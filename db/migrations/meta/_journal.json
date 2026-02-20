@@ -57,6 +57,13 @@
       "when": 1771569864193,
       "tag": "0007_new_index",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1771570444491,
+      "tag": "0008_papers_indices",
+      "breakpoints": true
     }
   ]
 }
