@@ -107,6 +107,7 @@ export const createPaperPages = async (pages: Array<{
     paperId: page.paperId,
     pageNumber: page.pageNumber,
     text: page.text,
+    textSearchVector: sql`to_tsvector('english', ${page.text})`,
   }));
 
   return await db.insert(paperPages).values(values).returning();
@@ -142,6 +143,7 @@ export const createPapersWithPages = async (papersData: Array<{
       paperId: PaperId;
       pageNumber: number;
       text: string;
+      textSearchVector: ReturnType<typeof sql>;
     }> = [];
 
     createdPapers.forEach((paper, idx) => {
@@ -156,12 +158,19 @@ export const createPapersWithPages = async (papersData: Array<{
             paperId: paper.id,
             pageNumber: page.pageNumber,
             text: page.text,
+            textSearchVector: sql`to_tsvector('english', ${page.text})`,
           });
         });
       }
     });
 
-    let createdPages: typeof allPages = [];
+    let createdPages: Array<{
+      id: PaperPageId;
+      paperId: PaperId;
+      pageNumber: number;
+      text: string;
+      textSearchVector: string;
+    }> = [];
     if (allPages.length > 0) {
       createdPages = await tx.insert(paperPages).values(allPages).returning();
     }
@@ -182,7 +191,7 @@ export const searchPaperPagesByKeyword = async (
   const tsQuery = keyword.trim().split(/\s+/).join(' & ');
   
   const whereConditions = [
-    sql`to_tsvector('english', ${paperPages.text}) @@ to_tsquery('english', ${tsQuery})`,
+    sql`${paperPages.textSearchVector} @@ to_tsquery('english', ${tsQuery})`,
   ];
   
   if (minPublicationDate !== undefined) {

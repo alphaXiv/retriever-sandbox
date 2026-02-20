@@ -1,0 +1,1 @@
+ALTER TABLE "paper_pages" ALTER COLUMN "text_search_vector" SET NOT NULL;

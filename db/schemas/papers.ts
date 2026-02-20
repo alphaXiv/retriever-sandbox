@@ -1,5 +1,5 @@
 import { pgTable, text, integer, index, uniqueIndex, timestamp, halfvec, vector } from "drizzle-orm/pg-core";
-import { id } from "../../lib/db-types";
+import { id, tsvector } from "../../lib/db-types";
 import type { PaperAbstractEmbeddingId, PaperId, PaperPageId } from "../../lib/id";
 import { sql } from "drizzle-orm";
 
@@ -19,9 +19,11 @@ export const paperPages = pgTable("paper_pages", {
   id: id<PaperPageId>().primaryKey(),
   paperId: id<PaperId>().notNull().references(() => papers.id, { onDelete: "cascade" }),
   pageNumber: integer().notNull(),
-  text: text().notNull()
+  text: text().notNull(),
+  textSearchVector: tsvector().notNull(),
 }, (table) => ({
   textGinIndex: index("paper_pages_text_gin_idx").using("gin", sql`to_tsvector('english', ${table.text})`),
+  textSearchVectorGinIndex: index("paper_pages_text_search_vector_gin_idx").using("gin", table.textSearchVector),
   paperPageUnique: uniqueIndex("paper_pages_paper_id_page_number_idx").on(table.paperId, table.pageNumber)
 }));
 

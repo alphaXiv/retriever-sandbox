@@ -29,6 +29,20 @@
       "when": 1771032219602,
       "tag": "0003_index",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1771545562574,
+      "tag": "0004_index_improvement",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1771568353509,
+      "tag": "0005_enforce_tsvector",
+      "breakpoints": true
     }
   ]
 }

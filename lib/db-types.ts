@@ -18,3 +18,9 @@ const uuidv7Type = customType<{ data: string; driverData: string }>({
 export function id<T extends Id<string> | UuidString = UuidString>() {
   return uuidv7Type().$type<T>();
 }
+
+export const tsvector = customType<{ data: string; driverData: string }>({
+  dataType() {
+    return "tsvector";
+  },
+});
