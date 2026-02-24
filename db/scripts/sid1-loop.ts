@@ -63,6 +63,10 @@ const MAX_TURNS = 10;
 function formatSearchResultsAsXML(data: any): string {
   const results = data.results || [];
   
+  if (results.length === 0) {
+    return "No results found.";
+  }
+
   const formatted = results.map((paper: any) => {
     const snippets = paper.occurrences?.map((occ: any) => occ.snippet).join("\n") || "";
     return `<doc id="${paper.universalId}" title="${paper.paperTitle}" publicationDate="${paper.publicationDate}">\n${snippets}\n</doc>`;
@@ -138,8 +142,9 @@ if (toolName === "text_search") {
   const responseText = await response.text();
   const data = JSON.parse(responseText);
 
-if (toolName === "text_search") {
-    return formatSearchResultsAsXML(data);
+  if (toolName === "text_search") {
+    const formatted = formatSearchResultsAsXML(data);
+    return formatted || "No results found for this query.";
   } else if (toolName === "read") {
     return formatPageAsXML(data);
   }
@@ -154,19 +159,17 @@ async function executeToolCalls(toolCalls: ChatCompletionMessageToolCall[]): Pro
         throw new Error(`Unsupported tool call type: ${toolCall.type}`);
       }
       
-      const { name, arguments: argsStr } = toolCall.function;
-      const args = JSON.parse(argsStr);
-      
-      const content = await callTool(name, args);
-      
-      return {
-        tool_call_id: toolCall.id,
-        content,
-      };
-    })
-  );
-
-  return results;
+      const { name, arguments: argsStr } = toolCall.function;
+      const args = JSON.parse(argsStr);
+      
+      const content = await callTool(name, args);
+      
+      return {
+        tool_call_id: toolCall.id,
+        content: content || "No results found.",
+      };
+    })
+  );  return results;
 }
 
 async function runAgentLoop(query: string) {
@@ -253,6 +256,6 @@ async function runAgentLoop(query: string) {
   return { messages, reportedIds, turnCount: turn };
 }
 
-const query = "Which paper from Xiaohongshu has \"L1: Controlling how long a reasoning model thinks with reinforcement learning\" as its first citation?";
+const query = "What are tricks to improve stability during post-training?";
 const result = await runAgentLoop(query);
 console.log("\nAgent loop completed:", result.turnCount, "turns");

@@ -1,5 +1,27 @@
 [
   {
+    "query": "What are the common techniques to extend the context window of an LLM that was using RoPE embeddings?",
+    "papers": [
+      "2309.00071",
+      "2402.13753",
+      "2309.16039",
+      "2309.16609"
+    ]
+  },
+  {
+    "query": "Which are the best performing alternatives optimizers to the traditional ones like Adam, Momentum, and SGD?",
+    "papers": [
+      "2409.11321",
+      "2502.16982",
+      "2305.14342",
+      "2405.15682",
+      "2406.16793",
+      "2507.20534",
+      "2510.09378",
+      "2403.03507"
+    ]
+  },
+  {
     "query": "Training free N-gram analysis to detect AI-generated text",
     "papers": [
       "2305.17359",
@@ -30,6 +52,15 @@
     "query": "Evolutionary policy optimization from CMU",
     "papers": [
       "2503.19037"
+    ]
+  },
+  {
+    "query": "In attention-based architectures and models, where are the common placements of the normalization layer within an attention block?",
+    "papers": [
+      "2503.04598",
+      "2601.19895",
+      "2406.00515",
+      "2408.00118"
     ]
   },
   {
@@ -82,6 +113,25 @@
     ]
   },
   {
+    "query": "When fine-tuning a Qwen model for multi-hop search, does it make more sense to fine-tune with thinking enabled or disabled?",
+    "papers": [
+      "2503.19470",
+      "2503.09516",
+      "2502.08235",
+      "2501.12948",
+      "2505.09388"
+    ]
+  },
+  {
+    "query": "Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?",
+    "papers": [
+      "2503.18892",
+      "2502.03373",
+      "2504.07912",
+      "2505.09388"
+    ]
+  },
+  {
     "query": "Which papers benchmark molecular embedding models for representation learning?",
     "papers": [
       "2506.15792",
@@ -92,6 +142,12 @@
       "2503.19168",
       "2212.13350",
       "2503.16278"
+    ]
+  },
+  {
+    "query": "What benchmarks does DeepSeek OCR use in its results?",
+    "papers": [
+      "2510.18234"
     ]
   },
   {
@@ -175,6 +231,14 @@
     ]
   },
   {
+    "query": "What are the most commonly referenced benchmarks for testing LLM tool-use?",
+    "papers": [
+      "2406.18518",
+      "2406.12045",
+      "2504.13958"
+    ]
+  },
+  {
     "query": "Paper from a joint collaboration between UNC and Salesforce Research that has agents improve in a self-reinforcing cycle on tasks with tools",
     "papers": [
       "2511.16043"
@@ -197,6 +261,19 @@
       "2402.19173",
       "2504.04152",
       "2504.10178"
+    ]
+  },
+  {
+    "query": "What works does OlmoOCR 2 compare itself against?",
+    "papers": [
+      "2510.18234",
+      "2510.14528",
+      "2506.05218",
+      "2509.22186",
+      "2512.02498",
+      "2506.03197",
+      "2511.10390",
+      "2502.18443"
     ]
   },
   {
@@ -239,6 +316,18 @@
     ]
   },
   {
+    "query": "Which models perform best on Tau-Bench?",
+    "papers": [
+      "2508.06471",
+      "2506.13585",
+      "2406.12045",
+      "2508.18669",
+      "2601.05808",
+      "2508.10925",
+      "2507.20534"
+    ]
+  },
+  {
     "query": "Deepseek paper that first introduced GRPO",
     "papers": [
       "2402.03300"
@@ -262,6 +351,38 @@
       "2512.02556",
       "2602.03786",
       "2601.02780"
+    ]
+  },
+  {
+    "query": "What is the largest open-source LLM released in terms of parameter count?",
+    "papers": [
+      "2507.20534",
+      "2510.22115",
+      "2412.19437",
+      "2407.21783",
+      "2505.09388"
+    ]
+  },
+  {
+    "query": "What improvements can be made to GRPO to improve stability when RL fine-tuning MOE models?",
+    "papers": [
+      "2510.11370",
+      "2511.20347",
+      "2510.26788",
+      "2512.02556",
+      "2503.14476"
+    ]
+  },
+  {
+    "query": "Which, if any, popular open source models adopt sliding window attention?",
+    "papers": [
+      "2310.06825",
+      "2503.19786",
+      "2504.00698",
+      "2601.02780",
+      "2512.13961",
+      "2412.01253",
+      "2406.07522"
     ]
   },
   {
@@ -317,6 +438,17 @@
     ]
   },
   {
+    "query": "What do LLM architectures use instead of GELU these days for activations?",
+    "papers": [
+      "2002.05202",
+      "2302.13971",
+      "2307.09288",
+      "2412.19437",
+      "2412.15115",
+      "2412.13663"
+    ]
+  },
+  {
     "query": "Joint collaboration between AMD and John Hopkins on designing a fully autonomous lab with agents",
     "papers": [
       "2501.04227"
@@ -339,6 +471,25 @@
       "2508.06471",
       "2507.20534",
       "2509.06283"
+    ]
+  },
+  {
+    "query": "What is the best population size to use for evolutionary strategies?",
+    "papers": [
+      "1604.00772",
+      "2509.24372",
+      "2511.16652",
+      "1703.03864",
+      "1803.10122"
+    ]
+  },
+  {
+    "query": "Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a \"constitution\" to guide the model's self-critique and refinement process, often referred to as RLAIF.",
+    "papers": [
+      "2212.08073",
+      "2309.00267",
+      "2305.03047",
+      "2303.17651"
     ]
   },
   {
@@ -378,6 +529,27 @@
     ]
   },
   {
+    "query": "What scale of reward should I provide in RLVR for LLM-finetuning with PPO? Especially when introducing something like format rewards or additional signal besides binary",
+    "papers": [
+      "2506.15651",
+      "2501.12948",
+      "2505.00551",
+      "2504.04950"
+    ]
+  },
+  {
+    "query": "What are specific regularization techniques for reducing LLM pre-training instability?",
+    "papers": [
+      "2507.20534",
+      "2503.14476",
+      "2501.12948",
+      "2510.26788",
+      "2503.13427",
+      "2504.00698",
+      "2407.21783"
+    ]
+  },
+  {
     "query": "Methods that fine-tune LLMs with FP4 quantization",
     "papers": [
       "2305.14314",
@@ -393,6 +565,21 @@
     ]
   },
   {
+    "query": "Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?",
+    "papers": [
+      "2412.19437",
+      "2407.21783",
+      "2503.19786",
+      "2505.09388",
+      "2504.00698",
+      "2502.14837",
+      "2405.04434",
+      "2504.03624",
+      "2510.26692",
+      "2312.00752"
+    ]
+  },
+  {
     "query": "What papers discuss \"Reflexion\" where agents verbally reinforce themselves to improve performance on subsequent trials?",
     "papers": [
       "2303.11366"
@@ -405,6 +592,58 @@
     ]
   },
   {
+    "query": "What open models and benchmarks does Dr Tulu 8b compare against?",
+    "papers": [
+      "2511.19399",
+      "2510.24701",
+      "2504.21776",
+      "2509.06501",
+      "2503.09516",
+      "2508.07976",
+      "2505.09388",
+      "2505.08775",
+      "2509.00496",
+      "2411.14199"
+    ]
+  },
+  {
+    "query": "When RL fine-tuning a retrieval agent that has access to tools, how should I shape the rewards? Are outcome-based rewards sufficient or do I need to add process-oriented rewards centered around tool-query quality, etc?",
+    "papers": [
+      "2601.04888",
+      "2504.11536",
+      "2503.09516",
+      "2504.13958",
+      "2602.03647"
+    ]
+  },
+  {
+    "query": "Which other open source models does GLM 4.5 benchmark against?",
+    "papers": [
+      "2508.06471",
+      "2505.09388",
+      "2512.02556",
+      "2501.12948",
+      "2507.20534"
+    ]
+  },
+  {
+    "query": "Which models include vending bench results in their paper?",
+    "papers": [
+      "2502.15840"
+    ]
+  },
+  {
+    "query": "What are some tricks to stabilize training when RL fine-tuning a large MoE model?",
+    "papers": [
+      "2412.19437",
+      "2512.02556",
+      "2512.01374",
+      "2503.14476",
+      "2504.05118",
+      "2501.12948"
+    ]
+  },
+  {
     "query": "Which LoRA variants insert a new matrix between the A and B decomposition matrices?",
     "papers": [
       "2303.10512",
@@ -414,6 +653,16 @@
       "2310.11454",
       "2503.19859",
       "2403.14608"
+    ]
+  },
+  {
+    "query": "What is the most common open-source model used in papers that perform some type of model fine-tuning techniques?",
+    "papers": [
+      "2504.13837",
+      "2501.12948",
+      "2504.11343",
+      "2504.14945",
+      "2504.00698"
     ]
   },
   {
@@ -450,6 +699,12 @@
     ]
   },
   {
+    "query": "Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?",
+    "papers": [
+      "2404.14367"
+    ]
+  },
+  {
     "query": "What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?",
     "papers": [
       "2305.10601",
@@ -461,6 +716,16 @@
       "2402.11814",
       "2309.03409",
       "2502.12993"
+    ]
+  },
+  {
+    "query": "What's the typical ratio of learning rates between pre-training and SFT fine-tuning for LLMs?",
+    "papers": [
+      "2304.08485",
+      "2307.09288",
+      "2503.19206",
+      "2005.12872",
+      "2402.03300"
     ]
   },
   {
@@ -477,16 +742,27 @@
     ]
   },
   {
+    "query": "What are the best positional embedding techniques for LLMs?",
+    "papers": [
+      "2104.09864",
+      "2108.12409",
+      "2309.00071",
+      "2402.13753",
+      "2503.17407",
+      "2410.06205",
+      "2305.19466",
+      "2505.16381",
+      "2511.09146",
+      "1706.03762"
+    ]
+  },
+  {
     "query": "Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory",
     "papers": [
       "2205.14135",
       "2307.08691",
       "2407.08608",
-      "2410.20399",
-      "2503.14376",
-      "2312.06635",
-      "2309.06180",
-      "2502.12082"
+      "2410.20399"
     ]
   },
   {
@@ -569,6 +845,24 @@
     ]
   },
   {
+    "query": "What are good math benchmarks for evaluating an LLM's ability to do math reasoning?",
+    "papers": [
+      "2402.03300",
+      "2402.14008",
+      "2305.12524",
+      "2504.11456"
+    ]
+  },
+  {
+    "query": "Identify research describing the counter-intuitive training dynamic where a model achieves near-zero training error (memorization) but fails to generalize, only to suddenly achieve high test accuracy much later in training, often visible in algorithmic tasks.",
+    "papers": [
+      "2201.02177",
+      "2301.05217",
+      "2205.10343",
+      "2210.01117"
+    ]
+  },
+  {
     "query": "Agentic frameworks for autonomously generating code repositories from scientific papers",
     "papers": [
       "2504.17192",
@@ -581,6 +875,64 @@
       "2503.18102",
       "2505.13400",
       "2511.02824"
+    ]
+  },
+  {
+    "query": "What papers/works does Llama 3 benchmark against?",
+    "papers": [
+      "2407.21783",
+      "2303.08774",
+      "2312.11805",
+      "2310.06825",
+      "2503.19786",
+      "2401.04088",
+      "2406.11704"
+    ]
+  },
+  {
+    "query": "What normalization methods are researchers trying besides Layernorm for training LLMs?",
+    "papers": [
+      "1910.07467",
+      "2503.10622",
+      "2512.10938",
+      "2410.01131",
+      "2503.04598",
+      "2410.05258",
+      "2504.07866",
+      "2503.19786"
+    ]
+  },
+  {
+    "query": "For papers that RL post-train to improve AIME scores, what base models are most popular?",
+    "papers": [
+      "2501.12948",
+      "2503.14476",
+      "2504.05118",
+      "2504.16084",
+      "2504.14945",
+      "2504.20571",
+      "2505.10425",
+      "2505.00551",
+      "2503.20783",
+      "2504.07086"
+    ]
+  },
+  {
+    "query": "What open models and benchmarks does WebThinker-32B-DPO compare against?",
+    "papers": [
+      "2504.21776",
+      "2501.05366",
+      "2501.12948"
+    ]
+  },
+  {
+    "query": "What are some simulation benchmarks for the Franka robot arm?",
+    "papers": [
+      "2306.03310",
+      "2411.12633",
+      "2503.14734",
+      "2410.15959",
+      "2503.10631"
     ]
   },
   {
@@ -651,9 +1003,53 @@
     ]
   },
   {
+    "query": "When fine-tuning for alignment how do offline, semi-online, and online DPO compare with each other?",
+    "papers": [
+      "2506.21495",
+      "2402.03300",
+      "2305.18290",
+      "2501.12948",
+      "2508.05629"
+    ]
+  },
+  {
+    "query": "Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?",
+    "papers": [
+      "2504.05812",
+      "2412.15115",
+      "2505.09388",
+      "2512.07783",
+      "2501.12948"
+    ]
+  },
+  {
+    "query": "How are positional embeddings assigned to multimodal architectures that tokenize images?",
+    "papers": [
+      "2010.11929",
+      "2409.12191",
+      "2502.13923",
+      "2103.00020",
+      "2506.09985",
+      "2504.10462",
+      "2505.07062",
+      "2503.13436"
+    ]
+  },
+  {
     "query": "Which paper from Xiaohongshu has \\\"L1: Controlling how long a reasoning model thinks with reinforcement learning\\\" as its first citation?",
     "papers": [
       "2504.03234"
+    ]
+  },
+  {
+    "query": "What are some continual learning strategies that do not update weights at test-time?",
+    "papers": [
+      "1612.00796",
+      "2305.19270",
+      "2306.03310",
+      "2503.00677",
+      "2207.04874",
+      "2504.13822"
     ]
   },
   {
@@ -792,12 +1188,26 @@
       "2305.16867",
       "2402.05863",
       "2411.05990",
-      "2402.12348",
-      "2503.12722",
-      "2502.12504",
-      "2503.15752",
-      "2501.14225",
-      "2502.20432"
+      "2402.12348"
+    ]
+  },
+  {
+    "query": "Is sample reuse ok when doing alignment fine-tuning for LLMs?",
+    "papers": [
+      "2404.14367",
+      "2501.03262",
+      "2407.21783",
+      "2407.10671"
+    ]
+  },
+  {
+    "query": "What are tricks to improve stability during post-training?",
+    "papers": [
+      "2503.14476",
+      "2307.04964",
+      "2501.03262",
+      "2504.05118",
+      "2512.13607"
     ]
   },
   {
@@ -805,6 +1215,15 @@
     "papers": [
       "2510.13651",
       "2510.23049"
+    ]
+  },
+  {
+    "query": "What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?",
+    "papers": [
+      "2407.04620",
+      "2310.13807",
+      "2512.23675",
+      "2506.10943"
     ]
   },
   {
@@ -824,6 +1243,16 @@
     ]
   },
   {
+    "query": "Which other open source models does GLM 4.5 benchmark against?",
+    "papers": [
+      "2508.06471",
+      "2412.19437",
+      "2501.12948",
+      "2406.12793",
+      "2407.10671"
+    ]
+  },
+  {
     "query": "Are there papers that assess reasoning abilities of llms without specifically fine-tuning for it?",
     "papers": [
       "2504.13837",
@@ -834,9 +1263,31 @@
     ]
   },
   {
+    "query": "Which papers show the best results for HotpotQA?",
+    "papers": [
+      "2508.16153",
+      "2504.03160",
+      "2503.19470",
+      "2503.09516",
+      "2501.05366",
+      "2503.05592",
+      "2505.04588",
+      "2508.13167"
+    ]
+  },
+  {
     "query": "Which paper uses RL for interleaved reasoning on tasks like Knights and Knaves?",
     "papers": [
       "2505.19640"
+    ]
+  },
+  {
+    "query": "LLM as a judge can be noisy for continual learning. Are there methods that attempt to use LLMs to compare different trajectories (suggesting that pair-wise comparison could be more stable than just having an LLM assign a reward out of the blue)?",
+    "papers": [
+      "2505.10320",
+      "2504.02495",
+      "2505.14674",
+      "2504.04950"
     ]
   },
   {
@@ -899,6 +1350,42 @@
     ]
   },
   {
+    "query": "What are tricks for converging during pre-training that popular open source models use?",
+    "papers": [
+      "2412.19437",
+      "2407.21783",
+      "2501.00656",
+      "2503.05139",
+      "2507.20534",
+      "2202.08906",
+      "2409.02060"
+    ]
+  },
+  {
+    "query": "Papers that assess feasbility of Muon optimizer at large scale",
+    "papers": [
+      "2502.16982",
+      "2504.05295",
+      "2510.05491",
+      "2509.02046",
+      "2509.01440",
+      "2507.20534",
+      "2505.23725"
+    ]
+  },
+  {
+    "query": "Is dropout used when training modern state-of-the-art LLMs?",
+    "papers": [
+      "2305.11206",
+      "2306.11644",
+      "2407.21783",
+      "2302.10866",
+      "2409.17146",
+      "2503.04715",
+      "2412.19437"
+    ]
+  },
+  {
     "query": "What is that paper where Nathan Lambert is one of the authors that suggests if you fine-tuning Qwen with random rewards evals can go up?",
     "papers": [
       "2506.10947"
@@ -937,6 +1424,28 @@
     ]
   },
   {
+    "query": "What are the best open-source models on SWE-bench verified?",
+    "papers": [
+      "2602.03411",
+      "2507.20534",
+      "2601.01426",
+      "2601.18418",
+      "2502.18449",
+      "2504.07164",
+      "2510.02387",
+      "2509.02547"
+    ]
+  },
+  {
+    "query": "When does adding a KL penalty with the reference policy help when RL fine-tuning?",
+    "papers": [
+      "2502.21321",
+      "2505.24864",
+      "2504.12501",
+      "2203.02155"
+    ]
+  },
+  {
     "query": "Which paper(s) compare simple rejection-sampling frameworks for LLM reasoning with more advanced techniques like GRPO and iterative dpo?",
     "papers": [
       "2504.11343",
@@ -947,6 +1456,41 @@
       "2504.05118",
       "2501.12948",
       "2502.21321"
+    ]
+  },
+  {
+    "query": "Which papers show the best results for HotpotQA?",
+    "papers": [
+      "2508.16153",
+      "2504.03160",
+      "2508.13167",
+      "2503.09516",
+      "2503.05592",
+      "2510.08558",
+      "2505.04588",
+      "2501.05366"
+    ]
+  },
+  {
+    "query": "What deep research benchmarks does Dr. Tulu-8B use?",
+    "papers": [
+      "2511.19399",
+      "2505.08775",
+      "2509.00496",
+      "2510.21652",
+      "2411.14199",
+      "2510.02190"
+    ]
+  },
+  {
+    "query": "For papers that RL post-train to improve AIME scores, what datasets do they typically use?",
+    "papers": [
+      "2501.12948",
+      "2503.14476",
+      "2504.11456",
+      "2505.09388",
+      "2504.14945",
+      "2502.17387"
     ]
   },
   {
@@ -974,15 +1518,18 @@
     "query": "How are AI agents being applied to materials science research and discovery?",
     "papers": [
       "2504.01990",
-      "2503.21460",
-      "2508.14111",
-      "2503.08979",
-      "2501.04227",
-      "2506.20743",
-      "2504.00741",
-      "2510.09901",
-      "2503.24047",
-      "2411.09429"
+      "2503.21460"
+    ]
+  },
+  {
+    "query": "Which models perform best on Tau-Bench?",
+    "papers": [
+      "2406.12045",
+      "2508.06471",
+      "2506.13585",
+      "2507.20534",
+      "2504.00698",
+      "2512.20848"
     ]
   },
   {
@@ -1026,6 +1573,21 @@
     ]
   },
   {
+    "query": "Which open source works does Kimi K2.5 benchmark and compare itself against?",
+    "papers": [
+      "2512.02556",
+      "2511.21631"
+    ]
+  },
+  {
+    "query": "Which open-source models does the MiniMax-M1 paper compare itself to?",
+    "papers": [
+      "2506.13585",
+      "2501.12948",
+      "2505.09388"
+    ]
+  },
+  {
     "query": "Open-source model from Google fine-tuned specifically for a range of medical tasks",
     "papers": [
       "2507.05201",
@@ -1047,6 +1609,20 @@
     ]
   },
   {
+    "query": "Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?",
+    "papers": [
+      "2407.21783",
+      "2503.19786",
+      "2412.19437",
+      "2405.04434",
+      "2504.03624",
+      "2510.26692",
+      "2408.00118",
+      "2505.09388",
+      "2412.15115"
+    ]
+  },
+  {
     "query": "QSPR modeling with deep neural networks",
     "papers": [
       "2404.02058",
@@ -1054,6 +1630,28 @@
       "1712.02034",
       "2211.16712",
       "2406.04727"
+    ]
+  },
+  {
+    "query": "What are the most popular multi-hop reasoning benchmarks?",
+    "papers": [
+      "1809.09600",
+      "2108.00573",
+      "2204.09140",
+      "2503.19470",
+      "2503.16416",
+      "2503.09516",
+      "2501.05366",
+      "2503.21729"
+    ]
+  },
+  {
+    "query": "Are there any multimodal architectures that use the next-token-prediction paradigm for generating images, instead of diffusion?",
+    "papers": [
+      "2404.02905",
+      "2409.04429",
+      "2505.14683",
+      "2503.16430"
     ]
   },
   {
@@ -1085,6 +1683,17 @@
     ]
   },
   {
+    "query": "Papers analyzing the impact of process rewards when doing GRPO",
+    "papers": [
+      "2502.01456",
+      "2511.10279",
+      "2506.11902",
+      "2509.21240",
+      "2509.21154",
+      "2503.12937"
+    ]
+  },
+  {
     "query": "Paper from OpenAI exploring evolutionary strategies as a viable alternative to RL",
     "papers": [
       "1703.03864"
@@ -1101,6 +1710,17 @@
       "2503.23037",
       "2504.01990",
       "2510.12399"
+    ]
+  },
+  {
+    "query": "What post-training methods are used by models that benchmark against Tau-bench?",
+    "papers": [
+      "2508.06471",
+      "2506.13585",
+      "2507.20534",
+      "2508.10925",
+      "2507.11407",
+      "2501.12948"
     ]
   },
   {
@@ -1191,16 +1811,18 @@
     ]
   },
   {
+    "query": "Which models does Deepseek-V3 benchmark and compare itself against?",
+    "papers": [
+      "2412.19437",
+      "2412.15115"
+    ]
+  },
+  {
     "query": "Papers examining the impact of mid-training in between pre-training and RL fine-tuning",
     "papers": [
       "2512.07783",
-      "2509.13310",
       "2506.20512",
       "2510.24701",
-      "2512.20491",
-      "2510.02387",
-      "2509.08827",
-      "2601.18795",
       "2508.06471",
       "2509.18883"
     ]

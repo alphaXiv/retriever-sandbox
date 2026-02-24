@@ -22,11 +22,8 @@ Papers examining the impact of mid-training in between pre-training and RL fine-
 Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory
 I am looking for a specific architectural innovation that replaces fixed activation functions in MLPs with learnable activation functions on edges
 Which paper(s) focus on examining LLMs abilities to reason in anticipatory games like deal or no deal, prisoner's dilemma, etc?
-What are commonly cited deep research benchmarks?
 What is the most common open-source model used in papers that perform some type of model fine-tuning techniques?
-What are the latest techniques and architectures for self-supervised depth estimation?
 Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a "constitution" to guide the model's self-critique and refinement process, often referred to as RLAIF.
-I need papers that describe a statistical method for embedding a detectable signal into an LLM's output by biasing the sampling probability distribution (logits) based on the hash of previous tokens, creating "green" and "red" lists.
 Which papers show the best results for HotpotQA?
 What are the most popular multi-hop reasoning benchmarks?
 Which, if any, popular open source models adopt sliding window attention?
@@ -39,14 +36,18 @@ What do LLM architectures use instead of GELU these days for activations?
 What normalization methods are researchers trying besides Layernorm for training LLMs?
 Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?
 Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
-In what situations is an SFT phase commonly used between pre-training and RL and when is it excluded?
 What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?
 What are some continual learning strategies that do not update weights at test-time?
 LLM as a judge can be noisy for continual learning. Are there methods that attempt to use LLMs to compare different trajectories (suggesting that pair-wise comparison could be more stable than just having an LLM assign a reward out of the blue)?
 Papers analyzing the impact of process rewards when doing GRPO
 When RL fine-tuning a retrieval agent that has access to tools, how should I shape the rewards? Are outcome-based rewards sufficient or do I need to add process-oriented rewards centered around tool-query quality, etc?
 Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
-What strategies do code-generating agent frameworks use to manage exploding context windows?
 What are some simulation benchmarks for the Franka robot arm?
 What is the largest open-source LLM released in terms of parameter count?
 Is dropout used when training modern state-of-the-art LLMs?
+
+
+
+
+
+

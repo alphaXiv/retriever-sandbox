@@ -3,7 +3,6 @@ What are tricks to improve stability during post-training?
 What's the typical ratio of learning rates between pre-training and SFT fine-tuning for LLMs?
 What are specific regularization techniques for reducing LLM pre-training instability?
 What are some tricks to stabilize training when RL fine-tuning a large MoE model?
-What is the best population size to use for evolutionary strategies?
 How are positional embeddings assigned to multimodal architectures that tokenize images?
 Identify research describing the counter-intuitive training dynamic where a model achieves near-zero training error (memorization) but fails to generalize, only to suddenly achieve high test accuracy much later in training, often visible in algorithmic tasks.
 What are the common techniques to extend the context window of an LLM that was using RoPE embeddings?

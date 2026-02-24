@@ -25,7 +25,7 @@ async function coalesceOutputs() {
   // Get the repo root (go up from db/scripts/)
   const currentFileDir = dirname(fileURLToPath(import.meta.url));
   const repoRoot = join(currentFileDir, "..", "..");
-  const outputsDir = join(repoRoot, "outputs");
+  const outputsDir = join(repoRoot, "outputs_train_round_2");
   const processedOutputsDir = join(repoRoot, "processed_outputs");
 
   // Create processed_outputs directory if it doesn't exist

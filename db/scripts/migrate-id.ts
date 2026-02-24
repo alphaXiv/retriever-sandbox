@@ -1,24 +1,24 @@
-import { getPaperByUniversalId, createPapersWithPages } from "../services/papers";
+import { getPaperByUniversalId, createPapersWithPages, getPaperPageCountByUniversalId, deletePaperByUniversalId } from "../services/papers";
 
 // Set the universal paper ID to migrate here
-const UNIVERSAL_PAPER_ID = "1802.06002";
+const UNIVERSAL_PAPER_ID = "2602.15763";
 
 interface PaperResponse {
-  universalPaperId: string;
+  universalId: string;
   title: string;
   abstract: string;
-  totalVotes?: number;
-  publicationDate?: string;
+  citationsCount?: number;
+  publicationDate?: number; // epoch ms
   pages?: Array<{
     pageNumber: number;
     text: string;
   }>;
 }
 
-const API_BASE = "https://api.alphaxiv.org/retrieve/v1";
+const API_BASE = "https://api.alphaxiv.org/papers/v3";
 
 async function fetchPaperByUniversalId(universalId: string): Promise<PaperResponse> {
-  const url = `${API_BASE}/paper/${universalId}`;
+  const url = `${API_BASE}/${universalId}`;
   console.log(`Fetching paper from: ${url}`);
   
   const response = await fetch(url);
@@ -37,15 +37,20 @@ async function migrateSinglePaper() {
     // Check if paper already exists
     const existingPaper = await getPaperByUniversalId(UNIVERSAL_PAPER_ID);
     
+    console.info("existingPaper:", existingPaper);
+
     if (existingPaper) {
-      console.log(`❌ Paper already exists in database:`);
-      console.log(`  ID: ${existingPaper.id}`);
-      console.log(`  Universal ID: ${existingPaper.universalId}`);
-      console.log(`  Title: ${existingPaper.title}`);
-      console.log(`  Votes: ${existingPaper.votes}`);
-      console.log(`  Publication Date: ${existingPaper.publicationDate}`);
-      console.log(`\nNo migration needed.`);
-      return;
+      const pageCount = await getPaperPageCountByUniversalId(UNIVERSAL_PAPER_ID);
+      console.info("pageCount:", pageCount);
+      if (Number(pageCount) === 0) {
+        console.log(`\n🗑️  Paper has 0 pages, deleting and continuing migration...`);
+        await deletePaperByUniversalId(UNIVERSAL_PAPER_ID);
+        console.log(`  Paper deleted successfully.`);
+        return;
+      } else {
+        console.log(`\nNo migration needed.`);
+        return;
+      }
     }
 
     // Fetch paper from API
@@ -56,10 +61,13 @@ async function migrateSinglePaper() {
       throw new Error(`Paper not found: ${UNIVERSAL_PAPER_ID}`);
     }
 
+    console.log(`\n📊 Paper Page Entries:`);
+    console.log(`  Number of paper page entries: ${paperData.pages?.length ?? 0}`);
+
     console.log(`\n📄 Paper Details:`);
     console.log(`  Title: ${paperData.title}`);
-    console.log(`  Total Votes: ${paperData.totalVotes ?? 0}`);
-    console.log(`  Publication Date: ${paperData.publicationDate ?? 'N/A'}`);
+    console.log(`  Citations: ${paperData.citationsCount ?? 0}`);
+    console.log(`  Publication Date: ${paperData.publicationDate ? new Date(paperData.publicationDate).toISOString() : 'N/A'}`);
     console.log(`  Pages: ${paperData.pages?.length ?? 0}`);
 
     // Create paper with pages
@@ -67,9 +75,9 @@ async function migrateSinglePaper() {
     const result = await createPapersWithPages([{
       title: paperData.title,
       abstract: paperData.abstract,
-      universalId: paperData.universalPaperId,
+      universalId: paperData.universalId,
       publicationDate: paperData.publicationDate ? new Date(paperData.publicationDate) : new Date(),
-      votes: paperData.totalVotes ?? 0,
+      votes: paperData.citationsCount ?? 0,
       pages: paperData.pages,
     }]);
 

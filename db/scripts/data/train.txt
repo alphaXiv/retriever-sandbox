@@ -53,10 +53,8 @@ Which paper argues that a successful alignment algorithm should use on-policy sa
 Which papers have done comprehensive studies comparing DPO to PPO for alignment?
 What are some simulation benchmarks for the Franka robot arm?
 What is a good pre-trained base model to fine-tune on top of for VLA tasks?
-What strategies do code-generating agent frameworks use to manage exploding context windows?
 What are works that fine-tune video models specifically for use as VLA control models?
 Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?
-In what situations is an SFT phase commonly used between pre-training and RL and when is it excluded?
 What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?
 What are some continual learning strategies that do not update weights at test-time?
 What architectures do foundation models for robotics use?
@@ -85,7 +83,6 @@ Which paper revisited neural scaling laws to determine the optimal allocation of
 Find research on "activation engineering" techniques that steer a model's behavior (e.g., toward honesty) at inference time by adding specific vectors to the internal hidden states rather than updating weights.
 I'm looking for plug-and-play methods for diffusion models that decouple cross-attention mechanisms to allow for consistent identity generation using a reference image, specifically without requiring the computationally expensive process of fine-tuning or training a LoRA.
 Identify papers that connect a pre-trained vision encoder (like CLIP) to a large language model using a simple projection layer to enable visual instruction tuning, effectively treating image patches as foreign language tokens.
-I need papers that describe a statistical method for embedding a detectable signal into an LLM's output by biasing the sampling probability distribution (logits) based on the hash of previous tokens, creating "green" and "red" lists.
 Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a "constitution" to guide the model's self-critique and refinement process, often referred to as RLAIF.
 I am looking for methods that allow a weak LLM to become a strong one by engaging in a zero-sum game against its previous iteration, effectively removing the need for external human-annotated pairs during fine-tuning.
 Find papers that discuss "jailbreaking" LLMs by automatically generating adversarial suffixes.
@@ -137,7 +134,6 @@ MoE LLM Post-Training quantization
 Reinforcement Learning via Self-Distillation
 What are some open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters?
 What is that paper where Nathan Lambert is one of the authors that suggests if you fine-tuning Qwen with random rewards evals can go up?
-What are the latest techniques and architectures for self-supervised depth estimation?
 making databases faster with llm evolutionary sampling
 Compare the paper 'RLP: Reinforcement as a Pretraining Objective' with 'STaR' to determine if it is a continuation, and explain how information gain is defined and calculated in RLP
 Which paper implements a soft overlong penalty and noticed that truncation of long reasoning traces was inducing bias?
@@ -149,7 +145,6 @@ Which paper maintains log N memory states to reduce inference of a token to O (l
 Which paper RL tunes algorithms to create high-quality fine-tuning signal for self-edits to better learn?
 Are there any papers showing that evolutionary strategies are more robust than RL across different base model families?
 Have people tried gradient-free optimization methods that have been successfully applied to LLM fine-tuning?
-What is the best population size to use for evolutionary strategies?
 Have people tried using evolutionary strategies when fine-tuning large LLMs (models greater than 30B parameters)?
 What are some types of tasks where evolutionary strategies outperform RL?
 Are there any papers showing the trade-offs in speed between evolutionary strategies and RL when fine-tuning LLMs at scale?

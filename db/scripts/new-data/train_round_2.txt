@@ -1,0 +1,71 @@
+What is that spurious rewards paper from the University of Washington?
+MaxRL from Fahim Tajwar
+Which paper introduces the Tiny Recursive Model (TRM)?
+Fetch me the Qwen3 technical report
+Paper from ETH Zurich on doing RL with self-distillation
+Which paper introduces the LoRA technique for parameter-efficient fine-tuning?
+Paper from Xuandong Zhao that introduces RL from internal feedback?
+Work from Andrew Zhao that discovers self-play reasoning without any external data
+Paper from a joint collaboration between UNC and Salesforce Research that has agents improve in a self-reinforcing cycle on tasks with tools 
+Which paper from Nvidia improves upon GRPO by decoupling the normalization of individual reward components?
+Pre-trained latent video diffusion model from Nvidia 
+Paper from OpenAI exploring evolutionary strategies as a viable alternative to RL
+Evolutionary policy optimization from CMU
+Joint collaboration between AMD and John Hopkins on designing a fully autonomous lab with agents
+Paper introducing Mamba SSMs from CMU authors
+Which OCR methods do best on OmniDocBench?
+Which open source models score best on Humanity's Last Exam?
+Which models do best on Terminal Bench 2.0?
+Which other open source models does GLM 4.5 benchmark against?
+Which models perform best on Tau-Bench?
+What papers/works does Llama 3 benchmark against?
+Which papers show the best results for HotpotQA?
+Which open source works does Kimi K2.5 benchmark and compare itself against?
+Which models does Deepseek-V3 benchmark and compare itself against?
+What works does OlmoOCR 2 compare itself against?
+What benchmarks does DeepSeek OCR use in its results?
+What are some open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters?
+What are good math benchmarks for evaluating an LLM's ability to do math reasoning?
+Which are the best performing alternatives optimizers to the traditional ones like Adam, Momentum, and SGD?
+Papers that assess feasbility of Muon optimizer at large scale
+Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?
+Which models include vending bench results in their paper?
+What post-training methods are used by models that benchmark against Tau-bench?
+What are the most commonly referenced benchmarks for testing LLM tool-use?
+For papers that RL post-train to improve AIME scores, what datasets do they typically use?
+For papers that RL post-train to improve AIME scores, what base models are most popular?
+What are the best open-source models on SWE-bench verified?
+Which open-source models does the MiniMax-M1 paper compare itself to?
+What open models and benchmarks does Dr Tulu 8b compare against?
+What open models and benchmarks does WebThinker-32B-DPO compare against?
+What deep research benchmarks does Dr. Tulu-8B use?
+What are the best benchmarks for testing agents abilities to complete economically useful real-world tasks?
+Have people tried adding entropy loss to GRPO?
+Which open-source models do best on ARC-AGI 2?
+Which papers score best on LiveCodeBench Pro?
+Which works have the best performance on MMMU pro?
+Good benchmarks that test long context performance of models
+Which models score best on Humanity's Last Exam without tool usage?
+What is the best performing model from the organization that released the Engram paper?
+What series of open-source models did the organization behind the Star-Attention paper produce?
+What is the best performing model from the organization that put out GSPO?
+What is the best performing open-source model from the organization that put out GDPO?
+What is the latest open source model put out by the organization that created Code World Model (CWM)?
+Papers showing comparison between using tied weights embeddings vs not for different model comparison and how does it help in convergence of said models.
+Which open source models have architectures using Deepseek's sparse attention architecture?
+Identify key studies that quantify the massive CO2 emissions and energy consumption associated with training large NLP models, advocating for efficiency metrics alongside accuracy.
+Papers examining the impact of mid-training in between pre-training and RL fine-tuning
+What is the most common open-source model used in papers that perform some type of model fine-tuning techniques?
+Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a "constitution" to guide the model's self-critique and refinement process, often referred to as RLAIF.
+What are the most popular multi-hop reasoning benchmarks?
+What normalization methods are researchers trying besides Layernorm for training LLMs?
+Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?
+LLM as a judge can be noisy for continual learning. Are there methods that attempt to use LLMs to compare different trajectories (suggesting that pair-wise comparison could be more stable than just having an LLM assign a reward out of the blue)?
+Papers analyzing the impact of process rewards when doing GRPO
+What is the largest open-source LLM released in terms of parameter count?
+Is dropout used when training modern state-of-the-art LLMs?
+What papers/methods did the Meta team utilize while post-training Llama 3?
+What optimizer method was used to training Kimi K2.5?
+Which open-source models use the Muon optimizer?
+What are some types of tasks where evolutionary strategies outperform RL?
+Have people tried using LoRA/QloRA or any PEFT techniques with ES, especially when tuning large models?

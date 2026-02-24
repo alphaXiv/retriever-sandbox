@@ -11,3 +11,5 @@ outputs/
 processed_outputs/
 outputs_train/
 processed_outputs_train/
+outputs_test/
+outputs_train_round_2/

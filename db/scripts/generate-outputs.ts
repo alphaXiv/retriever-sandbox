@@ -1,5 +1,5 @@
 import { createResearchAgent } from "../../src/agents/research.agent";
-import { mkdir, writeFile, readdir, readFile } from "fs/promises";
+import { mkdir, writeFile, readdir, readFile, unlink } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import pLimit from "p-limit";
@@ -7,7 +7,7 @@ import { getPapersByUniversalIds } from "../services/papers";
 
 // Load queries from text file (one query per line)
 const currentFileDir = dirname(fileURLToPath(import.meta.url));
-const queriesFile = Bun.file(join(currentFileDir, "data", "test.txt"));
+const queriesFile = Bun.file(join(currentFileDir, "new-data", "train_round_2.txt"));
 const queriesText = await queriesFile.text();
 const queries: string[] = queriesText.split("\n").map((l: string) => l.trim()).filter(Boolean);
 
@@ -16,7 +16,7 @@ async function generateOutputs() {
 
   // Get repo root by going up two levels from db/scripts/
   const repoRoot = join(currentFileDir, "..", "..");
-  const outputsDir = join(repoRoot, "outputs");
+  const outputsDir = join(repoRoot, "outputs_train_round_2");
   await mkdir(outputsDir, { recursive: true });
 
   // Build a set of already-processed queries
@@ -37,6 +37,34 @@ async function generateOutputs() {
       }
     }
     console.log(`Found ${processedQueries.size} already-processed queries\n`);
+  } catch (e) {
+    // outputs directory might not exist yet
+  }
+
+  // Delete JSON files whose query is NOT in the original text file
+  const validQueries = new Set(queries);
+  try {
+    const existingFiles = await readdir(outputsDir);
+    let deleted = 0;
+    for (const file of existingFiles) {
+      if (file.endsWith('.json')) {
+        try {
+          const content = await readFile(join(outputsDir, file), 'utf-8');
+          const data = JSON.parse(content);
+          if (data.query && !validQueries.has(data.query)) {
+            await unlink(join(outputsDir, file));
+            console.log(`🗑️  Deleted stale output (query not in source file): ${file}`);
+            processedQueries.delete(data.query);
+            deleted++;
+          }
+        } catch (e) {
+          // Skip malformed files
+        }
+      }
+    }
+    if (deleted > 0) {
+      console.log(`Deleted ${deleted} stale output files\n`);
+    }
   } catch (e) {
     // outputs directory might not exist yet
   }

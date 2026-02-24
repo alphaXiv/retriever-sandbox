@@ -10,6 +10,21 @@ export const getPaperByUniversalId = async (universalId: string) => {
   return paper ?? null;
 };
 
+export const getPaperPageCountByUniversalId = async (universalId: string) => {
+  const [result] = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(paperPages)
+    .innerJoin(papers, eq(paperPages.paperId, papers.id))
+    .where(eq(papers.universalId, universalId));
+
+  return result?.count ?? 0;
+};
+
+export const deletePaperByUniversalId = async (universalId: string) => {
+  const deletedPaper = await db.delete(papers).where(eq(papers.universalId, universalId)).returning();
+  return deletedPaper[0] ?? null;
+};
+
 export const getPaperAbstractByUniversalId = async (universalId: string) => {
   const [paper] = await db
     .select({
