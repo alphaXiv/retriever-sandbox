@@ -16,6 +16,7 @@ interface OutputFile {
 
 interface CoalescedResult {
   query: string;
+  answer: string;
   papers: string[];
 }
 
@@ -54,6 +55,7 @@ async function coalesceOutputs() {
 
     results.push({
       query: data.query,
+      answer: data.response.answer,
       papers,
     });
   }
