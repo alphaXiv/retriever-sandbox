@@ -1,6 +1,7 @@
 [
   {
     "query": "What are the common techniques to extend the context window of an LLM that was using RoPE embeddings?",
+    "answer": "The common techniques to extend the context window of LLMs using RoPE embeddings include: (1) **Position Interpolation (PI)** - linearly scales position indices to fit within the pre-training range; (2) **YaRN** - applies frequency interpolation with temperature scaling and attention temperature adjustments; (3) **NTK-aware scaling/Dynamic NTK** - modifies the RoPE base parameter using neural tangent kernel theory; (4) **LongRoPE** - exploits non-uniformities in positional interpolation with progressive extension; (5) **Adjusted Base Frequency (ABF)** - increases RoPE base from 10,000 to 1,000,000 for better long-context support; (6) **Dual Chunk Attention (DCA)** - decomposes sequences into chunks with separate intra-chunk and inter-chunk attention; (7) **Self-Extend** - maps unseen large relative positions to seen ones using floor operations with local attention; (8) **ReRoPE** - constrains and rectifies relative position distances; and (9) **StreamingLLM** - maintains attention sinks (initial tokens) to enable stable infinite-length generation without fine-tuning.",
     "papers": [
       "2309.00071",
       "2402.13753",
@@ -10,6 +11,7 @@
   },
   {
     "query": "Which are the best performing alternatives optimizers to the traditional ones like Adam, Momentum, and SGD?",
+    "answer": "The best performing alternative optimizers to traditional methods like Adam, Momentum, and SGD are primarily **matrix-based second-order preconditioned optimizers** like **Muon**, **SOAP**, and **Sophia**, along with schedule-free variants. According to recent comprehensive benchmarking studies, these optimizers achieve approximately 1.1-1.4× speedup over well-tuned AdamW (with speedups decreasing as model size increases). Key findings: (1) Matrix-based optimizers (Muon, SOAP, Shampoo) consistently outperform scalar-based ones (AdamW, Lion, MARS); (2) Proper hyperparameter tuning is critical - poorly tuned AdamW can be improved by 2× just by optimizing learning rate; (3) The speedup advantage decreases with model scale, from ~1.4× for 100M parameter models to ~1.1× for 1B+ models.",
     "papers": [
       "2409.11321",
       "2502.16982",
@@ -23,6 +25,7 @@
   },
   {
     "query": "Training free N-gram analysis to detect AI-generated text",
+    "answer": "Training-free N-gram analysis for detecting AI-generated text leverages statistical patterns in text without requiring model training. The key approach is DNA-GPT (Divergent N-Gram Analysis), which truncates text in the middle and regenerates the remaining portion using an LLM, then analyzes N-gram differences between original and regenerated text to distinguish machine-generated from human-written content. Related training-free methods include DetectGPT and Fast-DetectGPT which use probability curvature, Binoculars which contrasts two LLMs, and approaches analyzing token probability sequences, intrinsic dimensions, and entropy-based metrics.",
     "papers": [
       "2305.17359",
       "2310.05130",
@@ -32,30 +35,35 @@
   },
   {
     "query": "MaxRL from Fahim Tajwar",
+    "answer": "MaxRL (Maximum Likelihood Reinforcement Learning) is a sampling-based reinforcement learning framework introduced by Fahim Tajwar and colleagues in February 2026. It aims to approximate maximum likelihood training using RL techniques, addressing the limitations of standard RL which only optimizes a lower-order approximation of the likelihood over correct rollouts.",
     "papers": [
       "2602.02710"
     ]
   },
   {
     "query": "What is that main work that Quiet-Star is built on top of?",
+    "answer": "Quiet-STaR is built on top of STaR (Self-Taught Reasoner), a 2022 paper by Zelikman et al. that introduced a technique for bootstrapping reasoning by iteratively generating rationales and fine-tuning on successful ones. Quiet-STaR generalizes this approach to allow language models to learn to generate rationales at each token for arbitrary text, rather than being limited to question-answering tasks.",
     "papers": [
       "2203.14465"
     ]
   },
   {
     "query": "Which paper introduces convolutions into an LSTM architecture to produce forecasted images?",
+    "answer": "The paper that introduces convolutions into an LSTM architecture to produce forecasted images is \"Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting\" by Xingjian Shi et al., published in 2015 at NeurIPS. This paper formulates precipitation nowcasting as a spatiotemporal sequence forecasting problem and extends the fully connected LSTM to have convolutional structures in both the input-to-state and state-to-state transitions, creating the ConvLSTM architecture.",
     "papers": [
       "1506.04214"
     ]
   },
   {
     "query": "Evolutionary policy optimization from CMU",
+    "answer": "The paper 'Evolutionary Policy Optimization' (EPO) from CMU's Robotics Institute proposes a hybrid algorithm that combines evolutionary algorithms with policy gradient methods for reinforcement learning, achieving better scalability, sample efficiency, and asymptotic performance than state-of-the-art baselines.",
     "papers": [
       "2503.19037"
     ]
   },
   {
     "query": "In attention-based architectures and models, where are the common placements of the normalization layer within an attention block?",
+    "answer": "In attention-based architectures, normalization layers can be placed in several common positions within an attention block:\n\n1. **Pre-Norm (Pre-Layer Normalization)**: Normalization is applied BEFORE the attention/FFN sublayer, before the residual addition. This is the dominant approach in modern LLMs (e.g., GPT-2, LLaMA, Qwen) as it provides more stable training gradients and a stronger identity path.\n\n2. **Post-Norm (Post-Layer Normalization)**: Normalization is applied AFTER the residual addition. This was used in the original Transformer (\"Attention is All You Need\") and provides stronger regularization and better final performance, but can be unstable for very deep networks.\n\n3. **Sandwich Normalization**: Applies normalization both before AND after the sublayer (before the sublayer input and after the sublayer output, before residual addition). Used in models like Gemma 2, Gemma 3, and Pangu Ultra to combine stability benefits of both approaches.\n\n4. **QKV Normalization**: Normalization applied directly to the Query, Key, and/or Value matrices within the attention mechanism itself. Increasingly common in recent models (Qwen2, Qwen3, OLMo 2, SD3) for improved training stability.\n\n5. **Hybrid Normalization**: Combines different strategies - e.g., QKV normalization in attention with Post-Norm in FFN (HybridNorm), or different normalization types across different parts of the model.\n\nOther variants include DeepNorm (scaled residual connections), res-post-norm (Swin Transformer V2), and parallel formulations where attention and FFN are computed in parallel rather than sequentially.",
     "papers": [
       "2503.04598",
       "2601.19895",
@@ -65,6 +73,7 @@
   },
   {
     "query": "Paper(s) asserting that for fine-tuning models, SFT memorizes and RL generalizes",
+    "answer": "The primary paper asserting that \"SFT memorizes, RL generalizes\" is \"SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training\" (arXiv:2501.17161) by Chu et al. This paper systematically demonstrates that reinforcement learning, particularly with outcome-based rewards, generalizes across textual and visual variants, while supervised fine-tuning tends to memorize training data and struggles with out-of-distribution scenarios. Several other papers provide supporting evidence, theoretical explanations, and extend this finding to various domains.",
     "papers": [
       "2501.17161",
       "2508.05629",
@@ -77,18 +86,21 @@
   },
   {
     "query": "LLM released by Cohere specifically for enterprise use-cases",
+    "answer": "Command A is Cohere's flagship enterprise-ready large language model, purpose-built for real-world business use cases with agent optimization, multilingual support (23 languages), and best-in-class RAG capabilities for automating sophisticated business processes.",
     "papers": [
       "2504.00698"
     ]
   },
   {
     "query": "Which paper first introduced residual connections to deep neural networks and made significant strides on ImageNet?",
+    "answer": "The paper \"Deep Residual Learning for Image Recognition\" by He et al. (arXiv:1512.03385) first introduced residual connections to deep neural networks and won 1st place on the ILSVRC 2015 ImageNet classification task with 3.57% error using networks up to 152 layers deep.",
     "papers": [
       "1512.03385"
     ]
   },
   {
     "query": "Benchmarking agents for legal tasks such as issue identification, rule recall, and drawing conclusions.",
+    "answer": "Several comprehensive benchmarks exist for evaluating agents on legal tasks including issue identification, rule recall, and drawing conclusions. The most prominent benchmarks are LegalBench (162 tasks covering six reasoning types including issue-spotting, rule-recall, and rule-conclusion), LawBench (20 tasks evaluating memorization, understanding, and application of legal knowledge), and LEXam (4,886 law exam questions with explicit guidance on issue spotting, rule recall, and rule application). These benchmarks provide structured evaluation across different cognitive dimensions of legal reasoning, from basic knowledge recall to complex multi-step legal analysis.",
     "papers": [
       "2308.11462",
       "2505.12864",
@@ -102,6 +114,7 @@
   },
   {
     "query": "How can I scale evolution strategies to train billion-parameter neural networks efficiently using low-rank perturbations?",
+    "answer": "To scale evolution strategies (ES) to train billion-parameter neural networks efficiently using low-rank perturbations, the key approach is **EGGROLL (Evolution Guided General Optimization via Low-rank Learning)**. Instead of generating full-rank matrix perturbations E∈ℝ^(m×n) which are prohibitively expensive, EGGROLL generates low-rank random matrices A∈ℝ^(m×r) and B∈ℝ^(n×r) where r≪min(m,n) to form perturbations AB^T. This reduces auxiliary storage from mn to r(m+n) per layer and computation from O(mn) to O(r(m+n)), achieving up to 100x speedup. The overall update remains high-rank (min(Nr,m,n)) when averaged across N population members. For LLM alignment, **ESSA** uses ES on LoRA adapters and further compresses by optimizing only singular values from SVD decomposition. Both methods enable efficient ES at scale without compromising performance, providing gradient-free alternatives that are more robust to noisy rewards, avoid reward hacking, and scale better with parallelization than gradient-based methods like PPO/GRPO.",
     "papers": [
       "2511.16652",
       "2507.04453",
@@ -114,6 +127,7 @@
   },
   {
     "query": "When fine-tuning a Qwen model for multi-hop search, does it make more sense to fine-tune with thinking enabled or disabled?",
+    "answer": "For fine-tuning Qwen models for multi-hop search tasks, research suggests that **starting without heavy thinking (cold-start with long CoT) then moving to RL** is generally more effective than fine-tuning with thinking enabled from the beginning. Key findings: (1) **ReSearch** and **Search-R1** train from scratch using RL without supervised thinking data, allowing models to learn when to search vs. reason naturally. (2) **DeepResearcher** uses base/instruction-tuned models and masks observations during training. (3) Recent work on **\"overthinking\" in agentic tasks** shows that reasoning models with heavy thinking can suffer from \"cognitive offloading\" (excessive tool calls) and reduced environmental interaction - up to 68% unnecessary tool calls. (4) **Demystifying RL in Agentic Reasoning** found that \"direct agentic RL training where models develop reasoning and tool-use capabilities jointly from scratch outperforms training based on Long-CoT models with conflicting internal reasoning paradigms.\" The key insight is that multi-hop search requires **interleaved reasoning and tool use**, and starting with strong thinking can create a conflict between internal reasoning patterns and external tool invocation, whereas training from scratch or with minimal cold-start allows the model to learn optimal balance.",
     "papers": [
       "2503.19470",
       "2503.09516",
@@ -124,6 +138,7 @@
   },
   {
     "query": "Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?",
+    "answer": "Qwen models can easily replicate realistic chat-like behavior during cold start RL because their base models already contain strong instruction-following abilities and conversational patterns from extensive synthetic data used during pretraining. Research shows that Qwen2.5 models, even as base models, exhibit self-reflection and cognitive behaviors like backtracking from the start. The pretrained models have latent capabilities from human dialogue patterns in internet forums that RL simply unlocks rather than creates from scratch. This contrasts with other base models (like Llama or Mistral) that lack these inherent instruction-following abilities.",
     "papers": [
       "2503.18892",
       "2502.03373",
@@ -133,6 +148,7 @@
   },
   {
     "query": "Which papers benchmark molecular embedding models for representation learning?",
+    "answer": "Several papers benchmark molecular embedding models for representation learning, with key benchmarks including MoleculeNet (2018), Therapeutics Data Commons (TDC), Polaris, MoleculeACE, and OMol25. These benchmarks evaluate models on molecular property prediction, drug discovery, and representation quality across diverse chemical spaces using various molecular representations like SMILES, graphs, and 3D structures.",
     "papers": [
       "2506.15792",
       "2505.08762",
@@ -146,12 +162,14 @@
   },
   {
     "query": "What benchmarks does DeepSeek OCR use in its results?",
+    "answer": "DeepSeek-OCR uses two main benchmarks for evaluation: Fox benchmark (for testing vision-text compression ratios) and OmniDocBench (for real-world document parsing tasks including text, formula, table, and order recognition across different document types).",
     "papers": [
       "2510.18234"
     ]
   },
   {
     "query": "Important RL works from the Prime Intellect team",
+    "answer": "Prime Intellect's major RL works center on enabling decentralized, globally distributed reinforcement learning at scale. Their flagship models INTELLECT-1, INTELLECT-2, and INTELLECT-3 progressively demonstrate training 10B, 32B, and 106B parameter models using asynchronous RL across permissionless, heterogeneous compute networks spanning continents. Key infrastructure contributions include PRIME-RL/prime-rl (their asynchronous RL framework), TOPLOC (trustless verification), SHARDCAST (efficient weight broadcasting), and PCCL (fault-tolerant communication library). These works establish a complete open-source stack for practical decentralized AI training.",
     "papers": [
       "2505.07291",
       "2512.16144",
@@ -165,12 +183,14 @@
   },
   {
     "query": "Which paper maintains log N memory states to reduce inference of a token to O (log N)",
+    "answer": "The paper you're looking for is \"Log-Linear Attention\" by Guo et al. (arXiv: 2506.04761). This paper uses a Fenwick tree-based scheme to hierarchically partition the input into power-of-two-sized segments, maintaining a logarithmic number (log N) of hidden states that capture past context at multiple temporal scales. This enables O(log N) time and space complexity during token inference.",
     "papers": [
       "2506.04761"
     ]
   },
   {
     "query": "Which paper(s) examine the effect of holding data fixed but with increased compute-scaling during pre-training?",
+    "answer": "Several papers examine the effect of holding data fixed while scaling compute during pre-training, primarily by training models for multiple epochs on the same data. The key finding across these studies is that up to ~4 epochs, repeated data performs nearly as well as unique data, but beyond this threshold, returns diminish rapidly and training becomes less effective. Some recent work shows that diffusion models are more robust to data repetition than autoregressive models, tolerating up to ~100 epochs before performance degrades.",
     "papers": [
       "2305.16264",
       "2507.15857",
@@ -185,6 +205,7 @@
   },
   {
     "query": "Benchmark to assess LLMs abilities to replicate paper codebases",
+    "answer": "Several benchmarks exist to assess LLMs' abilities to replicate paper codebases. The main benchmarks include: **PaperBench** (ICML 2024 papers, ~8,300 gradable tasks, 21% score by best agent), **CORE-Bench** (270 tasks from 90 papers across CS/medicine/social science, 21% accuracy), **SciReplicate-Bench** (100 tasks from 36 NLP papers, 39% execution accuracy), **Paper2Code/PaperCoder** (ML paper implementations with author validation), **MLE-bench** (75 Kaggle ML competitions, 16.9% bronze medal rate), **The Automated LLM Speedrunning Benchmark** (19 NanoGPT speedrun tasks), and **DeepCode** (paper-to-code synthesis on PaperBench). These benchmarks evaluate different aspects: from-scratch replication, code execution with existing repositories, algorithm reproduction, and ML engineering tasks.",
     "papers": [
       "2504.01848",
       "2409.11363",
@@ -197,6 +218,7 @@
   },
   {
     "query": "Language models finetuned specifically for finance tasks from Bloomberg",
+    "answer": "BloombergGPT is Bloomberg's main finance-specific language model, introduced in March 2023. It is a 50 billion parameter LLM trained on 363 billion tokens of financial data from Bloomberg's extensive data sources, combined with 345 billion tokens from general-purpose datasets. BloombergGPT was designed specifically for financial NLP tasks including sentiment analysis, named entity recognition, and question answering, and demonstrates superior performance on financial benchmarks while maintaining strong general capabilities.",
     "papers": [
       "2303.17564",
       "2306.05443",
@@ -205,6 +227,7 @@
   },
   {
     "query": "What papers introduce an open-ended embodied agent that learns to play Minecraft without human demonstrations?",
+    "answer": "Several papers introduce open-ended embodied agents that learn to play Minecraft without human demonstrations. Key examples include Voyager (first LLM-powered lifelong learning agent using GPT-4 for autonomous exploration), DreamerV3 (first pure RL algorithm to collect diamonds from scratch without human data), GITM (LLM-based agent with text-based knowledge and reasoning), LS-Imagine (world model-based RL with long-term imagination), and the Optimus series (using hybrid memory and MLLMs for planning).",
     "papers": [
       "2305.16291",
       "2301.04104",
@@ -217,6 +240,7 @@
   },
   {
     "query": "How can reinforcement learning be applied to optimize GPU operations such as scheduling, memory management, and kernel execution?",
+    "answer": "Reinforcement learning can be applied to optimize GPU operations through several approaches: (1) learning optimal kernel implementations and schedules at the CUDA/assembly level, (2) automating compiler optimization decisions for memory management and kernel fusion, (3) learning efficient resource allocation and scheduling policies for multi-tenant GPU systems, and (4) optimizing data placement and movement patterns. Recent work demonstrates that RL agents can discover optimization strategies that match or exceed hand-tuned implementations and vendor libraries.",
     "papers": [
       "2507.14111",
       "2310.05205",
@@ -232,6 +256,7 @@
   },
   {
     "query": "What are the most commonly referenced benchmarks for testing LLM tool-use?",
+    "answer": "The most commonly referenced benchmarks for testing LLM tool-use include: **Berkeley Function-Calling Leaderboard (BFCL)**, **ToolBench**, **API-Bank**, **ToolAlpaca**, **APIGen**, **ToolSandbox**, **tau-bench (τ-bench)**, **Gorilla APIBench**, **Nexus/NexusRaven**, **StableToolBench**, **RestBench**, and **Seal-Tools**. These benchmarks evaluate various aspects of tool-use including function calling accuracy, parameter extraction, multi-turn interactions, and tool selection in both synthetic and real-world scenarios.",
     "papers": [
       "2406.18518",
       "2406.12045",
@@ -240,12 +265,14 @@
   },
   {
     "query": "Paper from a joint collaboration between UNC and Salesforce Research that has agents improve in a self-reinforcing cycle on tasks with tools",
+    "answer": "The paper is 'Agent0: Unleashing Self-Evolving Agents from Zero Data via Tool-Integrated Reasoning' (arXiv: 2511.16043), a collaboration between UNC-Chapel Hill and Salesforce Research. It introduces a framework where agents improve through a self-reinforcing cycle: a curriculum agent proposes increasingly challenging tasks, while an executor agent learns to solve them using integrated tools, creating continuous improvement without external data.",
     "papers": [
       "2511.16043"
     ]
   },
   {
     "query": "Benchmarks for evaluating physical perception and reasoning in LLMs",
+    "answer": "Several comprehensive benchmarks have been developed to evaluate physical perception and reasoning in LLMs and multimodal models. Key benchmarks include: PHYBench (500 original physics problems from high school to Olympiad level), Cosmos-Reason1 benchmark (evaluating physical common sense and embodied reasoning), PhysBench (physical world understanding in vision-language models), Physics-IQ (testing understanding of fluid dynamics, optics, mechanics, magnetism and thermodynamics), CLEVRER (collision events for video representation), IntPhys/IntPhys2 (intuitive physics in synthetic environments), Physion (physical prediction across 8 scenarios), PIQA (physical interaction question answering), PHYRE (physics reasoning with 2D simulations), and Gemini Robotics-ER benchmark for embodied reasoning. These benchmarks cover diverse aspects including spatial reasoning, object permanence, physical laws, temporal causality, and embodied interaction.",
     "papers": [
       "2504.16074",
       "2503.15558",
@@ -256,6 +283,7 @@
   },
   {
     "query": "Fine-tuning language models for writing code in esoteric languages like the Q programming language",
+    "answer": "Fine-tuning language models for esoteric programming languages like Q involves several key challenges and approaches. The main challenge is the scarcity of training data for low-resource languages. Researchers address this through: (1) Continued pretraining on domain-specific corpora, (2) Synthetic data generation using LLMs, (3) Cross-lingual transfer learning from high-resource languages, (4) Parameter-efficient fine-tuning methods (LoRA, adapters), and (5) Reinforcement learning with verifiable rewards. The Q programming language paper demonstrates a complete pipeline achieving 59% pass@1 accuracy by combining pretraining, supervised fine-tuning, and reinforcement learning on specialized datasets.",
     "papers": [
       "2508.06813",
       "2402.19173",
@@ -265,6 +293,7 @@
   },
   {
     "query": "What works does OlmoOCR 2 compare itself against?",
+    "answer": "OlmoOCR 2 compares itself against a wide range of OCR and document parsing systems, including both API-based services (GPT-4o, Gemini Flash 2, Mistral OCR), open-source VLM-based end-to-end systems (DeepSeek-OCR, PaddleOCR-VL, MonkeyOCR, MinerU 2.5, Nanonets-OCR, Infinity-Parser, Chandra OCR, dots.OCR), general-purpose VLMs (Qwen 2 VL, Qwen 2.5 VL), and pipeline-based tools (Marker). The paper presents a comprehensive evaluation on olmOCR-Bench showing that olmOCR 2 achieves state-of-the-art performance at 82.4% overall score.",
     "papers": [
       "2510.18234",
       "2510.14528",
@@ -278,6 +307,7 @@
   },
   {
     "query": "Benchmarks that evaluate LLMs on machine learning engineering tasks",
+    "answer": "Several benchmarks evaluate LLMs on machine learning engineering tasks, with the most prominent being MLE-Bench, which includes 75 Kaggle competitions testing skills like model training, data preparation, and experimentation. Other major benchmarks include MLAgentBench (13 ML research tasks from CIFAR-10 to BabyLM challenges), Paper2Code/Paper2CodeBench (automating code generation from ML papers at ICLR/ICML/NeurIPS), DSBench (466 data analysis + 74 data modeling tasks from Kaggle), and MLGym-Bench (13 open-ended AI research tasks across CV, NLP, RL, and game theory).",
     "papers": [
       "2410.07095",
       "2310.03302",
@@ -293,6 +323,7 @@
   },
   {
     "query": "Papers showing comparison between using tied weights embeddings vs not for different model comparison and how does it help in convergence of said models.",
+    "answer": "Tied weight embeddings (where input and output embeddings share the same parameters) help with convergence primarily by reducing the number of parameters, which leads to less overfitting and better generalization. The seminal Press & Wolf (2016) paper demonstrates that weight tying significantly reduces perplexity on validation/test sets while not on training sets, indicating improved convergence to better solutions rather than just memorizing the training data. The tied embedding evolves more similarly to the output embedding than the input embedding during training, and all embedding rows are updated at each iteration (not just the current word), leading to more stable learning dynamics. Modern architectures show that smaller models (0.5B-3B parameters) benefit from tied embeddings to prevent embedding parameters from dominating the parameter count, while larger models (7B+) typically use untied embeddings for increased expressivity.",
     "papers": [
       "1608.05859",
       "1909.11942",
@@ -304,6 +335,7 @@
   },
   {
     "query": "Datasets of high-quality math reasoning traces from Stanford University",
+    "answer": "Stanford University has released and contributed to several high-quality math reasoning trace datasets. The most notable are: **s1K** (2025) - a curated dataset of 1,000 high-quality math problems with reasoning traces from 16 sources including NuminaMATH, MATH, and competition problems; **Big-Math** (2025) - a dataset of over 250,000 high-quality math questions with verifiable answers, specifically designed for reinforcement learning; **OpenThoughts** (2025) - public reasoning datasets including OpenThoughts2-1M and OpenThoughts3 (1.2M examples) with step-by-step reasoning for training reasoning models; **SWiRL data** (2025) - synthetic multi-step reasoning and tool use data generated through reinforcement learning; and **STaR** (2022) - a self-taught reasoner approach that generates reasoning traces. Additionally, Stanford researchers were involved with **PRM800K** from OpenAI, which contains 800,000 step-level human feedback labels for process supervision on the MATH dataset.",
     "papers": [
       "2501.19393",
       "2502.17387",
@@ -317,6 +349,7 @@
   },
   {
     "query": "Which models perform best on Tau-Bench?",
+    "answer": "Based on recent evaluations, Claude Opus 4 achieves the best performance on Tau-Bench Retail at 81.4%, followed by Claude Sonnet 4 (80.5%), GLM-4.5 (79.7%), Grok 4 (76.5%), and GPT-4.1 (75.1%). On Tau-Bench Airline, Claude Opus 4 and Claude Sonnet 4 lead at ~60%, followed by GLM-4.5 (60.4%). MiniMax-M1-80k also shows strong performance at 63.5% (retail) and 62.0% (airline).",
     "papers": [
       "2508.06471",
       "2506.13585",
@@ -329,12 +362,14 @@
   },
   {
     "query": "Deepseek paper that first introduced GRPO",
+    "answer": "The DeepSeekMath paper (arXiv:2402.03300) first introduced GRPO (Group Relative Policy Optimization), a memory-efficient variant of PPO designed to enhance mathematical reasoning abilities in language models.",
     "papers": [
       "2402.03300"
     ]
   },
   {
     "query": "Method to detect AI-generated text by looking at log probs of perturbations of sample text",
+    "answer": "The primary method for detecting AI-generated text using log probabilities of perturbations is DetectGPT, which analyzes probability curvature. The key insight is that machine-generated text tends to occupy negative curvature regions of the model's log probability function - meaning perturbations of AI text typically have lower log probability than the original, while human text may have higher or lower probability after perturbation. Several improvements and variants have since been developed, including Fast-DetectGPT (which uses conditional probability curvature for better efficiency), DetectLLM (using log-rank ratios), and methods that mine token probability sequences.",
     "papers": [
       "2301.11305",
       "2310.05130",
@@ -345,6 +380,7 @@
   },
   {
     "query": "Which models do best on Terminal Bench 2.0?",
+    "answer": "Based on the latest benchmark results, Claude Opus 4.5 leads Terminal Bench 2.0 with 59.3% accuracy when using the Terminus 2 agent framework, followed by Gemini 3 Pro (54.2%), GPT-5.2 with high reasoning (54.0%), and Kimi K2.5 (50.8%).",
     "papers": [
       "2601.11868",
       "2602.02276",
@@ -355,6 +391,7 @@
   },
   {
     "query": "What is the largest open-source LLM released in terms of parameter count?",
+    "answer": "The largest open-source LLMs released in terms of parameter count are Kimi K2 and Ling-1T (part of Ling 2.0), both with 1 trillion total parameters. Kimi K2, released in July 2025, has 1.04 trillion total parameters with 32 billion activated per token using a Mixture-of-Experts architecture. Ling-1T, released in October 2025, also has 1 trillion total parameters.",
     "papers": [
       "2507.20534",
       "2510.22115",
@@ -365,6 +402,7 @@
   },
   {
     "query": "What improvements can be made to GRPO to improve stability when RL fine-tuning MOE models?",
+    "answer": "Key improvements to stabilize GRPO when RL fine-tuning MoE models include: (1) **GSPO (Group Sequence Policy Optimization)** - using sequence-level rather than token-level importance ratios and clipping to reduce variance, (2) **Routing Replay/R3** - recording and replaying expert routing from inference during training to eliminate routing inconsistencies, (3) **FP16 precision** - replacing BF16 with FP16 to eliminate numerical mismatches between training and inference, (4) **Off-Policy Sequence Masking** - masking highly off-policy negative samples based on KL divergence thresholds, and (5) **SAPO (Soft Adaptive Policy Optimization)** - replacing hard clipping with smooth temperature-controlled gating that selectively down-weights off-policy tokens while preserving useful gradients.",
     "papers": [
       "2510.11370",
       "2511.20347",
@@ -375,6 +413,7 @@
   },
   {
     "query": "Which, if any, popular open source models adopt sliding window attention?",
+    "answer": "Yes, several popular open source models adopt sliding window attention (SWA). The most notable ones include: **Mistral 7B** (window size 4096), **Mixtral 8x7B**, **Gemma 2 and Gemma 3** (hybrid 1:1 to 5:1 ratios with global attention), **Command A** (3:1 ratio), **MiMo-V2-Flash** (5:1 ratio, 128-token window), **OLMo 3**, **Yi-Lightning** (hybrid blocks), and **Samba** (combines Mamba with SWA). These models demonstrate that sliding window attention has become a popular architectural choice for balancing computational efficiency with long-context capabilities.",
     "papers": [
       "2310.06825",
       "2503.19786",
@@ -387,6 +426,7 @@
   },
   {
     "query": "Which open source models have architectures using Deepseek's sparse attention architecture?",
+    "answer": "Several open source models have adopted DeepSeek's sparse attention architecture, specifically Multi-head Latent Attention (MLA) and DeepSeekMoE. The main models include: DeepSeek's own series (DeepSeek-V2, DeepSeek-V3, DeepSeek-R1), Kimi Linear (Moonshot AI), Kimi K2 (Moonshot AI), LongCat-Flash (Meituan), Youtu-LLM (Tencent), and Engram. Additionally, there are tools like TransMLA and MHA2MLA that enable converting existing models (e.g., LLaMA) to use MLA architecture. Native Sparse Attention (NSA) is another DeepSeek-developed sparse attention variant that is hardware-aligned and trainable.",
     "papers": [
       "2412.19437",
       "2405.04434",
@@ -402,6 +442,7 @@
   },
   {
     "query": "Surveys on AI generated text detection",
+    "answer": "There are several comprehensive surveys on AI-generated text detection that cover different aspects of this rapidly evolving field. The most notable surveys cover detection methods including watermarking techniques, statistical detection, neural-based detection, zero-shot methods, and human-assisted approaches. These surveys also address key challenges such as robustness to adversarial attacks, cross-domain generalization, and evaluation frameworks.",
     "papers": [
       "2310.14724",
       "2312.07913",
@@ -415,6 +456,7 @@
   },
   {
     "query": "Fine-tuning LLMs for specifically cyber-security related tasks",
+    "answer": "Fine-tuning LLMs for cybersecurity tasks has emerged as a critical research area, with various approaches being explored including continued pre-training on domain-specific corpora, instruction tuning with security-focused datasets, parameter-efficient methods like LoRA, and reinforcement learning from AI feedback (RLAIF). Key challenges include balancing security task performance with safety preservation, addressing the scarcity of high-quality cybersecurity training data, and adapting models to detect vulnerabilities, analyze threats, and perform network security tasks while maintaining safe operation.",
     "papers": [
       "2504.21039",
       "2504.04699",
@@ -430,6 +472,7 @@
   },
   {
     "query": "Are there papers that introduce a 1-bit architecture for large language models to drastically reduce memory footprint?",
+    "answer": "Yes, there are several papers that introduce 1-bit architectures for large language models to drastically reduce memory footprint. The BitNet series pioneered this approach, starting with the original BitNet paper that introduced 1-bit transformers, followed by BitNet b1.58 which uses ternary weights {-1, 0, 1} achieving performance comparable to full-precision models while significantly reducing memory, latency, and energy consumption. Subsequent work includes BitNet a4.8 (adding 4-bit activations), BitNet v2 (native 4-bit activations with Hadamard transformation), and the large-scale BitNet b1.58 2B4T trained on 4 trillion tokens, along with efficient inference implementations.",
     "papers": [
       "2402.17764",
       "2504.12285",
@@ -439,6 +482,7 @@
   },
   {
     "query": "What do LLM architectures use instead of GELU these days for activations?",
+    "answer": "Modern LLM architectures predominantly use **SwiGLU** (Swish-Gated Linear Unit) instead of GELU for activation functions. SwiGLU was introduced by Shazeer (2020) and has become the de facto standard in state-of-the-art models like LLaMA, Llama 2, DeepSeek, Qwen, and many others. It's a gated activation function that combines the Swish activation with a gating mechanism, providing better performance than traditional ReLU or GELU. Some models also use **GeGLU** (GELU-Gated Linear Unit), particularly in encoder architectures.",
     "papers": [
       "2002.05202",
       "2302.13971",
@@ -450,18 +494,21 @@
   },
   {
     "query": "Joint collaboration between AMD and John Hopkins on designing a fully autonomous lab with agents",
+    "answer": "The AMD and Johns Hopkins collaboration on designing a fully autonomous lab with agents is documented in the paper 'Agent Laboratory: Using LLM Agents as Research Assistants' (arXiv:2501.04227). This framework, developed by researchers from AMD and Johns Hopkins University, introduces an autonomous LLM-based system that completes the entire research process—from literature review through experimentation to report writing—enabling users to provide feedback at each stage while significantly reducing research costs by 84% compared to previous methods.",
     "papers": [
       "2501.04227"
     ]
   },
   {
     "query": "Open source vision language action model from Stanford University",
+    "answer": "OpenVLA is a 7B-parameter open-source vision-language-action model from Stanford University, trained on 970k robot demonstrations from the Open X-Embodiment dataset.",
     "papers": [
       "2406.09246"
     ]
   },
   {
     "query": "Which open source models score best on Humanity's Last Exam?",
+    "answer": "Based on the latest research, the top-performing open source models on Humanity's Last Exam (HLE) are: **WebResearcher-30B-A3B-heavy (36.7%)**, **MiroThinker-v1.0-72B (37.7%)**, and **Tongyi DeepResearch Heavy Mode (38.3%)**. Among standard (non-heavy) configurations, **Tongyi DeepResearch-30B-A3B (32.9%)** and **MiroThinker-v1.0-30B (33.4%)** lead the pack. These agentic deep research models significantly outperform base reasoning models like DeepSeek-V3.1 (29.8%) and DeepSeek-V3.2 (25.1-27.2%), demonstrating that specialized agent training and iterative research paradigms are crucial for tackling this challenging benchmark.",
     "papers": [
       "2509.13309",
       "2511.11793",
@@ -475,6 +522,7 @@
   },
   {
     "query": "What is the best population size to use for evolutionary strategies?",
+    "answer": "The optimal population size for evolutionary strategies depends on the problem dimensionality and algorithm variant. For CMA-ES, the default recommendation is λ = 4 + ⌊3 ln(n)⌋, where n is the problem dimension (Hansen, 2016). For low-dimensional problems this gives small populations (e.g., 10-20), scaling logarithmically with dimension. Recent large-scale applications use much larger populations: OpenAI's ES paper used 1440 workers for RL tasks, while modern LLM fine-tuning work uses populations of 24-30. The population size trades off sample efficiency versus parallelization benefits and exploration diversity.",
     "papers": [
       "1604.00772",
       "2509.24372",
@@ -485,6 +533,7 @@
   },
   {
     "query": "Find papers that propose replacing heavy human feedback aggregation with a set of natural language principles or a \"constitution\" to guide the model's self-critique and refinement process, often referred to as RLAIF.",
+    "answer": "Papers proposing RLAIF (Reinforcement Learning from AI Feedback) and Constitutional AI replace heavy human feedback aggregation with natural language principles or a 'constitution' to guide model self-critique and refinement. The foundational work is Constitutional AI (Bai et al., 2022) from Anthropic, which uses a list of principles to guide self-critique and revision in both supervised and RL phases. RLAIF (Lee et al., 2023) demonstrates that AI-generated preferences can match human feedback performance. Related approaches include Principle-Driven Self-Alignment (Sun et al., 2023), which uses minimal human supervision with written principles, and Self-Refine (Madaan et al., 2023), which enables iterative self-improvement through self-generated feedback.",
     "papers": [
       "2212.08073",
       "2309.00267",
@@ -494,6 +543,7 @@
   },
   {
     "query": "Works using language models for molecular property prediction",
+    "answer": "Language models for molecular property prediction leverage transformer architectures trained on molecular representations like SMILES strings, molecular graphs, or computed descriptors. Key approaches include: (1) String-based models like ChemBERTa, MoLFormer, and GP-MoLFormer that treat molecules as sequences; (2) Graph-based models like GROVER that use graph transformers; (3) Multimodal models like MolCA and TxGemma that combine text, graphs, and 3D structures; and (4) Descriptor-based models like CheMeleon. These models are pre-trained on large molecular datasets and fine-tuned for downstream property prediction tasks.",
     "papers": [
       "2506.15792",
       "2504.06196",
@@ -505,6 +555,7 @@
   },
   {
     "query": "What papers discuss the phenomena where LLMs fail to deduce \"B is A\" after learning \"A is B\"?",
+    "answer": "The Reversal Curse refers to the phenomenon where LLMs trained on statements like \"A is B\" fail to generalize to the reverse direction \"B is A\", even though the two are semantically equivalent. This is a fundamental generalization failure in autoregressive language models, demonstrated both on synthetic data (e.g., \"Uriah Hawthorne is the composer of Abyssal Melodies\") and real-world facts (e.g., knowing \"Tom Cruise's mother is Mary Lee Pfeiffer\" but not being able to answer \"Who is Mary Lee Pfeiffer's son?\").",
     "papers": [
       "2309.12288",
       "2504.01928",
@@ -518,6 +569,7 @@
   },
   {
     "query": "Which paper(s) use rule-based RL to improve reasoning for LLMs?",
+    "answer": "Several papers use rule-based reinforcement learning to improve reasoning in LLMs. The most prominent approach uses rule-based rewards (accuracy + format rewards) instead of neural reward models to train models via RL algorithms like GRPO. The key papers are DeepSeek-R1 (which pioneered this approach), Logic-RL (which systematically studies it), and several follow-up works that apply similar techniques.",
     "papers": [
       "2501.12948",
       "2502.14768",
@@ -530,6 +582,7 @@
   },
   {
     "query": "What scale of reward should I provide in RLVR for LLM-finetuning with PPO? Especially when introducing something like format rewards or additional signal besides binary",
+    "answer": "For RLHF/RLVR with PPO when combining format rewards with binary accuracy rewards, most implementations use **advantage normalization** which makes absolute reward scales less critical, but the relative weighting matters. Based on recent papers:\n\n**Reward Normalization Approach (Most Common):**\n- GRPO and similar methods normalize advantages as: A = (r - mean(r)) / std(r)\n- This makes the absolute scale less important since rewards are standardized within each group\n- The advantage normalization handles different reward magnitudes automatically\n\n**Specific Coefficient Examples:**\n1. **AutoRule (2506.15651)**: α=10, β=-7.5 for scaling rule-based rewards to align with learned reward models\n2. **LMM-R1 (2503.07536)**: r(y) = α·r_format(y) + r_accuracy(y), where α adjusts format importance relative to accuracy\n3. **DeepSeek-R1**: Uses \"Accuracy & Format\" rewards (binary rewards combined, specific coefficients not publicly disclosed)\n\n**Practical Recommendations:**\n- Start with **equal weighting** (1:1) between format and accuracy rewards since advantage normalization will handle scaling\n- Format rewards are typically **binary** (0/1) like accuracy\n- If format is less critical, weight it **0.1-0.5× the accuracy reward**\n- If you need precise format adherence, weight it **1-2× the accuracy reward**\n- Monitor for reward hacking - if model optimizes format over correctness, reduce format coefficient\n- The key is the **relative proportion**, not absolute values, due to normalization\n\n**Alternative: Staged Rewards**\nSome papers combine additively but with different magnitudes naturally (e.g., accuracy ∈ {0,1}, format ∈ {-1,0,1}), letting the RL algorithm's advantage normalization balance them automatically.",
     "papers": [
       "2506.15651",
       "2501.12948",
@@ -539,6 +592,7 @@
   },
   {
     "query": "What are specific regularization techniques for reducing LLM pre-training instability?",
+    "answer": "Several specific regularization techniques help reduce LLM pre-training instability, including: (1) Normalization methods: QK-Normalization constrains attention logit growth, RMSNorm stabilizes activations, Sandwich Normalization applies LayerNorm before and after sub-layers with depth-scaled initialization, and Dynamic Tanh (DyT) can replace traditional normalization; (2) Gradient control: Gradient clipping (typically at 1.0), adaptive gradient clipping, and update clipping prevent gradient explosion; (3) Weight constraints: QK-Clip rescales query-key projection weights to bound attention logits, weight decay (typically 0.1), and μP (maximal update parameterization) for scale-invariant training; (4) Precision management: BFloat16 training instead of FP16 to reduce numerical instability, mixed-precision with FP32 gradient accumulation; (5) Learning rate strategies: Warmup schedules, cosine decay, and careful peak learning rate selection based on model size; (6) Auxiliary losses and regularization: Dropout (though less common in modern LLMs), logit soft-capping to prevent extreme values, and z-loss penalties for router stability in MoE models.",
     "papers": [
       "2507.20534",
       "2503.14476",
@@ -551,6 +605,7 @@
   },
   {
     "query": "Methods that fine-tune LLMs with FP4 quantization",
+    "answer": "Methods that fine-tune LLMs with FP4 quantization primarily fall into two categories: (1) Parameter-efficient fine-tuning with 4-bit quantized base models (QLoRA and variants), and (2) Full FP4 training/fine-tuning methods that leverage native FP4 hardware support. QLoRA (2023) introduced the foundational approach using NF4 (4-bit NormalFloat) quantization with LoRA adapters and double quantization. Recent advances include LLM-FP4 for post-training quantization, Quartet and Quartet II for native FP4 training on Blackwell GPUs, Pretraining with NVFP4 for stable 4-bit pretraining, QeRL for reinforcement learning with FP4, and SageAttention3 for microscaling FP4 attention mechanisms. These methods achieve competitive performance with higher precision training while significantly reducing memory footprint and computational costs.",
     "papers": [
       "2305.14314",
       "2505.14669",
@@ -566,6 +621,7 @@
   },
   {
     "query": "Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?",
+    "answer": "Beyond MoE, frontier LLMs today use several key architectural changes to the standard Transformer: (1) **Grouped Query Attention (GQA)** reduces KV cache size by sharing key-value heads across multiple query heads (used in Llama 3, Qwen, Gemma, etc.); (2) **Multi-Head Latent Attention (MLA)** from DeepSeek further compresses KV cache by projecting into a low-dimensional latent space; (3) **Sliding Window Attention** combined with global attention in interleaved patterns (e.g., Gemma 3's 5:1 local/global ratio); (4) **RoPE (Rotary Position Embeddings)** as the standard positional encoding; (5) **SwiGLU activation** in FFN layers; (6) **RMSNorm with pre-normalization**; (7) **QK-normalization** for training stability; (8) **Hybrid architectures** mixing Mamba/SSM layers with attention; and (9) **Linear attention variants** for long-context efficiency.",
     "papers": [
       "2412.19437",
       "2407.21783",
@@ -581,18 +637,21 @@
   },
   {
     "query": "What papers discuss \"Reflexion\" where agents verbally reinforce themselves to improve performance on subsequent trials?",
+    "answer": "Reflexion (Shinn et al., 2023, arXiv:2303.11366) is the seminal paper that introduced verbal reinforcement learning for language agents. Unlike traditional RL that requires weight updates, Reflexion enables agents to verbally reflect on task feedback and store reflections in episodic memory to improve performance on subsequent trials. Key extensions include LATS (Language Agent Tree Search), which combines Reflexion's self-reflection with Monte Carlo Tree Search, and numerous surveys and frameworks that build upon this paradigm of agents learning through linguistic feedback rather than gradient-based updates.",
     "papers": [
       "2303.11366"
     ]
   },
   {
     "query": "Which paper from Nvidia improves upon GRPO by decoupling the normalization of individual reward components?",
+    "answer": "The paper is GDPO (Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization) from NVIDIA, published in January 2026. It addresses a critical limitation in GRPO where normalizing multiple distinct reward combinations causes them to collapse into identical advantage values, and introduces a decoupled normalization approach to preserve relative differences between individual rewards.",
     "papers": [
       "2601.05242"
     ]
   },
   {
     "query": "What open models and benchmarks does Dr Tulu 8b compare against?",
+    "answer": "DR Tulu 8B compares against multiple open-source models and is evaluated on four long-form deep research benchmarks. Open models compared include: Tongyi DeepResearch-30B (30B parameters), WebThinker-32B, WebExplorer-8B, Search-R1-7B, ASearcher-7B, and Qwen3-8B/QwQ-32B as naive RAG baselines. Benchmarks used are: ScholarQA-CS2 (scientific literature), HealthBench (healthcare), ResearchQA (75-field scholarly QA), and DeepResearchBench (general deep research). DR Tulu 8B outperforms all open models by 13.7-53.4 points on average while being competitive with proprietary systems.",
     "papers": [
       "2511.19399",
       "2510.24701",
@@ -608,6 +667,7 @@
   },
   {
     "query": "When RL fine-tuning a retrieval agent that has access to tools, how should I shape the rewards? Are outcome-based rewards sufficient or do I need to add process-oriented rewards centered around tool-query quality, etc?",
+    "answer": "Recent research shows that outcome-based rewards alone are often insufficient for RL fine-tuning of retrieval agents with tool access. While simpler than process rewards, outcome-only approaches face critical limitations including sparse feedback, credit assignment problems, and inability to supervise intermediate tool quality. However, the necessity of process-oriented rewards depends on your specific task characteristics. For tasks with verifiable outcomes (math, code), outcome rewards can work well but benefit from additional supervision. For complex multi-hop retrieval and search tasks, process rewards centered on tool-query quality, information gain, and retrieval effectiveness provide essential fine-grained supervision that significantly improves both performance and sample efficiency.",
     "papers": [
       "2601.04888",
       "2504.11536",
@@ -618,6 +678,7 @@
   },
   {
     "query": "Which other open source models does GLM 4.5 benchmark against?",
+    "answer": "Based on the GLM-4.5 paper, the open source models it benchmarks against are: **Qwen3-235B-A22B**, **DeepSeek-V3** (and DeepSeek-V3.1), **DeepSeek-R1-0528**, **Kimi K2**, and **Llama4-Maverick-Base**. These are compared across various benchmark categories including agentic tasks (TAU-bench, BFCL V3, BrowseComp), reasoning tasks (MMLU-Pro, AIME 24, MATH 500, SciCode, GPQA, Humanity's Last Exam, LiveCodeBench), and coding tasks (SWE-bench Verified, Terminal-Bench), as well as general chat benchmarks (MMLU, SimpleQA, IFEval, SysBench, MultiChallenge).",
     "papers": [
       "2508.06471",
       "2505.09388",
@@ -628,12 +689,14 @@
   },
   {
     "query": "Which models include vending bench results in their paper?",
+    "answer": "Based on my comprehensive search, only the original Vending-Bench paper contains actual evaluation results on this benchmark. The paper evaluates 10 models (plus a human baseline) on their ability to operate a vending machine business over long time horizons (>20M tokens per run). While several other papers cite Vending-Bench in their references, none report their own models' performance on this benchmark.",
     "papers": [
       "2502.15840"
     ]
   },
   {
     "query": "What are some tricks to stabilize training when RL fine-tuning a large MoE model?",
+    "answer": "Key stabilization tricks for RL fine-tuning large MoE models include: (1) **Routing consistency techniques** - 'Keep Routing' (DeepSeek-V3.2) fixes expert routing paths during training to avoid parameter subspace shifts, and 'Routing Replay' ensures identical expert parameters are optimized across updates. (2) **Auxiliary-loss-free load balancing** (DeepSeek-V3) minimizes performance degradation from load balancing by removing auxiliary losses that create competing gradients with language modeling objectives. (3) **Off-policy sequence masking** masks negative samples with high KL divergence to prevent destabilization from stale policies. (4) **Mixed precision strategies** - keeping critical components (embeddings, MoE gates, normalization) in higher precision (BF16/FP32) while using FP8 for compute-intensive operations. (5) **Advantage normalization** - group-level mean with batch-level standard deviation for stable credit assignment. (6) **Asymmetric clipping** (Clip-Higher in DAPO) with different thresholds for positive/negative advantages to prevent entropy collapse. (7) **KL divergence penalties** with careful coefficient tuning to balance exploration and stability. (8) **Gradient clipping** and **learning rate warmup** to prevent training instability early on.",
     "papers": [
       "2412.19437",
       "2512.02556",
@@ -645,6 +708,7 @@
   },
   {
     "query": "Which LoRA variants insert a new matrix between the A and B decomposition matrices?",
+    "answer": "The main LoRA variants that insert a new matrix between the A and B decomposition matrices are: **AdaLoRA** (which uses SVD parameterization with triplets P, Λ, Q where Λ is a diagonal matrix of singular values between P and Q), **LoRA-XS** (which inserts a small trainable r×r matrix R between frozen SVD-derived matrices), **CE-LoRA/Tri-Matrix Adaptation** (which introduces a full-rank matrix C between low-rank matrices A and B for federated learning), **Panacea** (which embeds preference vectors as singular values in a diagonal matrix between SVD-based matrices), and **VeRA** (which uses diagonal scaling vectors between frozen random matrices).",
     "papers": [
       "2303.10512",
       "2405.17604",
@@ -657,6 +721,7 @@
   },
   {
     "query": "What is the most common open-source model used in papers that perform some type of model fine-tuning techniques?",
+    "answer": "Based on analysis of recent fine-tuning research papers, **Llama (including Llama-2 and Llama-3 series)** is the most common open-source model used for fine-tuning techniques, followed closely by **Qwen (Qwen-2.5 series)**. These two model families dominate the fine-tuning literature across LoRA, PEFT, SFT, and RL methods.",
     "papers": [
       "2504.13837",
       "2501.12948",
@@ -667,6 +732,7 @@
   },
   {
     "query": "What papers discuss extending the context window of LLMs using \"Ring\" communication topology?",
+    "answer": "Papers discussing extending the context window of LLMs using Ring communication topology primarily focus on Ring Attention and related distributed attention mechanisms. The seminal work is \"Ring Attention with Blockwise Transformers for Near-Infinite Context\" (Liu et al., 2023), which leverages a ring topology to distribute long sequences across multiple devices while overlapping communication of key-value blocks with blockwise attention computation. This approach enables context sizes up to device count times longer than memory-efficient Transformers without approximations. Several follow-up papers have built upon or improved this work, including Star Attention (two-phase block-sparse approach), DistFlashAttn (optimizations like token-level workload balancing), and Striped Attention (addresses load imbalance from causal masking).",
     "papers": [
       "2310.01889",
       "2310.03294",
@@ -679,6 +745,7 @@
   },
   {
     "query": "What are some open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters?",
+    "answer": "Several open-source, fine-tunable multimodal models with fewer than 0.5 billion parameters are available. The most prominent options include SmolVLM-256M (256M parameters) and SmolVLM-500M (500M parameters), which are fully open-source and use less than 1-2GB GPU memory. Other notable models include vision encoder components like SigLIP-400M and CLIP-300M that are used in frameworks like LLaVA-Phi, TinyLLaVA, and MiniCPM-V. These models are specifically designed for efficient deployment on mobile and edge devices while maintaining strong multimodal understanding capabilities, and all support fine-tuning for domain-specific tasks.",
     "papers": [
       "2504.05299",
       "2402.14289",
@@ -689,6 +756,7 @@
   },
   {
     "query": "Papers that examine LLMs abilities to self-debug their own code",
+    "answer": "Recent research has extensively explored LLMs' abilities to self-debug their own code, with significant progress in developing methods that enable models to iteratively refine code based on execution feedback. Key approaches include verbal reflection mechanisms like Reflexion, training frameworks like LeDex and SCoRe that improve self-debugging through supervised fine-tuning and reinforcement learning, test-driven generation methods like CodeT and AlphaCodium, and simplified agent-based systems like Agentless that avoid complex autonomous scaffolds.",
     "papers": [
       "2303.11366",
       "2405.18649",
@@ -700,12 +768,14 @@
   },
   {
     "query": "Which paper argues that a successful alignment algorithm should use on-policy sampling and negative gradients?",
+    "answer": "The paper \"Preference Fine-Tuning of LLMs Should Leverage Suboptimal, On-Policy Data\" by Tajwar et al. (2024) argues that successful alignment algorithms should use on-policy sampling and negative gradients, as these approaches outperform offline and maximum likelihood objectives.",
     "papers": [
       "2404.14367"
     ]
   },
   {
     "query": "What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?",
+    "answer": "Papers that propose tree-search algorithms over thoughts for solving complex reasoning problems represent a key approach in scaling test-time compute for large language models. These methods enable models to explore multiple reasoning paths, backtrack when necessary, and make more deliberate decisions.",
     "papers": [
       "2305.10601",
       "2308.09687",
@@ -720,6 +790,7 @@
   },
   {
     "query": "What's the typical ratio of learning rates between pre-training and SFT fine-tuning for LLMs?",
+    "answer": "The typical learning rate ratio between pre-training and SFT fine-tuning for LLMs is approximately 10x-100x smaller for fine-tuning. Specifically:\n\n**Pre-training learning rates** typically range from 1e-4 to 6e-4 (with common values being 3e-4 for smaller models and 1.5e-4 for larger models).\n\n**SFT fine-tuning learning rates** typically range from 1e-5 to 2e-5, with some cases going as low as 5e-6 or 1e-6.\n\nFor example:\n- **LLaVA** uses 2e-3 for pre-training and 2e-5 for fine-tuning (~100x smaller)\n- **Llama 2** uses 3e-4 for pre-training (7B/13B models) and 1.5e-4 (34B/70B models), with fine-tuning typically at 1e-5 to 2e-5 (~10-30x smaller)\n- **Visual Instruction Tuning** explicitly states pre-training at 2e-3 and fine-tuning at 2e-5 (100x ratio)\n\nThe smaller learning rate during fine-tuning helps preserve the knowledge learned during pre-training while carefully adapting the model to specific tasks, avoiding catastrophic forgetting and instability that could occur with higher learning rates.",
     "papers": [
       "2304.08485",
       "2307.09288",
@@ -730,6 +801,7 @@
   },
   {
     "query": "Are there studies that assert for RL fine-tuning the data needs to be at the boundary of difficult but not too difficult and also claim the importance of mid-training?",
+    "answer": "Yes, there are several studies that explicitly assert that RL fine-tuning data needs to be at the boundary of \"difficult but not too difficult\" and also claim the importance of mid-training. The key concept is often referred to as the model's \"edge of competence\" or \"zone of proximal development\" (ZPD), and multiple papers demonstrate that both optimal difficulty selection and mid-training are crucial for effective RL performance.",
     "papers": [
       "2512.07783",
       "2506.20512",
@@ -743,6 +815,7 @@
   },
   {
     "query": "What are the best positional embedding techniques for LLMs?",
+    "answer": "The best positional embedding techniques for LLMs vary by use case, but Rotary Position Embedding (RoPE) has emerged as the de facto standard for modern LLMs due to its strong performance, length extrapolation capabilities, and computational efficiency. However, recent research reveals trade-offs and improvements: ALiBi excels at zero-shot length extrapolation with simple implementation; methods like YaRN, LongRoPE, and NTK-aware interpolation extend RoPE for ultra-long contexts (up to 2M tokens); PaTH and DoPE improve upon RoPE by addressing data-dependency and noise issues; and NoPE (no positional encoding) surprisingly outperforms explicit methods in some downstream tasks, showing that position information can be implicitly learned.",
     "papers": [
       "2104.09864",
       "2108.12409",
@@ -758,6 +831,7 @@
   },
   {
     "query": "Find papers that optimize the Transformer self-attention layer not by approximating the math, but by tiling memory access to minimize High Bandwidth Memory",
+    "answer": "The key papers optimizing Transformer self-attention through memory tiling and HBM optimization (without approximating the math) are led by the FlashAttention series. FlashAttention uses tiling to reduce memory reads/writes between GPU High Bandwidth Memory (HBM) and on-chip SRAM, computing exact attention through fused kernels. FlashAttention-2 improves work partitioning and parallelism, while FlashAttention-3 exploits asynchrony with warp-specialization and low-precision support. Related works include ThunderKittens providing abstractions for tiled operations, Tiled Flash Linear Attention extending these techniques to linear RNNs, and systems like vLLM's PagedAttention that optimize KV cache memory management.",
     "papers": [
       "2205.14135",
       "2307.08691",
@@ -767,6 +841,7 @@
   },
   {
     "query": "Find papers that frame prompt optimization as a gradient descent problem over discrete tokens.",
+    "answer": "Several papers frame prompt optimization as a gradient descent problem over discrete tokens. The key approaches include: (1) ProTeGi uses textual 'gradients' - LLM-generated natural language feedback describing prompt flaws - and propagates these through 'semantic gradient descent' to iteratively edit prompts. (2) Greedy Coordinate Gradient (GCG) from the Universal Adversarial Attacks paper computes gradients with respect to token embeddings, uses them to identify top-k token substitutions via a linearized approximation, and greedily selects the best replacement. (3) TextGrad extends this to compound AI systems using automatic differentiation via text, backpropagating textual feedback through computation graphs. (4) RLPrompt formulates discrete prompt optimization as reinforcement learning with policy gradient methods. (5) AutoPrompt uses gradient-based token search with hot-flip methods. These approaches overcome the non-differentiable nature of discrete tokens by either operating in continuous embedding space with discrete projections or using text-based gradient analogues.",
     "papers": [
       "2305.03495",
       "2307.15043",
@@ -777,6 +852,7 @@
   },
   {
     "query": "Benchmarks for general AI assistants that go beyond narrow tasks",
+    "answer": "Several benchmarks evaluate general AI assistants beyond narrow tasks by testing diverse capabilities including tool use, multi-step reasoning, long-term memory, and real-world task completion. Key benchmarks include GAIA for general AI assistant evaluation across diverse real-world tasks requiring multi-step reasoning and tool use; AgentBench which evaluates agents across 8 interactive environments testing reasoning, decision-making, and tool usage; MMMU for massive multi-discipline multimodal understanding spanning expert-level knowledge across domains; WildBench using challenging real-world user queries from conversation logs; LiveBench with continuously-updated questions from recent sources to avoid contamination; and LongMemEval for assessing long-term interactive memory capabilities across sustained conversations.",
     "papers": [
       "2504.02670",
       "2406.04770",
@@ -787,6 +863,7 @@
   },
   {
     "query": "How can I learn contrastive representations that capture conditional dependencies between more than two modalities, rather than just pairwise relationships like CLIP?",
+    "answer": "To learn contrastive representations that capture conditional dependencies between more than two modalities beyond pairwise CLIP, you should explore: (1) **Symile** which uses total correlation to capture higher-order information across any number of modalities simultaneously, (2) **ImageBind** which leverages image-paired data to bind six modalities (images, text, audio, depth, thermal, IMU) into a joint embedding space, (3) **Ex-MCR** which extends existing multi-modal contrastive representations by aligning MCR spaces (e.g., CLIP, CLAP, ULIP) to create unified representations across 3D, image, text, and audio, (4) **VATT** which jointly learns video, audio, and text representations using transformer architectures with multimodal self-supervised learning, and (5) **AudioCLIP** which extends CLIP to three modalities (image, text, audio) through multimodal contrastive objectives. These methods go beyond pairwise relationships by either directly optimizing for higher-order statistics (Symile), using shared modalities as bridges (ImageBind, Ex-MCR), or jointly learning across all modalities with specialized architectures (VATT, AudioCLIP).",
     "papers": [
       "2411.01053",
       "2305.05665",
@@ -800,18 +877,21 @@
   },
   {
     "query": "Paper from Xuandong Zhao that introduces RL from internal feedback?",
+    "answer": "The paper is \"Learning to Reason without External Rewards\" by Xuandong Zhao and colleagues. It introduces the framework of Reinforcement Learning from Internal Feedback (RLIF) and proposes Intuitor, a method that trains LLMs using the model's own internal confidence (self-certainty) as the sole reward signal, eliminating the need for external rewards or labeled data.",
     "papers": [
       "2505.19590"
     ]
   },
   {
     "query": "Paper from Xiancai Chen on Self-debugging for codegen",
+    "answer": "The paper by Xiancai Chen on self-debugging for code generation is 'Revisit Self-Debugging with Self-Generated Tests for Code Generation' (arXiv: 2501.12793). This work explores self-debugging with self-generated tests, proposing two paradigms: post-execution and in-execution self-debugging, showing that in-execution self-debugging can better mitigate bias from self-generated tests.",
     "papers": [
       "2501.12793"
     ]
   },
   {
     "query": "Which papers provide a benchmark that attempts to test frontier model performance on tasks that are deemed truly economically useful?",
+    "answer": "Several benchmarks have been developed to test frontier AI models on economically valuable tasks. The most prominent include: **GDPVal** from OpenAI, which covers 44 occupations across 9 major sectors contributing to U.S. GDP; **APEX** (AI Productivity Index), which tests models on tasks in investment banking, management consulting, big law, and primary care medicine; **SWE-Lancer**, which evaluates models on over 1,400 real freelance software engineering tasks from Upwork valued at $1 million USD; **TheAgentCompany**, which simulates a software company environment with realistic professional tasks; and **MLE-Bench**, which assesses machine learning engineering capabilities on Kaggle-style ML competitions. Additionally, benchmarks like **RE-Bench** test AI research and development capabilities, **GAIA** evaluates general AI assistant capabilities, and **Humanity's Last Exam (HLE)** measures frontier expert-level knowledge. These benchmarks represent a shift toward measuring AI's ability to perform economically valuable work rather than just academic tasks.",
     "papers": [
       "2510.04374",
       "2509.25721",
@@ -823,6 +903,7 @@
   },
   {
     "query": "Which open multimodal models uses the SigLIP image encoder and cross-attention between image and text modalities?",
+    "answer": "Several open multimodal models use the SigLIP image encoder with cross-attention between image and text modalities. The most prominent examples are: (1) Idefics2, which uses SigLIP vision encoder paired with a Perceiver Resampler (a cross-attention mechanism) and Mistral-7B language model; (2) mPLUG-Owl3, which uses SigLIP-400m vision encoder with Hyper Attention blocks (cross-attention layers) and Qwen2 language model; (3) Mantis family of models (including Mantis-SigLIP and Mantis-Idefics2), which are built on the Idefics2 architecture using SigLIP with perceiver resampler; and (4) MiniCPM-V, which uses SigLIP-400M encoder with a Perceiver Resampler connected to MiniCPM language model.",
     "papers": [
       "2407.01449",
       "2408.04840",
@@ -833,6 +914,7 @@
   },
   {
     "query": "Are there papers that benchmark the ability of LLMs to use tools via API calls?",
+    "answer": "Yes, there are several papers that benchmark the ability of LLMs to use tools via API calls. Major benchmarks include: Berkeley Function Calling Leaderboard (BFCL), which evaluates function calling across simple to parallel function calls; ToolBench, featuring over 16,000 real-world REST APIs; API-Bank, with 73 executable API tools and 314 annotated dialogues; τ-bench (tau-bench), testing tool-agent-user interactions in real-world domains; GAIA, assessing general AI assistants' tool use and reasoning; Gorilla's APIBench, covering HuggingFace, TorchHub, and TensorFlow APIs; and MetaTool, evaluating whether LLMs can decide when and which tools to use. These benchmarks assess various capabilities including API selection, parameter mapping, execution, multi-tool orchestration, and reliability across multiple trials.",
     "papers": [
       "2406.12045",
       "2307.16789",
@@ -846,6 +928,7 @@
   },
   {
     "query": "What are good math benchmarks for evaluating an LLM's ability to do math reasoning?",
+    "answer": "Common math benchmarks for evaluating LLM mathematical reasoning include: (1) **GSM8K** - grade school math word problems; (2) **MATH** - competition-level mathematics problems across multiple difficulty levels; (3) **MATH-500** - a curated subset of 500 problems from MATH; (4) **AIME** (2024/2025) - American Invitational Mathematics Examination problems; (5) **AMC** - American Mathematics Competition problems; (6) **OlympiadBench** - Olympiad-level bilingual multimodal scientific problems; (7) **Minerva Math** - quantitative reasoning benchmarks; (8) **MathVista** - multimodal mathematical reasoning; (9) **TheoremQA** - theorem-driven questions requiring domain knowledge; (10) **Omni-MATH** - universal Olympiad-level mathematical benchmark; (11) **MMLU-STEM** - STEM subjects from MMLU; (12) **SVAMP**, **AQuA-RAT**, **ASDiv**, **MAWPS**, **MultiArith**, **AddSub** - various elementary/grade school math word problem datasets; and (13) **MathQA** - math word problems with operation-based formalisms.",
     "papers": [
       "2402.03300",
       "2402.14008",
@@ -855,6 +938,7 @@
   },
   {
     "query": "Identify research describing the counter-intuitive training dynamic where a model achieves near-zero training error (memorization) but fails to generalize, only to suddenly achieve high test accuracy much later in training, often visible in algorithmic tasks.",
+    "answer": "This counter-intuitive training dynamic is known as \"grokking.\" The phenomenon was first described by Power et al. (2022) in the paper \"Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets,\" where neural networks trained on small algorithmic datasets achieve near-perfect training accuracy (memorization) but initially show random-level test accuracy. Then, often thousands of training steps later, they suddenly achieve near-perfect generalization. This delayed generalization occurs well past the point of overfitting and is particularly visible in tasks like modular arithmetic and other algorithmic problems.",
     "papers": [
       "2201.02177",
       "2301.05217",
@@ -864,6 +948,7 @@
   },
   {
     "query": "Agentic frameworks for autonomously generating code repositories from scientific papers",
+    "answer": "Agentic frameworks for autonomously generating code repositories from scientific papers represent a rapidly emerging research area combining multi-agent systems, code generation, and scientific understanding. The most prominent systems include Paper2Code/PaperCoder, DeepCode, Paper2Agent, and broader automated research frameworks like The AI Scientist, Agent Laboratory, and AgentRxiv. These systems typically employ multi-stage pipelines involving planning, analysis, and code generation, with specialized agents handling different aspects such as repository structure design, dependency management, implementation details extraction, and code synthesis. Recent benchmarks like PaperBench have been developed specifically to evaluate these capabilities.",
     "papers": [
       "2504.17192",
       "2512.07921",
@@ -879,6 +964,7 @@
   },
   {
     "query": "What papers/works does Llama 3 benchmark against?",
+    "answer": "Llama 3 benchmarks against several leading language models across different categories. The main models include: GPT-4 (0125), GPT-4o, GPT-3.5 Turbo, Claude 3.5 Sonnet, Gemini Ultra, Gemini 1.5 Pro, Nemotron-4 340B, Mistral 7B, Gemma 2 9B, and Mixtral 8x22B. These comparisons span various benchmarks including general knowledge (MMLU), coding (HumanEval, MBPP), math (GSM8K, MATH), reasoning (ARC Challenge, GPQA), tool use (BFCL, Nexus), long context tasks, and multilingual capabilities.",
     "papers": [
       "2407.21783",
       "2303.08774",
@@ -891,6 +977,7 @@
   },
   {
     "query": "What normalization methods are researchers trying besides Layernorm for training LLMs?",
+    "answer": "Researchers are exploring several alternatives to LayerNorm for training LLMs, including: **RMSNorm** (Root Mean Square Normalization) which removes re-centering and only uses re-scaling for better efficiency; **Dynamic Tanh (DyT)** and **Derf** which are normalization-free approaches using point-wise activation functions; **nGPT** which constrains all vectors to a unit hypersphere; **HybridNorm** combining QKV normalization in attention with Post-Norm in FFN; **Differential Transformer** using differential attention instead of traditional normalization; and architectural variants like **Pre-Norm, Post-Norm, and Sandwich Norm** which differ in where normalization is placed relative to attention/FFN layers.",
     "papers": [
       "1910.07467",
       "2503.10622",
@@ -904,6 +991,7 @@
   },
   {
     "query": "For papers that RL post-train to improve AIME scores, what base models are most popular?",
+    "answer": "The most popular base models for RL post-training to improve AIME scores are from the **Qwen** and **DeepSeek** families. Specifically, **Qwen2.5-32B-Base**, **Qwen2.5-Math-7B**, **Qwen2.5-Math-1.5B**, and **DeepSeek-V3-Base** are the most frequently used. Qwen-based models dominate the research landscape, with Qwen2.5-32B-Base being particularly popular for achieving state-of-the-art results (e.g., DAPO and VAPO both use it to reach ~50-60 points on AIME 2024). DeepSeek-V3-Base is used for flagship models like DeepSeek-R1 and DeepSeek-R1-Zero. Additionally, smaller models like DeepSeek-R1-Distill-Qwen-1.5B are commonly used as starting points for further RL training.",
     "papers": [
       "2501.12948",
       "2503.14476",
@@ -919,6 +1007,7 @@
   },
   {
     "query": "What open models and benchmarks does WebThinker-32B-DPO compare against?",
+    "answer": "WebThinker-32B-DPO compares against three categories of open models: (1) Direct reasoning models including Qwen2.5-32B/72B, DeepSeek-R1-32B, and QwQ-32B without retrieval; (2) RAG-enhanced models like RAG-Qwen2.5-32B and RAG-QwQ-32B with query planning and iterative RAG; (3) Autonomous search models including Search-o1-32B. The benchmarks used are GPQA (PhD-level science QA), GAIA (general AI assistant tasks), WebWalkerQA (web navigation), Humanity's Last Exam (HLE), and Glaive (scientific report generation).",
     "papers": [
       "2504.21776",
       "2501.05366",
@@ -927,6 +1016,7 @@
   },
   {
     "query": "What are some simulation benchmarks for the Franka robot arm?",
+    "answer": "Several simulation benchmarks exist for the Franka robot arm (also known as Franka Emika Panda). The main ones include: LIBERO (Lifelong Robot Learning benchmark with 130 tasks across 4 suites), RLBench (100+ manipulation tasks in CoppeliaSim), CALVIN (language-conditioned long-horizon manipulation), RoboCasa (24+ kitchen manipulation tasks with photorealistic environments), SimplerEnv (real-to-sim evaluation platform), and MetaWorld (50 multi-task manipulation tasks). Additionally, benchmarks like Franka-Kitchen (7 kitchen tasks) are also used for evaluation.",
     "papers": [
       "2306.03310",
       "2411.12633",
@@ -937,6 +1027,7 @@
   },
   {
     "query": "Find papers that simulate a town of generative agents interacting socially with each other.",
+    "answer": "The seminal paper on simulating a town of generative agents is 'Generative Agents: Interactive Simulacra of Human Behavior' by Park et al. (2023), which created a small virtual town called Smallville with 25 AI agents that exhibited realistic social behaviors. Since then, numerous follow-up works have expanded this research in scale, scope, and application domains, simulating hundreds to millions of agents in various social, economic, and urban contexts.",
     "papers": [
       "2304.03442",
       "2411.10109",
@@ -951,6 +1042,7 @@
   },
   {
     "query": "Paper from Yann Lecun introducing self-supervised video models",
+    "answer": "The main paper from Yann LeCun introducing self-supervised video models is 'Revisiting Feature Prediction for Learning Visual Representations from Video' (V-JEPA, arXiv:2404.08471), followed by its scaled-up successor 'V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning' (arXiv:2506.09985). Both use joint-embedding predictive architectures to learn from videos without supervision.",
     "papers": [
       "2404.08471",
       "2506.09985",
@@ -959,6 +1051,7 @@
   },
   {
     "query": "Who has introduced multimodal foundation models specifically for radiology?",
+    "answer": "Several research groups have introduced multimodal foundation models specifically for radiology. Key contributors include: **Microsoft Research** (BiomedCLIP, MedImageInsight, MAIRA series), **Stanford University** (CheXagent, Merlin), **Shanghai Jiao Tong University & Shanghai AI Laboratory** (RadFM), **Tsinghua University** (CT-GLIP), and **various academic institutions** (Curia, RoentGen). These models leverage vision-language architectures to enable tasks like zero-shot disease classification, report generation, visual question answering, and cross-modal retrieval for medical imaging.",
     "papers": [
       "2303.00915",
       "2308.02463",
@@ -973,6 +1066,7 @@
   },
   {
     "query": "What are some papers that introduce frameworks for fine tuning agents specifically for tasks that involve tool use reasoning with qwen?",
+    "answer": "Several papers introduce frameworks for fine-tuning agents for tool use reasoning with Qwen models. The key frameworks include: START (Self-Taught Reasoner with Tools) which fine-tunes QwQ-32B with a Hint-RFT technique for tool-integrated reasoning; ToRL and ReTool which use reinforcement learning to teach Qwen2.5-Math models strategic tool invocation; ToolRL which provides principled reward design for tool use in RL paradigms; DeepAgent which develops end-to-end RL (ToolPO) for general-purpose tool use; APIGen-MT which generates multi-turn agent training data; Chain-of-Agents (CoA) which enables end-to-end multi-agent reasoning through distillation and RL; VerlTool which provides a unified framework for agentic RL with tool use across multiple modalities; and AgentFlow which optimizes planning and tool use through in-the-flow reinforcement learning.",
     "papers": [
       "2503.04625",
       "2504.11536",
@@ -983,12 +1077,14 @@
   },
   {
     "query": "Which paper introduces the LoRA technique for parameter-efficient fine-tuning?",
+    "answer": "The paper that introduces the LoRA technique for parameter-efficient fine-tuning is \"LoRA: Low-Rank Adaptation of Large Language Models\" by Hu et al., published in June 2021.",
     "papers": [
       "2106.09685"
     ]
   },
   {
     "query": "Vision Language foundation models for MRI interpretation",
+    "answer": "Vision-language foundation models for MRI interpretation represent an emerging area combining multimodal AI with medical imaging. Recent advances include reinforcement learning-based models (Med-R1, MedVLM-R1) that improve reasoning across MRI/CT/X-ray modalities, 3D-specific architectures (M3D-LaMed, CT-GLIP, Med3DVLM) for volumetric medical data, and comprehensive generalist models (Lingshu, MedGemma, Merlin) that unify multiple medical imaging types. These models are evaluated on visual question answering, report generation, segmentation, and classification tasks using MRI scans from brain, abdomen, and other anatomical regions.",
     "papers": [
       "2503.13939",
       "2502.19634",
@@ -1004,6 +1100,7 @@
   },
   {
     "query": "When fine-tuning for alignment how do offline, semi-online, and online DPO compare with each other?",
+    "answer": "When fine-tuning for alignment, semi-online and online DPO variants strongly outperform offline DPO, with semi-online (updating model weights periodically, e.g., every 10-100 steps) achieving comparable performance to fully online (updating every step) while being more efficient. The key advantage of online/semi-online methods is they train on responses from the current policy, avoiding distribution shift that limits offline DPO. Online DPO performs similarly to GRPO on both verifiable and non-verifiable tasks, though the importance of on-policy data collection varies by task complexity.",
     "papers": [
       "2506.21495",
       "2402.03300",
@@ -1014,6 +1111,7 @@
   },
   {
     "query": "Why is Qwen so easily able to replicate realistic chat-like behavior when RL-ing with cold start?",
+    "answer": "Qwen models can replicate realistic chat-like behavior during cold start RL because their base models are pretrained on a corpus that mixes both web text and QA pairs generated by instruct-tuned Qwen models. This gives Qwen2.5 base models native instruction-following capabilities and conversational priors already embedded during pretraining. When RL is applied, it simply unlocks and reinforces these latent capabilities rather than creating them from scratch. In contrast, models like DeepSeek-R1-Zero struggle with poor readability and language mixing when trained purely with RL, requiring additional cold-start data with conversational, human-aligned thinking processes and multi-stage training to fix these issues.",
     "papers": [
       "2504.05812",
       "2412.15115",
@@ -1024,6 +1122,7 @@
   },
   {
     "query": "How are positional embeddings assigned to multimodal architectures that tokenize images?",
+    "answer": "Positional embeddings in multimodal architectures that tokenize images are assigned through several key approaches: (1) **Learned absolute positional embeddings** - Vision Transformers (ViT) add learnable position embeddings to each image patch, which can be interpolated for different resolutions at inference time; (2) **2D Rotary Position Embedding (RoPE)** - Models like Qwen2-VL decompose position information into height and width components to maintain spatial relationships; (3) **Multimodal RoPE (M-RoPE)** - Extends RoPE to handle text, images, and video by using three components (temporal, height, width), where text uses identical IDs for all dimensions, images have constant temporal IDs with varying spatial IDs, and videos increment temporal IDs per frame; (4) **Sinusoidal encodings** - Some models use sinusoidal functions similar to the original Transformer; (5) **Native resolution handling** - Recent approaches use dynamic resolution support where positional encodings adapt to arbitrary aspect ratios and resolutions without preprocessing. For video, 3D positional encodings capture spatial and temporal dimensions simultaneously.",
     "papers": [
       "2010.11929",
       "2409.12191",
@@ -1037,12 +1136,14 @@
   },
   {
     "query": "Which paper from Xiaohongshu has \\\"L1: Controlling how long a reasoning model thinks with reinforcement learning\\\" as its first citation?",
+    "answer": "The paper from Xiaohongshu that has 'L1: Controlling how long a reasoning model thinks with reinforcement learning' as its first citation is 'Think When You Need: Self-Adaptive Chain-of-Thought Learning' (arXiv: 2504.03234) by Junjie Yang, Ke Lin, and XingYu from Xiaohongshu Inc.",
     "papers": [
       "2504.03234"
     ]
   },
   {
     "query": "What are some continual learning strategies that do not update weights at test-time?",
+    "answer": "Continual learning strategies that do not update weights at test-time include: (1) Regularization-based methods like Elastic Weight Consolidation (EWC) and Synaptic Intelligence (SI) that constrain parameter updates during training; (2) Replay-based methods such as Experience Replay (ER) and generative replay that store or reconstruct old data for training; (3) Knowledge distillation methods like Learning without Forgetting (LwF) that preserve outputs from previous tasks; (4) Architecture-based methods including Progressive Neural Networks and parameter isolation techniques like PackNet; (5) Prompt-based methods such as L2P and DualPrompt that freeze the backbone and learn task-specific prompts; and (6) Optimization-based methods like Gradient Episodic Memory (GEM) that manipulate gradients during training. These methods perform all weight updates during the training phase and keep the model frozen during inference, unlike test-time adaptation methods.",
     "papers": [
       "1612.00796",
       "2305.19270",
@@ -1054,6 +1155,7 @@
   },
   {
     "query": "Which OCR methods do best on OmniDocBench?",
+    "answer": "According to the latest benchmarks on OmniDocBench v1.5, the top-performing OCR methods are: 1) PaddleOCR-VL-1.5 (94.50% overall, 0.9B params) - current SOTA; 2) HunyuanOCR (94.10% overall, 1B params); 3) MonkeyOCR v1.5 (93.01% overall); 4) PaddleOCR-VL (92.86% overall, 0.9B params); 5) DeepSeek-OCR 2 (91.09% overall with only 1120 visual tokens); and 6) MinerU2.5 (90.67% overall, 1.2B params). Among general VLMs, Gemini-3 Pro (90.33%), Qwen3-VL-235B (89.15%), and Gemini-2.5 Pro (88.03%) also perform well. These specialized lightweight models significantly outperform both general VLMs and traditional pipeline methods.",
     "papers": [
       "2601.21957",
       "2511.19575",
@@ -1068,6 +1170,7 @@
   },
   {
     "query": "Benchmark to assess LLMs abilities to autonomously conduct post-training runs with a 10 hour time limit",
+    "answer": "MLE-bench is the primary benchmark designed to assess LLMs' abilities to autonomously conduct machine learning engineering tasks, including model training runs. While agents are given up to 24 hours total runtime in MLE-bench evaluations, the benchmark categorizes tasks by complexity where Medium tasks take 2-10 hours and High tasks take more than 10 hours for experienced ML engineers to complete (excluding actual model training time). The benchmark evaluates agents on 75 Kaggle ML competitions requiring skills like training models, preparing datasets, and running experiments.",
     "papers": [
       "2410.07095",
       "2502.14499",
@@ -1080,6 +1183,7 @@
   },
   {
     "query": "What are examples of sparse deep learning frameworks that are alternatives to pytorch?",
+    "answer": "Several sparse deep learning frameworks exist as alternatives to PyTorch. Key examples include: Scorch (integrates sparse tensor computation into PyTorch), TensorFlow and JAX (provide some sparse support), TACO (sparse tensor algebra compiler), SparseTIR (composable abstractions for sparse compilation), cuSPARSE/cuSPARSELt (NVIDIA's CUDA sparse libraries), Sputnik (sparse linear algebra library), PyTorch Geometric/DGL (graph neural networks), MegaBlocks (for MoE models), Neural Magic's DeepSparse and SparseML, Intel MKL-Sparse/oneDNN, and MXNet (which supports sparse operations).",
     "papers": [
       "2405.16883",
       "2207.04606",
@@ -1092,24 +1196,28 @@
   },
   {
     "query": "Long context reasoning extension paper from the Qwen team",
+    "answer": "The long context reasoning extension paper from the Qwen team is **QwenLong-L1: Towards Long-Context Large Reasoning Models with Reinforcement Learning** (arXiv:2505.17667). This paper addresses extending large reasoning models to effectively process and reason on long-context inputs via reinforcement learning, proposing a framework with progressive context scaling, curriculum-guided phased RL, and difficulty-aware retrospective sampling.",
     "papers": [
       "2505.17667"
     ]
   },
   {
     "query": "Fetch me the Qwen3 technical report",
+    "answer": "The Qwen3 Technical Report (arXiv:2505.09388) presents the latest version of the Qwen model family, featuring both dense and MoE architectures ranging from 0.6 to 235 billion parameters, with innovations including unified thinking/non-thinking modes and a thinking budget mechanism.",
     "papers": [
       "2505.09388"
     ]
   },
   {
     "query": "Find the preference optimization method that simplifies DPO by removing the need for a reference model entirely, relying instead on the average log-probability margin between winning and losing responses.",
+    "answer": "The method you're looking for is **SimPO (Simple Preference Optimization)**. SimPO simplifies DPO by eliminating the reference model entirely and instead uses the average log-probability of a sequence (length-normalized) as the implicit reward. It optimizes the margin between winning and losing responses through a Bradley-Terry objective with a target reward margin, making it more compute and memory efficient while better aligning the training objective with actual model generation.",
     "papers": [
       "2405.14734"
     ]
   },
   {
     "query": "Pre-trained latent video diffusion model from Nvidia",
+    "answer": "Nvidia's Cosmos is a World Foundation Model (WFM) platform designed for Physical AI applications. It includes both latent video diffusion models and autoregressive models trained on continuous and discrete video tokens respectively. The main paper is \"Cosmos World Foundation Model Platform for Physical AI\" (arXiv:2501.03575), which describes the complete platform including video tokenizers, pre-trained diffusion-based models (Cosmos-Predict1-7B and 12B), autoregressive models, and post-training examples for robotics, autonomous driving, and camera control.",
     "papers": [
       "2501.03575",
       "2503.14492",
@@ -1118,6 +1226,7 @@
   },
   {
     "query": "Papers that compare DPO and PPO for LLM alignment",
+    "answer": "Papers comparing DPO (Direct Preference Optimization) and PPO (Proximal Policy Optimization) for LLM alignment explore the trade-offs between offline preference learning methods and online reinforcement learning approaches. DPO eliminates the need for a separate reward model and is simpler to implement, while PPO is more computationally expensive but may offer advantages in certain scenarios. Recent work has also examined GRPO (Group Relative Policy Optimization) as a memory-efficient variant of PPO. The comparison extends to empirical studies on reasoning tasks, mathematical benchmarks, and general chat capabilities, with findings suggesting that the optimal choice depends on the task, computational constraints, and whether online sampling is beneficial.",
     "papers": [
       "2305.18290",
       "2405.14734",
@@ -1133,6 +1242,7 @@
   },
   {
     "query": "How can language models learn to communicate and coordinate in social deduction games without human demonstration data?",
+    "answer": "Language models can learn to communicate and coordinate in social deduction games without human demonstration data primarily through self-play reinforcement learning and multi-agent frameworks. Key approaches include: (1) Self-play RL where agents play against evolving versions of themselves to develop strategies (SPIRAL, SPICE); (2) Multi-agent KTO that generates preference data from extensive gameplay between diverse models; (3) Decomposing communication into listening (predicting information from discussions) and speaking (RL-based message optimization based on influence); (4) Latent space policy optimization that maps free-form language to compact strategy spaces; (5) Co-evolutionary frameworks with multiple agent roles (proposer/solver/judge) that improve together; and (6) Corpus-grounded self-play that creates automatic curricula. These methods enable emergent strategic behaviors like deception, accusation, and coordination without requiring human demonstrations.",
     "papers": [
       "2502.06060",
       "2501.14225",
@@ -1147,6 +1257,7 @@
   },
   {
     "query": "Are there any works that attempt to use RL during the pre-training phase?",
+    "answer": "Yes, there are several recent works attempting to use RL during the pre-training phase. The most notable approaches include: (1) Reinforcement Pre-Training (RPT) by Microsoft Research, which reframes next-token prediction as a reasoning task trained with RL and verifiable rewards based on correctly predicting the next token; (2) General Intelligence Requires Reward-based Pretraining, which proposes disentangling knowledge and reasoning by pre-training to reason using RL from scratch on synthetic tasks; and (3) Absolute Zero, which uses RL with verifiable rewards during a self-play training paradigm where the model generates its own curriculum of code reasoning tasks without external data. These approaches challenge the traditional paradigm of supervised pre-training followed by RL fine-tuning.",
     "papers": [
       "2506.08007",
       "2502.19402",
@@ -1158,18 +1269,21 @@
   },
   {
     "query": "World model joint collaboration between Sony and UW",
+    "answer": "The world model joint collaboration between Sony and University of Washington resulted in \"Semantic World Models\" (arXiv 2510.19818), a paper that reframes world modeling as a visual question-answering problem about future outcomes rather than pixel prediction, enabling better generalization for robotic control tasks.",
     "papers": [
       "2510.19818"
     ]
   },
   {
     "query": "Paper that solicits Olympiad medalists to grade LLMs on difficult coding competitions",
+    "answer": "The paper you're looking for is **LiveCodeBench Pro: How Do Olympiad Medalists Judge LLMs in Competitive Programming?** (arXiv: 2506.11928). This paper involves a team of Olympiad medalists who annotate problems from Codeforces, ICPC, and IOI with algorithmic categories, and conduct line-by-line analysis of failed LLM-generated submissions to evaluate where models struggle compared to human experts.",
     "papers": [
       "2506.11928"
     ]
   },
   {
     "query": "Papers that compare test-time scaling LLMs on legal reasoning tasks",
+    "answer": "Recent papers have evaluated test-time scaling LLMs on legal reasoning tasks, with one major systematic study comparing 12 different LLMs (both reasoning-focused and general-purpose models) across 17 Chinese and English legal tasks. The key finding is that test-time scaling models like DeepSeek-R1 and OpenAI's o1 show advantages on legal reasoning tasks compared to traditional LLMs, though they still face challenges including outdated legal knowledge, limited legal interpretation capacity, and factual hallucinations.",
     "papers": [
       "2503.16040",
       "2505.12864",
@@ -1183,6 +1297,7 @@
   },
   {
     "query": "Which paper(s) focus on examining LLMs abilities to reason in anticipatory games like deal or no deal, prisoner's dilemma, etc?",
+    "answer": "Several papers examine LLMs' abilities to reason in anticipatory/strategic games like deal or no deal, prisoner's dilemma, and other game-theoretic settings. The most comprehensive papers in this area are: (1) game theory survey papers that systematically evaluate LLMs across multiple game types (2502.09053, 2402.12348), (2) papers on specific strategic games including prisoner's dilemma, ultimatum games, and negotiation scenarios (2305.16867, 2402.05863, 2411.05990, 2503.12722), and (3) papers examining social cooperation and strategic reasoning in multi-agent settings (2502.12504, 2503.15752, 2501.14225, 2502.20432, 2503.12349). These papers reveal that LLMs show varying strategic reasoning abilities depending on game complexity, with better performance in self-interested games but struggles in coordination tasks requiring theory of mind and deep backward induction.",
     "papers": [
       "2502.09053",
       "2305.16867",
@@ -1193,6 +1308,7 @@
   },
   {
     "query": "Is sample reuse ok when doing alignment fine-tuning for LLMs?",
+    "answer": "Sample reuse during alignment fine-tuning is a nuanced topic with both benefits and risks. **In general, limited sample reuse (1-2 epochs) is common practice**, but excessive reuse can be problematic. The key findings are:\n\n**On-policy vs. Off-policy sampling matters most**: Recent research emphasizes that on-policy sampling (generating fresh samples from the current policy) generally outperforms training on stale/reused data. The paper \"Preference Fine-Tuning of LLMs Should Leverage Suboptimal, On-Policy Data\" shows that on-policy methods consistently outperform purely offline methods that reuse the same data.\n\n**Risks of excessive sample reuse**:\n- **Reward hacking/overoptimization**: Models can exploit reward model biases, leading to worse actual quality despite higher rewards\n- **Distribution shift**: As the model evolves, old samples become increasingly off-policy and provide weaker training signals\n- **Overfitting**: Multiple passes over the same data can cause the model to memorize rather than generalize\n\n**Common practices**:\n- Most successful systems train for **1-2 epochs** on alignment data (e.g., Qwen2 uses 2 epochs for SFT)\n- **Iterative approaches** that periodically refresh data with new samples from the current policy work better than many epochs on fixed data\n- **Asynchronous RLHF** can tolerate some off-policy data (sample reuse) but performance degrades with too much staleness\n\nThe consensus is: **fresh, on-policy samples are preferable, but 1-2 epochs is generally acceptable as long as you're not training for many epochs on completely stale data**.",
     "papers": [
       "2404.14367",
       "2501.03262",
@@ -1202,6 +1318,7 @@
   },
   {
     "query": "What are tricks to improve stability during post-training?",
+    "answer": "Common stability tricks for post-training include: (1) **KL divergence regularization** to prevent policy from deviating too far from reference model; (2) **Gradient/advantage clipping** (PPO clipping) to limit policy updates; (3) **Advantage normalization** (global or group-based) for stable gradient estimates; (4) **Learning rate warmup and decay schedules**; (5) **Clip-Higher strategy** that uses asymmetric clipping to maintain exploration; (6) **Dynamic sampling** to filter prompts with all-correct/all-incorrect answers; (7) **Entropy regularization** to prevent policy collapse; (8) **Value model pre-training/initialization** for stable critic estimates; (9) **Reward normalization/shaping**; (10) **Mixed data training** with replay buffers; (11) **Gradient clipping** and proper optimizer settings (AdamW with specific betas).",
     "papers": [
       "2503.14476",
       "2307.04964",
@@ -1212,6 +1329,7 @@
   },
   {
     "query": "Which paper draws connections between LLM RL with binary rewards to transformations like log loss and arcsine of the square root?",
+    "answer": "The paper is \"What is the objective of reasoning with reinforcement learning?\" by Damek Davis and Benjamin Recht (arXiv: 2510.13651). This paper shows that popular RL algorithms for LLMs with binary rewards can be viewed as stochastic gradient ascent on monotone transformations of the probability of a correct answer. Specifically, rejection sampling algorithms correspond to the logarithm transformation, while the GRPO algorithm corresponds to the arcsine of the square root transformation.",
     "papers": [
       "2510.13651",
       "2510.23049"
@@ -1219,6 +1337,7 @@
   },
   {
     "query": "What are some continual learning strategies that actually involve updating weights at test-time instead of providing scaffolding?",
+    "answer": "Several continual learning strategies update model weights at test time rather than just providing structural scaffolding. Key approaches include: (1) **Test-Time Training (TTT)** methods like TTT-Linear and TTT-MLP that treat the hidden state as a learnable model and update it via self-supervised learning on test sequences; (2) **Test-Time Adaptation** methods like TENT that minimize entropy at inference time; (3) **Meta-learning approaches** like Self-Adapting Language Models (SEAL) that generate self-edits and update directives for gradient-based weight updates; (4) **Experience Replay** variants that store and replay past examples while updating weights online; (5) **Regularization-based methods** like Elastic Weight Consolidation (EWC) and Synaptic Intelligence that selectively update weights while protecting important parameters; and (6) **Test-Time Reinforcement Learning (TTRL)** that performs RL updates using self-labeled rewards during inference.",
     "papers": [
       "2407.04620",
       "2310.13807",
@@ -1228,12 +1347,14 @@
   },
   {
     "query": "Which paper introduces autonomously generates terminal-use tasks without humans in the loop?",
+    "answer": "The paper \"Endless Terminals: Scaling RL Environments for Terminal Agents\" (arXiv ID: 2601.16443) introduces a fully autonomous pipeline that procedurally generates terminal-use tasks without human annotation.",
     "papers": [
       "2601.16443"
     ]
   },
   {
     "query": "Important RL papers from DeepSeek",
+    "answer": "DeepSeek has published several important papers on reinforcement learning, with their flagship work being DeepSeek-R1, which demonstrates how pure RL can incentivize reasoning capabilities in LLMs without human-labeled reasoning trajectories. Their key contributions include innovative RL techniques like GRPO (Group Relative Policy Optimization) for mathematical reasoning, and applications across multiple domains including math, coding, and formal theorem proving.",
     "papers": [
       "2501.12948",
       "2402.03300",
@@ -1244,6 +1365,7 @@
   },
   {
     "query": "Which other open source models does GLM 4.5 benchmark against?",
+    "answer": "GLM-4.5 (the latest GLM model from THUDM/Zhipu AI, which may be what you're referring to as 'GLM 5') benchmarks against several major open-source models including: Qwen3-235B and its Thinking-2507 variant, DeepSeek-V3-0324, DeepSeek-R1-0528, Kimi-K2, and Llama4-Maverick. These comparisons are done across agentic, reasoning, coding, and general capability benchmarks.",
     "papers": [
       "2508.06471",
       "2412.19437",
@@ -1254,6 +1376,7 @@
   },
   {
     "query": "Are there papers that assess reasoning abilities of llms without specifically fine-tuning for it?",
+    "answer": "Yes, there are papers that assess reasoning abilities of LLMs without specifically fine-tuning for reasoning. These papers typically evaluate base/pre-trained models using prompting techniques (zero-shot, few-shot, chain-of-thought) or test-time compute methods, rather than task-specific fine-tuning. Key approaches include using prompting strategies, benchmarking base models against fine-tuned variants, and exploring test-time scaling methods.",
     "papers": [
       "2504.13837",
       "2504.09858",
@@ -1264,6 +1387,7 @@
   },
   {
     "query": "Which papers show the best results for HotpotQA?",
+    "answer": "The best results on HotpotQA are achieved by Memento (GPT-4.1 + o4-mini), which reaches 66.5% F1 and 81.6% PM (Partial Match), followed by DeepResearcher with 52.8% F1 and 64.3% MBE (Model-Based Evaluation). Other strong performers include ReSearch-Qwen-32B-Instruct (46.73% EM, 67.70% LLM-as-Judge), Search-R1-base (55.9% F1), and various agent-based systems that combine reinforcement learning with search capabilities.",
     "papers": [
       "2508.16153",
       "2504.03160",
@@ -1277,12 +1401,14 @@
   },
   {
     "query": "Which paper uses RL for interleaved reasoning on tasks like Knights and Knaves?",
+    "answer": "The paper is 'Interleaved Reasoning for Large Language Models via Reinforcement Learning' by Xie et al. This paper uses reinforcement learning to train LLMs to interleave thinking and answering steps for multi-hop reasoning, and evaluates on Knights and Knaves (K&K) puzzles as one of the in-domain datasets.",
     "papers": [
       "2505.19640"
     ]
   },
   {
     "query": "LLM as a judge can be noisy for continual learning. Are there methods that attempt to use LLMs to compare different trajectories (suggesting that pair-wise comparison could be more stable than just having an LLM assign a reward out of the blue)?",
+    "answer": "Yes, there are methods that use pairwise comparisons with LLMs to evaluate trajectories, and research suggests this can be more stable than direct scoring. The key papers include: J1 (2505.10320) which shows pairwise LLM judges can be more robust than pointwise scoring; a paper by Tripathi et al. (2504.14716) demonstrating the tradeoffs between pairwise and pointwise protocols; SWEET-RL (2503.15478) which uses turn-level reward models for multi-turn trajectory comparison; and work on LLM-Blender, Inference-Time Scaling for Generalist Reward Modeling (2504.02495), and Agent-as-a-Judge (2410.10934) that leverage pairwise ranking for more reliable evaluation. The evidence suggests that relative comparisons can help with consistency but may introduce biases depending on implementation.",
     "papers": [
       "2505.10320",
       "2504.02495",
@@ -1292,12 +1418,14 @@
   },
   {
     "query": "Papers from Mostafa Elhoushi while he's been at Cerebras systems",
+    "answer": "I found 2 papers with Mostafa Elhoushi's Cerebras Systems affiliation. The primary one is 'Demystifying Synthetic Data in LLM Pre-training' (2510.01631) where he is explicitly listed with Cerebras Systems. The 'LayerSkip' paper (2404.16710) may also be related to his Cerebras work period. Note that he also appears as co-author on other works like data quality papers and the Cerebras-GPT project mentioned in citations, but these specific papers are not directly available in the database with his Cerebras affiliation.",
     "papers": [
       "2510.01631"
     ]
   },
   {
     "query": "Are there papers that introduce a framework for LLMs to interact with external code interpreters to solve math problems?",
+    "answer": "Yes, there are several papers that introduce frameworks for LLMs to interact with external code interpreters to solve math problems. Key papers include: PAL (Program-Aided Language Models) which uses LLMs to generate Python code executed by an interpreter; ReTool which uses reinforcement learning to teach models when and how to invoke code interpreters; ToRL (Tool-Integrated Reinforcement Learning) which trains LLMs to autonomously use computational tools; START which enables tool-integrated reasoning through self-learning; and MathChat which creates a conversational framework where agents collaborate with a code executor.",
     "papers": [
       "2504.11536",
       "2503.04625",
@@ -1313,6 +1441,7 @@
   },
   {
     "query": "Papers proposing overlong reward shaping, token-level policy gradients, and dynamic sampling",
+    "answer": "The three techniques—overlong reward shaping, token-level policy gradients, and dynamic sampling—were introduced primarily in the DAPO (Decoupled Clip and Dynamic sAmpling Policy Optimization) paper and have since been widely adopted and analyzed in subsequent reinforcement learning research for LLM reasoning.",
     "papers": [
       "2503.14476",
       "2504.05118",
@@ -1323,6 +1452,7 @@
   },
   {
     "query": "I am looking for methods that allow a weak LLM to become a strong one by engaging in a zero-sum game against its previous iteration, effectively removing the need for external human-annotated pairs during fine-tuning.",
+    "answer": "The primary method described in your query is **self-play fine-tuning** where a language model plays against previous iterations of itself in a zero-sum game framework, eliminating the need for external human-annotated pairs. The most prominent paper matching this description is **SPIN (Self-Play fIne-tuNing)** which trains LLMs through self-play where the model distinguishes between its own generated responses and human-annotated data. More recent advances include **SPIRAL**, which uses multi-turn zero-sum games (like Kuhn Poker and TicTacToe) to develop transferable reasoning capabilities without human supervision, and related game-theoretic methods like **SPPO (Self-Play Preference Optimization)** and **Nash Learning from Human Feedback (NLHF)** that frame alignment as finding Nash equilibria in two-player games. Additionally, several methods use dual-agent self-improvement where a Proposer/Challenger generates tasks and a Solver attempts to solve them (e.g., R-Zero, Absolute Zero, Agent0, Multi-Agent Evolve, Dr. Zero), creating automatic curriculum learning without human data.",
     "papers": [
       "2401.01335",
       "2506.24119",
@@ -1338,6 +1468,7 @@
   },
   {
     "query": "Find papers that discuss \"jailbreaking\" LLMs by automatically generating adversarial suffixes.",
+    "answer": "The most influential paper in this area is \"Universal and Transferable Adversarial Attacks on Aligned Language Models\" (Zou et al., 2023), which introduced the Greedy Coordinate Gradient (GCG) attack. This method automatically generates adversarial suffixes through gradient-based discrete optimization, maximizing the probability of harmful responses. Since then, numerous papers have built upon or improved this approach, including AmpleGCG (learning a generative model of adversarial suffixes), I-GCG (improved optimization techniques), AutoDAN (combining gradient methods with genetic algorithms), and AdvPrompter (using an LLM to generate suffixes).",
     "papers": [
       "2307.15043",
       "2404.07921",
@@ -1351,6 +1482,7 @@
   },
   {
     "query": "What are tricks for converging during pre-training that popular open source models use?",
+    "answer": "Popular open source models use several key tricks for converging during pre-training: (1) **Normalization techniques** - QK-Norm to prevent attention logit explosion, RMSNorm instead of LayerNorm, and reordering normalization to outputs rather than inputs; (2) **Auxiliary losses** - Z-loss for logit regularization (weight ~1e-5), load balancing loss for MoE models, and router z-loss to improve stability; (3) **Training stability measures** - gradient clipping (typically norm 1.0), learning rate warmup (linear over 2-10% of steps), batch size scheduling (gradually increasing from ~1024 to 2048-8960), and FP8 mixed precision with fine-grained quantization; (4) **Architectural choices** - removing weight decay on embeddings, QKV clipping to prevent overflow, increased RoPE theta (5e5), and weight tying between input/output embeddings; (5) **Optimization techniques** - AdamW with β1=0.9, β2=0.95, cosine or WSD learning rate schedules, and careful monitoring with automated checkpoint recovery for loss spikes.",
     "papers": [
       "2412.19437",
       "2407.21783",
@@ -1363,6 +1495,7 @@
   },
   {
     "query": "Papers that assess feasbility of Muon optimizer at large scale",
+    "answer": "Multiple recent papers have assessed the feasibility of the Muon optimizer at large scale. The key findings are: (1) Muon achieves ~2× computational efficiency compared to AdamW in compute-optimal training for models up to 16B parameters and 5.7T tokens (Moonlight model), though speedup decreases with model size from 1.4× at 0.1B to 1.1× at 1.2B parameters; (2) Original Muon faces scalability challenges with distributed training due to high compute and communication costs from dense matrix operations that clash with weight sharding; (3) Several papers propose solutions: Dion replaces Newton-Schulz iteration with amortized power iteration to avoid full-matrix reconstruction, NorMuon adds neuron-level adaptive learning rates with distributed implementation under FSDP2, and optimized distributed implementations enable memory-optimal and communication-efficient training at scale.",
     "papers": [
       "2502.16982",
       "2504.05295",
@@ -1375,6 +1508,7 @@
   },
   {
     "query": "Is dropout used when training modern state-of-the-art LLMs?",
+    "answer": "No, dropout is generally NOT used when training modern state-of-the-art LLMs during pretraining. While dropout was a common regularization technique in earlier neural networks and some specialized contexts, the vast majority of recent large-scale language models are pretrained without dropout. Several papers explicitly document this: the LIMA paper (2023) reports using 'residual dropout of 0.0' when fine-tuning LLaMA 65B; Textbooks Are All You Need (phi-1, 2023) uses 'attention and residual dropout of 0.1' during training; Hyena (2023) reports 'Dropout: None'; and Molmo (2024) applies 'residual dropout to the LLM' only during certain training stages. The Predictable Scale paper (2025) training LLaMA-style models notes 'without applying dropout'. Modern LLMs like LLaMA 3, DeepSeek-V3, and GPT models primarily rely on other techniques for stable training such as weight decay, gradient clipping, layer normalization (RMSNorm), and careful learning rate schedules rather than dropout. Dropout may still be used in specific contexts like fine-tuning multimodal models or in specialized adapter layers, but it is not a standard component of pretraining large language models.",
     "papers": [
       "2305.11206",
       "2306.11644",
@@ -1387,24 +1521,28 @@
   },
   {
     "query": "What is that paper where Nathan Lambert is one of the authors that suggests if you fine-tuning Qwen with random rewards evals can go up?",
+    "answer": "The paper you're looking for is \"Spurious Rewards: Rethinking Training Signals in RLVR\" by Rulin Shao, Shuyue Stella Li, Nathan Lambert, and colleagues. It demonstrates that fine-tuning Qwen2.5-Math-7B with random rewards improves MATH-500 performance by 21.4 absolute percentage points, nearly matching the 29.1% improvement from ground truth rewards.",
     "papers": [
       "2506.10947"
     ]
   },
   {
     "query": "What is that spurious rewards paper from the University of Washington?",
+    "answer": "The paper is 'Spurious Rewards: Rethinking Training Signals in RLVR' by Shao et al. from the University of Washington. It demonstrates that reinforcement learning with verifiable rewards (RLVR) can improve mathematical reasoning performance even with spurious rewards that have little to no correlation with correct answers, particularly for Qwen2.5-Math models.",
     "papers": [
       "2506.10947"
     ]
   },
   {
     "query": "Which paper introduces the Tiny Recursive Model (TRM)?",
+    "answer": "The paper 'Less is More: Recursive Reasoning with Tiny Networks' by Alexia Jolicoeur-Martineau introduces the Tiny Recursive Model (TRM), which is a simplified recursive reasoning approach that outperforms the Hierarchical Reasoning Model (HRM) using a single tiny network with only 2 layers and 7M parameters.",
     "papers": [
       "2510.04871"
     ]
   },
   {
     "query": "What are often-referenced benchmarks for testing multimodal understanding?",
+    "answer": "The most commonly referenced benchmarks for testing multimodal understanding include: MMMU (testing college-level expert knowledge across disciplines), MMBench (comprehensive bilingual evaluation), MathVista (visual mathematical reasoning), MM-Vet (integrated capabilities), SEED-Bench (comprehensive multimodal evaluation), VQAv2 (general visual question answering), TextVQA/OCRBench (OCR and text understanding), ChartQA (chart understanding), GQA (compositional visual reasoning), AI2D (diagram understanding), Video-MME and LongVideoBench (video understanding), and DocVQA/InfoVQA (document understanding).",
     "papers": [
       "2503.24235",
       "2504.10479",
@@ -1418,6 +1556,7 @@
   },
   {
     "query": "Kimi model that utilizes both curriculum and prioritized sampling to scale RL for LLMs",
+    "answer": "The Kimi k1.5 model is a multimodal large language model that employs both curriculum sampling and prioritized sampling strategies to scale reinforcement learning for improved reasoning capabilities. Curriculum sampling starts training on easier tasks and gradually progresses to harder ones based on difficulty labels, while prioritized sampling adjusts the training distribution based on each problem's success rate, giving higher probability to problems with intermediate success rates (40-70%) where the model can learn most effectively. This approach achieved state-of-the-art results matching OpenAI's o1 on benchmarks like AIME (77.5), MATH 500 (96.2), and MathVista (74.9).",
     "papers": [
       "2501.12599",
       "2504.09710"
@@ -1425,6 +1564,7 @@
   },
   {
     "query": "What are the best open-source models on SWE-bench verified?",
+    "answer": "Based on recent research, the best open-source models on SWE-bench Verified (as of early 2026) achieve resolve rates between 50-72%. The top performers include: SWE-Master-32B-RL (61.4% pass@1, 70.8% with TTS@8), Kimi K2 (65.8% agentic single-attempt), SWE-Lego-Qwen3-32B (52.6-57.6% pass@1, 58.8-60.4% with TTS@16), daVinci-Dev (56.1% for 32B, 58.5% for 72B), CWM-32B (53.9%), R2E-Gym-32B (34.4% pass@1, 51% with TTS@26), and Llama3-SWE-RL-70B (41.0%). These models use various approaches including supervised fine-tuning, reinforcement learning, and test-time scaling.",
     "papers": [
       "2602.03411",
       "2507.20534",
@@ -1438,6 +1578,7 @@
   },
   {
     "query": "When does adding a KL penalty with the reference policy help when RL fine-tuning?",
+    "answer": "Adding a KL penalty with the reference policy in RL fine-tuning helps primarily when: (1) using learned reward models (preventing reward hacking and over-optimization to proxy rewards), (2) training from an already well-initialized model (maintaining linguistic coherence and preventing catastrophic forgetting), (3) dealing with noisy or subjective rewards (stabilizing training), and (4) in off-policy settings with distribution shift. However, KL penalties can be reduced or removed when training with verifiable/ground-truth rewards (e.g., math or code correctness), starting from weak base models that need to explore new reasoning structures, or when the reference policy is of poor quality. The key trade-off is between exploration (discovering new solutions) and stability (maintaining existing capabilities).",
     "papers": [
       "2502.21321",
       "2505.24864",
@@ -1447,6 +1588,7 @@
   },
   {
     "query": "Which paper(s) compare simple rejection-sampling frameworks for LLM reasoning with more advanced techniques like GRPO and iterative dpo?",
+    "answer": "The key paper comparing simple rejection-sampling frameworks with advanced techniques like GRPO and iterative DPO is \"A Minimalist Approach to LLM Reasoning: from Rejection Sampling to Reinforce\" (arXiv:2504.11343). This paper systematically shows that RAFT (a simple rejection sampling baseline that trains only on positively rewarded samples) achieves competitive performance with GRPO and PPO on mathematical reasoning tasks. The main finding is that GRPO's advantage comes primarily from filtering out prompts with entirely incorrect responses rather than from its reward normalization mechanism. Other relevant papers include \"Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?\" which critically examines whether RLVR methods truly enable novel reasoning patterns beyond the base model, and \"DeepSeekMath\" which introduced GRPO as an efficient variant of PPO for mathematical reasoning.",
     "papers": [
       "2504.11343",
       "2402.03300",
@@ -1460,6 +1602,7 @@
   },
   {
     "query": "Which papers show the best results for HotpotQA?",
+    "answer": "The best results on HotpotQA are achieved by recent LLM-based agentic systems trained with reinforcement learning. Memento (GPT-4.1 + o4-mini) achieves the highest reported F1 score of 81.6% on HotpotQA, while DeepResearcher achieves 64.3% F1. Other top-performing approaches include Chain-of-Agents (AFM-RL) with around 41-46% EM depending on backbone size, Search-R1 variants (43-56% F1), and Agent Learning systems (49-56% F1).",
     "papers": [
       "2508.16153",
       "2504.03160",
@@ -1473,6 +1616,7 @@
   },
   {
     "query": "What deep research benchmarks does Dr. Tulu-8B use?",
+    "answer": "DR Tulu-8B uses four main long-form deep research benchmarks: HealthBench (healthcare deep research), ResearchQA (scholarly question answering across 75 fields), AstaBench-ScholarQA-CS2 (computer science literature synthesis), and DeepResearchBench (general-domain deep research questions). Additionally, the authors constructed GeneticDiseasesQA, a clinical dataset for assessing therapeutic eligibility of genetic variants.",
     "papers": [
       "2511.19399",
       "2505.08775",
@@ -1484,6 +1628,7 @@
   },
   {
     "query": "For papers that RL post-train to improve AIME scores, what datasets do they typically use?",
+    "answer": "Papers that use RL post-training to improve AIME scores typically use a combination of mathematical reasoning datasets for training. The most common datasets include: (1) **Problem collections**: MATH (7.5K-12K problems), GSM8K (7.5K problems), NuminaMath (860K problems), OpenMathInstruct (14M solutions), Skywork-MathQA (2.5M problems), MetaMathQA (395K problems), and AoPS-derived problems (540K+ from Art of Problem Solving forums). (2) **Distilled long-CoT datasets**: OpenThoughts-114K, OpenR1-Math-220K (distilled from DeepSeek-R1), OpenMathReasoning (540K problems with 3.2M solutions from DeepSeek-R1 and QwQ-32B), and DeepMath-103K. (3) **Competition-level problems**: Problems from olympiad competitions, Codeforces, and AIME itself (though often excluded from training to prevent contamination). Papers like DeepSeek-R1 used 26K math prompts including exam and competition problems, DAPO used these same datasets for RL training, and AIMO-2 winner used 540K AoPS problems with 3.2M long-reasoning solutions. The training typically combines SFT on these datasets followed by RL with verifiable rewards based on answer correctness.",
     "papers": [
       "2501.12948",
       "2503.14476",
@@ -1495,6 +1640,7 @@
   },
   {
     "query": "Which papers discovered that LLMs did significantly worse on the 2025 USAMO than what was advertised?",
+    "answer": "The main paper that discovered LLMs performed significantly worse on the 2025 USAMO than advertised is \"Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad\" (arXiv:2503.21934). This paper found that when evaluated on full proof generation rather than just final answers, most state-of-the-art models achieved less than 5% scores, with only Gemini-2.5-Pro achieving 25%. This contrasted sharply with advertised claims from benchmarks like MathArena showing near-perfect AIME performance (90%+), revealing that answer-only evaluations dramatically overestimated actual mathematical reasoning capabilities.",
     "papers": [
       "2503.21934",
       "2505.23281",
@@ -1504,18 +1650,21 @@
   },
   {
     "query": "Work from Andrew Zhao that discovers self-play reasoning without any external data",
+    "answer": "Andrew Zhao and collaborators from Tsinghua University introduced \"Absolute Zero: Reinforced Self-play Reasoning with Zero Data\" (arXiv:2505.03335), a groundbreaking paradigm where a single model learns to propose tasks that maximize its own learning progress and improves reasoning by solving them, without relying on any external data whatsoever—no human-curated questions, answers, or reasoning traces.",
     "papers": [
       "2505.03335"
     ]
   },
   {
     "query": "Which variation of the self-taught reasoner learns to generate thoughts on top of any text, trained with reinforce to generate thoughts that correctly predict the next token?",
+    "answer": "The variation is **Quiet-STaR** (Quiet Self-Taught Reasoner). It generalizes the original STaR approach by teaching language models to generate rationales (thoughts) at each token position in arbitrary text, not just on question-answering tasks. The model is trained with REINFORCE to generate thoughts that help correctly predict future tokens, using the log-probability improvement as the reward signal.",
     "papers": [
       "2403.09629"
     ]
   },
   {
     "query": "How are AI agents being applied to materials science research and discovery?",
+    "answer": "AI agents are being applied to materials science research and discovery through autonomous systems that combine large language models (LLMs) with specialized tools, multi-agent collaboration, and closed-loop experimental workflows. These agents automate the entire research pipeline from hypothesis generation and literature review to experimental design, execution, and analysis. Key applications include: (1) autonomous materials synthesis and discovery using self-driving laboratories like A-Lab for inorganic materials; (2) crystal structure prediction and generation using diffusion models and graph neural networks (e.g., GNoME discovering 2.2 million new stable crystals); (3) multi-agent systems like AtomAgents, MatAgent, and HoneyComb that decompose complex design tasks across specialized agents; (4) chemistry automation through agents like ChemCrow that integrate computational tools for synthesis planning and property prediction; (5) closed-loop optimization systems like ChemOS 2.0 for autonomous chemical discovery; and (6) LLM-guided inverse design frameworks like LLMatDesign and dZiner for targeted materials with specific properties.",
     "papers": [
       "2504.01990",
       "2503.21460"
@@ -1523,6 +1672,7 @@
   },
   {
     "query": "Which models perform best on Tau-Bench?",
+    "answer": "Based on recent evaluations, **Claude Opus 4 and Claude Sonnet 4** lead on Tau-Bench (original version) with scores around 80-81% on retail and 59-60% on airline domains. **GLM-4.5** also performs very well with 79.7% on retail and 60.4% on airline. For the newer **Tau-2-Bench** (with three domains including telecom), **GPT-5** achieves exceptional results with 77.5% retail, 97.5% telecom, and 51.7% airline for an 80.3% average. Other top performers include **MiniMax-M1** (67.8% retail, 62% airline), **MUA-RL-32B** (72.6% retail, 67.3% airline), and **Kimi K2** (66.1% average on Tau-2). Most models struggle significantly with the challenging airline and telecom domains compared to retail.",
     "papers": [
       "2406.12045",
       "2508.06471",
@@ -1534,6 +1684,7 @@
   },
   {
     "query": "Paper that replaces RLHF using a separate reward model with a preference objective",
+    "answer": "Direct Preference Optimization (DPO) and its variants replace RLHF's separate reward model with a closed-form preference objective that directly optimizes the policy on preference data. Key methods include: DPO (original by Rafailov et al., 2023), SimPO (eliminates reference model using average log probability), ORPO (monolithic single-stage approach with odds ratio), KTO (uses binary signals from prospect theory), IPO (Identity Preference Optimization with regularization), and Nash-MD/Nash learning (game-theoretic self-play approaches). These methods eliminate the costly reward model training stage while achieving comparable or better alignment performance.",
     "papers": [
       "2305.18290",
       "2405.14734",
@@ -1544,6 +1695,7 @@
   },
   {
     "query": "Identify key studies that quantify the massive CO2 emissions and energy consumption associated with training large NLP models, advocating for efficiency metrics alongside accuracy.",
+    "answer": "The key studies quantifying massive CO2 emissions and energy consumption from training large NLP models include Strubell et al.'s 'Energy and Policy Considerations for Deep Learning in NLP' (2019), which first brought attention by showing training a single model can emit as much carbon as five cars in their lifetimes; Patterson et al.'s Google study (2021) quantifying T5, GPT-3, and other models demonstrating 100-1000X variation in carbon footprint; and the BLOOM paper (2022) providing comprehensive lifecycle analysis of a 176B-parameter model. These papers advocate for efficiency metrics alongside accuracy, with Schwartz et al.'s 'Green AI' (2019) proposing efficiency as an evaluation criterion and cost reporting, and MLPerf Power (2024) standardizing energy efficiency benchmarking across the industry.",
     "papers": [
       "1906.02243",
       "1907.10597",
@@ -1559,6 +1711,7 @@
   },
   {
     "query": "Linear alternatives to standard transformer architectures",
+    "answer": "Linear alternatives to standard transformer architectures aim to reduce the quadratic complexity of self-attention to linear complexity, enabling efficient processing of long sequences. Key approaches include: (1) **State Space Models (SSMs)** like Mamba and S4 that model sequences as continuous dynamical systems with selective state spaces; (2) **Linear Attention** variants that reformulate attention using kernel methods or feature maps (e.g., RetNet, GLA, DeltaNet); (3) **Test-Time Training (TTT)** layers that use expressive hidden states updated via self-supervised learning; (4) **Hybrid models** like RWKV that combine linear recurrence with gating mechanisms; and (5) **Advanced gating approaches** like Kimi Linear's Delta Attention that balance expressivity with efficiency. These architectures maintain constant or linear complexity while approaching or matching transformer performance on various tasks.",
     "papers": [
       "2312.00752",
       "2501.00663",
@@ -1574,6 +1727,7 @@
   },
   {
     "query": "Which open source works does Kimi K2.5 benchmark and compare itself against?",
+    "answer": "Kimi K2.5 benchmarks and compares itself against two main open-source works: DeepSeek-V3.2 (with thinking mode enabled) for text benchmarks, and Qwen3-VL-235B-A22B-Thinking for vision benchmarks.",
     "papers": [
       "2512.02556",
       "2511.21631"
@@ -1581,6 +1735,7 @@
   },
   {
     "query": "Which open-source models does the MiniMax-M1 paper compare itself to?",
+    "answer": "The MiniMax-M1 paper compares itself to three main open-source models: DeepSeek-R1 (including both the original and the DeepSeek-R1-0528 version), Qwen3-235B-A22B, and Seed-Thinking-v1.5. These comparisons are shown in Table 2 of the paper across various benchmarks including mathematics (AIME, MATH-500), coding (LiveCodeBench, FullStackBench), reasoning (GPQA Diamond, ZebraLogic), software engineering (SWE-bench Verified), and long-context tasks.",
     "papers": [
       "2506.13585",
       "2501.12948",
@@ -1589,6 +1744,7 @@
   },
   {
     "query": "Open-source model from Google fine-tuned specifically for a range of medical tasks",
+    "answer": "Google has released **MedGemma**, a collection of open-source medical vision-language foundation models based on Gemma 3, specifically fine-tuned for a comprehensive range of medical tasks. MedGemma includes 4B and 27B parameter models that demonstrate advanced medical understanding and reasoning across both medical images and text while maintaining general capabilities. Google has also released **TxGemma** (2B, 9B, and 27B parameter models), specialized for therapeutic development tasks including drug discovery and molecular property prediction.",
     "papers": [
       "2507.05201",
       "2504.06196",
@@ -1598,6 +1754,7 @@
   },
   {
     "query": "Quantum neural networks introduced as sequence of parametrized unitary transformations acting on N-qubit input state plus one readout qubit state.",
+    "answer": "Quantum neural networks (QNNs) with this specific architecture—sequences of parametrized unitary transformations acting on N-qubit input states plus one readout qubit—were prominently introduced by Farhi and Neven (2018) in \"Classification with Quantum Neural Networks on Near Term Processors.\" This architecture forms the basis for variational quantum circuits where input data is encoded into quantum states, processed through parametrized unitaries, and measurements on designated qubits produce predictions. Related developments include the data re-uploading technique by Pérez-Salinas et al. (2019) and quantum circuit learning by Mitarai et al. (2018), both extending this framework.",
     "papers": [
       "1802.06002",
       "1907.02085",
@@ -1610,6 +1767,7 @@
   },
   {
     "query": "Other than MoE, what architecture changes to the Transformer are used in training frontier LLMs today?",
+    "answer": "Beyond MoE, frontier LLMs today use several key architectural modifications to the standard Transformer: (1) **Grouped Query Attention (GQA)** - reduces KV cache by sharing key-value heads across query heads, used in Llama 3, Gemma 3, Qwen; (2) **Multi-head Latent Attention (MLA)** - compresses KV cache into latent vectors, pioneered by DeepSeek-V2/V3; (3) **Sliding window + global attention interleaving** - alternates local sliding window layers with full global attention (Gemma 3 uses 5:1 ratio); (4) **Rotary Position Embeddings (RoPE)** - replaces absolute position embeddings, now standard across most models; (5) **SwiGLU activation** - replaces ReLU/GELU in FFN layers; (6) **RMSNorm with pre-normalization** - replaces LayerNorm for better stability; (7) **QK-Normalization** - normalizes queries and keys before attention computation; (8) **Logit soft-capping** - constrains attention logits for training stability; (9) **Hybrid Mamba-Transformer architectures** - replaces some attention layers with Mamba/SSM layers for constant memory inference (Nemotron-H); (10) **Linear attention variants** - subquadratic alternatives to softmax attention for long context.",
     "papers": [
       "2407.21783",
       "2503.19786",
@@ -1624,6 +1782,7 @@
   },
   {
     "query": "QSPR modeling with deep neural networks",
+    "answer": "QSPR (Quantitative Structure-Property Relationship) modeling with deep neural networks uses machine learning to predict molecular properties from structural representations. Modern approaches include: (1) **Descriptor-based models** like fastprop using feedforward networks with molecular descriptors; (2) **Graph Neural Networks** (GNNs) like MPNN, GAT, and GCN that process molecules as graphs; (3) **Sequence-based models** using RNNs and transformers on SMILES strings; (4) **Hybrid architectures** like CheMixNet combining multiple representations; (5) **Foundation models** with pre-training strategies like CheMeleon and MolFormer; and (6) **3D-aware models** incorporating spatial information.",
     "papers": [
       "2404.02058",
       "2506.15792",
@@ -1634,6 +1793,7 @@
   },
   {
     "query": "What are the most popular multi-hop reasoning benchmarks?",
+    "answer": "The most popular multi-hop reasoning benchmarks include HotpotQA, 2WikiMultiHopQA, MuSiQue, Bamboogle, StrategyQA, IIRC, and ComplexWebQuestions. These benchmarks are widely used for evaluating models' ability to reason across multiple pieces of information and supporting documents to answer complex questions.",
     "papers": [
       "1809.09600",
       "2108.00573",
@@ -1647,6 +1807,7 @@
   },
   {
     "query": "Are there any multimodal architectures that use the next-token-prediction paradigm for generating images, instead of diffusion?",
+    "answer": "Yes, there are several multimodal architectures that use next-token prediction (autoregressive) paradigms for generating images instead of diffusion. Key approaches include: (1) Visual Autoregressive modeling (VAR) which uses 'next-scale prediction' instead of next-token, generating images from coarse to fine resolutions; (2) Unified models like VILA-U, Emu3, Chameleon, and Show-o that use discrete visual tokens with autoregressive prediction; (3) Continuous token approaches like UniFluid, BAGEL, and TokenBridge that predict continuous visual representations autoregressively; and (4) Hybrid models like Janus that decouple visual encoding for understanding and generation while using autoregressive prediction.",
     "papers": [
       "2404.02905",
       "2409.04429",
@@ -1656,12 +1817,14 @@
   },
   {
     "query": "Paper introducing Mamba SSMs from CMU authors",
+    "answer": "The paper introducing Mamba SSMs from CMU is \"Mamba: Linear-Time Sequence Modeling with Selective State Spaces\" by Albert Gu (Carnegie Mellon University) and Tri Dao (Princeton University), published in December 2023.",
     "papers": [
       "2312.00752"
     ]
   },
   {
     "query": "Methods from NVIDIA to improve reasoning with longer-horizon RL training for LLMs",
+    "answer": "NVIDIA has developed several key methods to improve reasoning with longer-horizon RL training for LLMs, including ProRL (Prolonged RL), the Llama-Nemotron series, and Nemotron 3/4 families. The main techniques include: (1) KL divergence control with periodic reference policy resets to maintain exploration and prevent entropy collapse, (2) Enhanced GRPO with decoupled clipping and dynamic sampling, (3) Multi-environment RL training with diverse task distributions, (4) RPO (Reward-aware Preference Optimization) to better leverage reward signal gaps, (5) Staged SFT with techniques like Genetic Instruct for code generation, (6) HelpSteer datasets for multi-attribute reward modeling, and (7) Architecture innovations like LatentMoE and hybrid Mamba-Transformer models for efficient inference. These methods enable stable training over extended horizons while achieving significant improvements in math, coding, STEM, and reasoning tasks.",
     "papers": [
       "2505.24864",
       "2505.00949",
@@ -1675,6 +1838,7 @@
   },
   {
     "query": "GRPO improvement from the Qwen team which introduces sequence level importance ratios",
+    "answer": "The GRPO improvement from the Qwen team is **Group Sequence Policy Optimization (GSPO)**, which introduces **sequence-level importance ratios** instead of token-level importance ratios. GSPO defines the importance ratio based on the entire sequence likelihood and performs sequence-level clipping, rewarding, and optimization. This addresses fundamental stability issues in GRPO that stem from the accumulation of token-level importance weights, which can lead to model collapse especially in Mixture-of-Experts (MoE) models. GSPO has been successfully applied to the latest Qwen3 models, demonstrating superior training efficiency, stability, and performance compared to GRPO.",
     "papers": [
       "2507.18071",
       "2505.09388",
@@ -1684,6 +1848,7 @@
   },
   {
     "query": "Papers analyzing the impact of process rewards when doing GRPO",
+    "answer": "Several papers analyze the impact of process rewards in GRPO (Group Relative Policy Optimization). The key finding is that while standard GRPO uses sparse outcome-level rewards, incorporating dense process-level rewards significantly improves training stability, exploration efficiency, and overall performance, though at varying computational costs. Recent work shows both explicit process reward models and implicit methods that extract process signals from the GRPO framework itself.",
     "papers": [
       "2502.01456",
       "2511.10279",
@@ -1695,12 +1860,14 @@
   },
   {
     "query": "Paper from OpenAI exploring evolutionary strategies as a viable alternative to RL",
+    "answer": "The paper you're looking for is 'Evolution Strategies as a Scalable Alternative to Reinforcement Learning' by Salimans et al. from OpenAI (arXiv:1703.03864). This seminal 2017 paper demonstrates that Evolution Strategies can serve as a viable alternative to traditional RL methods like Q-learning and Policy Gradients, with exceptional scalability across thousands of parallel workers.",
     "papers": [
       "1703.03864"
     ]
   },
   {
     "query": "What frameworks allow for building multi-agent conversation systems where agents can be assigned specific roles like \"coder\" or \"critic\"?",
+    "answer": "Several frameworks allow building multi-agent conversation systems where agents can be assigned specific roles like \"coder\" or \"critic\". Key frameworks include: **AutoGen** (now AG2) - enables multi-agent conversations with role specialization through conversable agents; **MetaGPT** - uses an assembly line paradigm to assign roles like Product Manager, Architect, Engineer, etc., encoding Standardized Operating Procedures (SOPs) for streamlined workflows; **ChatDev** - simulates a software development company with agents taking on common roles like designer, coder, tester, and QA; **CAMEL** - a role-playing framework using inception prompting to guide agents with different personas toward task completion; **CrewAI** - orchestrates teams of specialized agents with defined roles, tasks, and collaboration processes; **LangGraph** - provides graph-based workflow orchestration for multi-agent systems with state management; **Swarm** (OpenAI) - a lightweight framework for agent coordination with routines and handoffs; and **Magentic-One** - uses a multi-agent architecture where an Orchestrator directs specialized agents (web browser, file navigator, coder) to perform specific tasks.",
     "papers": [
       "2308.00352",
       "2411.04468",
@@ -1714,6 +1881,7 @@
   },
   {
     "query": "What post-training methods are used by models that benchmark against Tau-bench?",
+    "answer": "Models that benchmark against Tau-bench use a variety of post-training methods, primarily centered around reinforcement learning (RL) combined with supervised fine-tuning (SFT). The main approaches include: (1) Pure RL methods like GRPO (Group Relative Policy Optimization) and variants such as CISPO, DAPO, and AGAPO that optimize policies using verifiable rewards; (2) Multi-stage post-training combining expert model iteration, SFT on diverse instruction data, followed by RL phases with difficulty-based curriculum learning; (3) Large-scale agentic data synthesis pipelines that generate tool-use and agent trajectories for training; (4) Preference learning using methods like SimPER with hybrid rewards; and (5) Distillation from larger expert models combined with quantization-aware training.",
     "papers": [
       "2508.06471",
       "2506.13585",
@@ -1725,6 +1893,7 @@
   },
   {
     "query": "Model releases from DeepSeek before Deepseek-R1",
+    "answer": "Before DeepSeek-R1 (released January 2025), DeepSeek released several major models: DeepSeek LLM (7B and 67B, January 2024), DeepSeek-Coder series (1.3B to 33B, January 2024), DeepSeekMoE (2B and 16B, January 2024), DeepSeekMath 7B (February 2024), DeepSeek-V2 (236B MoE with 21B activated, May 2024), DeepSeek-V2.5 (mid-2024), and DeepSeek-V3 (671B MoE with 37B activated, December 2024).",
     "papers": [
       "2401.02954",
       "2401.14196",
@@ -1736,6 +1905,7 @@
   },
   {
     "query": "Are there papers that show LLMs can teach themselves to reason by bootstrapping their own chain-of-thought rationales?",
+    "answer": "Yes, there are several papers showing that LLMs can teach themselves to reason by bootstrapping their own chain-of-thought rationales. The seminal work is STaR (Self-Taught Reasoner) which iteratively generates rationales for questions, keeps those leading to correct answers, and fine-tunes on them. This has inspired a rich line of research including: Quiet-STaR (generalizing to arbitrary text), V-STaR (adding verifiers), B-STaR (balancing exploration-exploitation), ReST and ReST-MCTS* (combining RL with tree search), DeepSeek-R1 (pure RL without demonstrations), Absolute Zero (zero external data), and methods using latent thought bootstrapping like BoLT and LaTRO.",
     "papers": [
       "2203.14465",
       "2403.09629",
@@ -1751,6 +1921,7 @@
   },
   {
     "query": "Identify papers that connect a pre-trained vision encoder (like CLIP) to a large language model using a simple projection layer to enable visual instruction tuning, effectively treating image patches as foreign language tokens.",
+    "answer": "The key papers connecting pre-trained vision encoders like CLIP to LLMs via simple projection layers include: LLaVA (2304.08485) which pioneered using a linear projection for visual instruction tuning; MiniGPT-4 (2304.10592) which uses a single projection layer to align frozen vision encoders with frozen LLMs; and LLaVA-1.5 which improved upon the original with an MLP projection. These approaches treat visual features as foreign language tokens by projecting them into the LLM's embedding space.",
     "papers": [
       "2304.08485",
       "2304.10592",
@@ -1764,12 +1935,14 @@
   },
   {
     "query": "I am looking for a specific architectural innovation that replaces fixed activation functions in MLPs with learnable activation functions on edges",
+    "answer": "The specific architectural innovation you're looking for is **Kolmogorov-Arnold Networks (KANs)**, proposed in the paper by Liu et al. (2024). KANs replace MLPs' fixed activation functions on nodes with learnable activation functions on edges, where every weight parameter is replaced by a univariate function parametrized as a spline.",
     "papers": [
       "2404.19756"
     ]
   },
   {
     "query": "Find frameworks that abstract away manual prompt engineering by treating LM pipelines as declarative programs that can be \"compiled\" and automatically optimized using bootstrapping or textual gradients.",
+    "answer": "The primary frameworks that abstract away manual prompt engineering by treating LM pipelines as declarative programs that can be compiled and automatically optimized are DSPy, TextGrad, OPRO, and related systems like AutoPDL, MIPRO, and GEPA. These frameworks use bootstrapping and/or textual gradients to automatically optimize prompts and pipelines without manual engineering.",
     "papers": [
       "2310.03714",
       "2406.07496",
@@ -1785,6 +1958,7 @@
   },
   {
     "query": "Byte dance framework for value augmented PPO",
+    "answer": "VAPO (Value-model-based Augmented Proximal Policy Optimization) is ByteDance's framework for reinforcement learning in reasoning tasks. Published in April 2025, VAPO addresses key challenges in value-based RL methods for long chain-of-thought reasoning, including value model bias, heterogeneous sequence lengths, and sparse rewards. It achieves state-of-the-art results with 60.4 on AIME 2024, outperforming previous methods like DAPO by over 10 points.",
     "papers": [
       "2504.05118",
       "2503.14476",
@@ -1794,24 +1968,28 @@
   },
   {
     "query": "Paper from ETH Zurich on doing RL with self-distillation",
+    "answer": "The paper is \"Reinforcement Learning via Self-Distillation\" (arXiv:2601.20802) from ETH Zurich. It introduces Self-Distillation Policy Optimization (SDPO), which converts rich textual feedback (like runtime errors) into dense learning signals by treating the current model as a self-teacher and distilling its feedback-informed predictions back into the policy.",
     "papers": [
       "2601.20802"
     ]
   },
   {
     "query": "Deep Research model released by the Tongyi lab",
+    "answer": "The Tongyi DeepResearch is an agentic large language model released by Alibaba's Tongyi Lab, specifically designed for long-horizon deep information-seeking research tasks. The model features 30.5 billion total parameters with only 3.3 billion activated per token, and achieves state-of-the-art performance on multiple deep research benchmarks including Humanity's Last Exam, BrowseComp, and others. The model and framework have been open-sourced.",
     "papers": [
       "2510.24701"
     ]
   },
   {
     "query": "Which paper claims that advantage estimation in GRPO is biased?",
+    "answer": "The paper 'Understanding R1-Zero-Like Training: A Critical Perspective' (arXiv ID: 2503.20783) by Liu et al. claims that advantage estimation in GRPO is biased. The authors identify an optimization bias in GRPO that artificially increases response length, especially for incorrect outputs, during training. This bias stems from GRPO's use of length normalization (dividing by |o_i|, the response length) and standard deviation normalization when computing advantages.",
     "papers": [
       "2503.20783"
     ]
   },
   {
     "query": "Which models does Deepseek-V3 benchmark and compare itself against?",
+    "answer": "DeepSeek-V3 benchmarks and compares itself against both open-source and closed-source models. The main models include: **Open-source models:** DeepSeek-V2.5-0905, DeepSeek-V2, Qwen2.5-72B-Instruct, and LLaMA-3.1-405B-Instruct. **Closed-source models:** GPT-4o-0513, Claude-Sonnet-3.5-1022. The paper demonstrates that DeepSeek-V3 achieves performance comparable to leading closed-source models while outperforming other open-source models across various benchmarks including MMLU, GPQA, code generation, and math reasoning tasks.",
     "papers": [
       "2412.19437",
       "2412.15115"
@@ -1819,6 +1997,7 @@
   },
   {
     "query": "Papers examining the impact of mid-training in between pre-training and RL fine-tuning",
+    "answer": "Mid-training (also called continued pre-training or intermediate training) is an underexplored stage between pre-training and RL fine-tuning that has recently gained attention for improving downstream RL performance. Research shows mid-training significantly enhances model performance under fixed compute compared to RL-only approaches, particularly for reasoning and agentic tasks. Key findings include: (1) mid-training provides better compatibility with RL by preparing the model with task-relevant distributions, (2) it addresses the optimization tensions that arise when models must simultaneously learn diverse behaviors and align to expert demonstrations during post-training, and (3) it can close performance gaps between different model families (e.g., Llama vs. Qwen) in RL training.",
     "papers": [
       "2512.07783",
       "2506.20512",
@@ -1829,12 +2008,14 @@
   },
   {
     "query": "14B math reasoning model from Microsoft trained to achieve better results than DeepSeek-R1 on the AIME",
+    "answer": "Microsoft's Phi-4-reasoning and Phi-4-reasoning-plus are 14B parameter reasoning models that achieve better results than DeepSeek-R1 on AIME benchmarks. On AIME 2025, Phi-4-reasoning-plus achieves 78.0% accuracy compared to DeepSeek-R1's 70.4%. The models were trained via supervised fine-tuning on Phi-4 using carefully curated prompts and reasoning demonstrations generated by o3-mini, with Phi-4-reasoning-plus further enhanced through reinforcement learning.",
     "papers": [
       "2504.21318"
     ]
   },
   {
     "query": "Most efficient version of DetectGPT claimed to be 340x faster",
+    "answer": "Fast-DetectGPT (arXiv: 2310.05130) is the most efficient version of DetectGPT, claiming to be 340x faster while achieving 75% better accuracy in detecting machine-generated text. It replaces DetectGPT's perturbation step with a more efficient sampling step using conditional probability curvature.",
     "papers": [
       "2310.05130"
     ]

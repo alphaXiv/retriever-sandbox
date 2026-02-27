@@ -1,12 +1,14 @@
 [
   {
     "query": "What is the paper from Meta FAIR that suggests the best visual embeddings are not at the output of the network?",
+    "answer": "The paper is 'Perception Encoder: The best visual embeddings are not at the output of the network' (arXiv: 2504.13181) from Meta FAIR. It demonstrates that contrastive vision-language training produces strong, general embeddings for various downstream tasks, but these embeddings are found in the intermediate layers of the network rather than at the output.",
     "papers": [
       "2504.13181"
     ]
   },
   {
     "query": "Identify papers that tackle the performance degradation of LLMs at extreme low-bit settings (3 or 4-bit) by focusing on salient weight protection based on activation magnitude outliers or second-order Hessian information.",
+    "answer": "Papers addressing LLM performance degradation at extreme low-bit settings (3-4 bit) through salient weight protection based on activation magnitude outliers or Hessian information include: AWQ (Activation-aware Weight Quantization), which protects 1% salient weights identified by activation distributions; GPTQ, which uses second-order Hessian information for optimal quantization; SqueezeLLM, which combines sensitivity-based non-uniform quantization using second-order information with dense-and-sparse decomposition; SpQR, which identifies and isolates outlier weights in higher precision; and SliM-LLM, which uses salience-driven mixed-precision allocation based on activation-aware metrics. These methods successfully achieve near-lossless 3-4 bit quantization by identifying and protecting critical weights.",
     "papers": [
       "2306.00978",
       "2210.17323",
@@ -22,6 +24,7 @@
   },
   {
     "query": "Find me iterations of VGGT that make it more robust and/or ram efficient.",
+    "answer": "Multiple iterations of VGGT have been developed to improve its robustness and/or RAM efficiency. Key approaches include: (1) Streaming/online variants (StreamVGGT, InfiniteVGGT, XStreamVGGT) that enable continuous processing with bounded memory through causal attention and KV cache management; (2) Acceleration methods (FastVGGT, Co-Me, LiteVGGT, AVGGT, FlashVGGT) using token merging/pruning and attention optimization to reduce computational costs; (3) Quantization (QuantVGGT) achieving 3.7× memory reduction with 4-bit precision; (4) Scalability improvements (VGGT-Long, SwiftVGGT, VGGT-SLAM variants) for kilometer-scale sequences with loop closure; and (5) Robustness enhancements (VGGT4D, TTT3R, TALO) for dynamic scenes and long-term stability.",
     "papers": [
       "2509.02560",
       "2507.11539",
@@ -36,6 +39,7 @@
   },
   {
     "query": "What papers propose a tree-search algorithm over thoughts to solve complex reasoning problems?",
+    "answer": "Papers that propose tree-search algorithms over thoughts for complex reasoning include Tree of Thoughts (ToT), which enables deliberate exploration of reasoning paths using BFS/DFS; Graph of Thoughts (GoT), which generalizes ToT to arbitrary graph structures; Reasoning via Planning (RAP), which uses Monte Carlo Tree Search to guide LLM reasoning; rStar-Math, which uses MCTS with self-evolved process reward models; MCTSr (Monte Carlo Tree Self-refine), which integrates MCTS with self-refinement; and various other approaches that apply search algorithms like beam search, MCTS, and A* to structure and optimize LLM reasoning.",
     "papers": [
       "2305.10601",
       "2305.14992",
@@ -47,6 +51,7 @@
   },
   {
     "query": "I want to see research demonstrating that small language models (SLMs) can rival much larger foundational models if they are trained primarily on \"textbook quality\" synthetic data generated to teach reasoning and coding fundamentals.",
+    "answer": "Research demonstrates that small language models (SLMs) can indeed rival much larger foundational models when trained on high-quality synthetic data focused on reasoning and coding. The seminal work is Microsoft's Phi series (phi-1, phi-1.5, phi-2, phi-3, phi-4), which pioneered the \"textbooks are all you need\" approach - generating \"textbook quality\" synthetic data using GPT-3.5/GPT-4 and carefully filtering web sources. This data-centric training strategy enabled models with only 1.3B-14B parameters to match or exceed performance of models 10-100x larger on reasoning tasks. Key findings show that data quality matters more than quantity, with innovations in synthetic data generation, careful curation of organic sources, and sophisticated post-training techniques enabling small models to achieve state-of-the-art reasoning capabilities despite their size.",
     "papers": [
       "2306.11644",
       "2412.08905",
@@ -60,12 +65,14 @@
   },
   {
     "query": "Which paper frames RL as an n-th order approximation of maximum likelihood?",
+    "answer": "The paper 'Maximum Likelihood Reinforcement Learning' (arXiv: 2602.02710) frames RL as a first-order approximation of maximum likelihood. The paper shows that standard RL optimizes ∇θ pass@1(x), which is just the first term in the infinite harmonic series that defines the maximum likelihood gradient: ∇θ JML(x) = Σ∞k=1 (1/k)∇θ pass@k(x).",
     "papers": [
       "2602.02710"
     ]
   },
   {
     "query": "Find theoretical and empirical studies that analyze why standard Transformer architectures struggle with systematic compositionality in tasks like multi-digit arithmetic or counting, even when provided with Chain-of-Thought supervision.",
+    "answer": "Standard Transformers struggle with systematic compositionality in arithmetic and counting tasks, even with Chain-of-Thought supervision, due to fundamental architectural limitations: (1) constant-depth transformers can only solve problems in AC⁰ or TC⁰ complexity classes without CoT, unable to handle inherently serial computations; (2) attention mechanisms fail to maintain long-range dependencies required for multi-digit operations; (3) models learn through shortcut/pattern matching rather than systematic algorithms; (4) autoregressive factorization creates ordering dependencies that hinder compositional reasoning; and (5) memory access limitations prevent random indexing needed for complex reasoning steps.",
     "papers": [
       "2402.12875",
       "2310.07923",
@@ -81,6 +88,7 @@
   },
   {
     "query": "I am looking for techniques that combine the parameters of several fine-tuned checkpoints into a single robust model without incurring additional inference costs, specifically by performing arithmetic operations like averaging or interference resolution on the weights themselves.",
+    "answer": "The research area focuses on **model merging** techniques that combine fine-tuned checkpoints through arithmetic operations on weights. These methods enable creating unified models without additional inference costs or retraining. Key approaches include: (1) **Weight averaging** methods like Model Soups that average multiple fine-tuned models; (2) **Task arithmetic** that manipulates task vectors (differences between fine-tuned and base weights); (3) **Interference resolution** techniques like TIES-Merging and DARE that handle parameter conflicts through pruning, sign resolution, and sparsification; (4) **Weighted merging** methods like Fisher-Weighted Averaging that use importance metrics; and (5) **Advanced techniques** including permutation alignment, SLERP, and optimization-based approaches.",
     "papers": [
       "2203.05482",
       "2212.04089",
@@ -91,6 +99,7 @@
   },
   {
     "query": "Find adaptations of Direct Preference Optimization (DPO) that are applied specifically to Multimodal Large Language Models (MLLMs) to align them with human visual preferences without training a separate reward model.",
+    "answer": "Several DPO adaptations have been developed specifically for Multimodal Large Language Models (MLLMs) to align them with human visual preferences without training separate reward models. These methods address unique challenges in multimodal alignment, including visual hallucination, multi-image understanding, video comprehension, and fine-grained visual-language correspondence. Key approaches include vision-enhanced preference construction (MIA-DPO, AdaViP), hierarchical spatial-temporal optimization (VistaDPO), visual reinforcement fine-tuning (Visual-RFT, VideoChat-R1), and hallucination-aware methods (HA-DPO, RLAIF-V). These adaptations maintain DPO's reward-model-free advantage while introducing visual-specific innovations.",
     "papers": [
       "2410.17637",
       "2504.15619",
@@ -99,6 +108,7 @@
   },
   {
     "query": "Find me important works in interpretability in tabular ML.",
+    "answer": "The important works in interpretability for tabular ML can be categorized into several key areas: (1) Inherently interpretable models like TabNet (attention-based feature selection), Explainable Boosting Machines (GAM with gradient boosting), and tree-based models (XGBoost, LightGBM, CatBoost with feature importance), (2) Post-hoc explanation methods like SHAP (unified framework for feature attribution) and LIME (local interpretable model-agnostic explanations), (3) Foundation models with interpretability like TabPFN (transformer-based in-context learning), and (4) Attention-based architectures like Temporal Fusion Transformers (interpretable multi-horizon forecasting).",
     "papers": [
       "1908.07442",
       "1705.07874",
@@ -109,6 +119,7 @@
   },
   {
     "query": "Find me papers on wheelchair propulsion tracking and classification using wearables.",
+    "answer": "Research specifically on wheelchair propulsion tracking and classification using wearables is limited in the arXiv database. However, several relevant papers address human activity recognition with wearable sensors, IMU-based motion analysis, and assistive technologies that could be applied to wheelchair users. The most directly relevant work found is WheelPoser, which uses sparse IMUs for wheelchair user pose estimation. General HAR (Human Activity Recognition) frameworks and inertial sensor-based motion analysis provide methodological foundations applicable to wheelchair propulsion monitoring.",
     "papers": [
       "2109.03631",
       "2509.19939",
@@ -118,6 +129,7 @@
   },
   {
     "query": "What are papers that propose using State Space Models (SSMs) as a selective replacement for Transformers to achieve linear scaling?",
+    "answer": "Several papers propose State Space Models (SSMs) as selective replacements for Transformers to achieve linear scaling. The most prominent is Mamba (2312.00752), which introduces selective SSMs with input-dependent parameters that allow linear-time sequence modeling while maintaining competitive performance with Transformers. Mamba-2 (2405.21060) further improves efficiency through the state space duality framework. Other key architectures include S4 (2111.00396), the foundational structured state space model, RetNet (2307.08621) with retention mechanisms, RWKV-7 (2503.14456) with expressive dynamic state evolution, Gated DeltaNet (2412.06464 and 2406.06484) combining gating with delta rule updates, xLSTM (2405.04517) extending LSTMs with exponential gating, Hyena (2302.10866) using implicit convolutions, and Griffin/Hawk (2402.19427) mixing gated linear recurrences with local attention.",
     "papers": [
       "2312.00752",
       "2405.21060",
@@ -128,6 +140,7 @@
   },
   {
     "query": "I need studies that investigate the \"faithfulness\" of Chain-of-Thought reasoning, specifically showing cases where the model's generated explanation is a post-hoc rationalization that does not reflect the actual internal features used for prediction.",
+    "answer": "Studies investigating the faithfulness of Chain-of-Thought (CoT) reasoning have revealed that CoT explanations can be post-hoc rationalizations that don't reflect actual internal reasoning. Key findings show that models often ignore biasing features (like answer ordering or suggested answers) without acknowledging them in their CoT, that CoT can rationalize incorrect answers when models are biased, and that reasoning steps may appear coherent while having minimal causal impact on predictions. Research uses methods like adding biasing features, error injection, intervention experiments, and probing internal representations to demonstrate unfaithfulness.",
     "papers": [
       "2305.04388",
       "2505.05410",
@@ -139,6 +152,7 @@
   },
   {
     "query": "I need papers that move beyond fixed-class segmentation by training on over 1 billion masks to create a general-purpose \"foundation model\" for vision that accepts points, boxes, or text as prompts to isolate objects in zero-shot scenarios.",
+    "answer": "The Segment Anything Model (SAM) and its successors represent the primary foundation models that match your criteria. SAM was trained on over 1.1 billion masks from 11 million images to create a promptable, general-purpose vision foundation model that accepts points, boxes, or text as prompts for zero-shot segmentation. SAM 2 extends this to video with streaming memory, and SAM 3 adds concept-based prompting. Related work includes systems that combine SAM with other models (like Grounded SAM), reasoning-enhanced segmentation (LISA, Seg-Zero), and generative model approaches (gen2seg) that achieve similar zero-shot generalization.",
     "papers": [
       "2304.02643",
       "2408.00714",
@@ -149,6 +163,7 @@
   },
   {
     "query": "What are the most suitable and progressive metrics for ASR (in IT domain)?",
+    "answer": "The most suitable and progressive metrics for ASR (Automatic Speech Recognition) in the IT domain include both traditional and modern evaluation approaches:\n\n**Traditional Metrics:**\n1. **Word Error Rate (WER)** - The standard metric measuring insertions, deletions, and substitutions\n2. **Character Error Rate (CER)** - Particularly useful for languages without clear word boundaries or agglutinative languages\n3. **Real-Time Factor (RTF)** - Measures computational efficiency and latency for real-time applications\n\n**Progressive/Modern Metrics:**\n1. **Concatenated minimum-Permutation WER (cpWER)** - Advanced metric for multi-speaker scenarios that accounts for both transcription accuracy and speaker attribution\n2. **Semantic-based metrics** - BERTScore and embedding-based approaches that evaluate semantic similarity rather than exact word matching\n3. **Task-oriented metrics** - Evaluating ASR performance based on downstream task success (e.g., for LLM-powered applications)\n4. **Diarization Error Rate (DER)** - For speaker-attributed transcription in multi-speaker settings\n5. **Application-level metrics** - WER measured on specific downstream tasks (TTS quality, information extraction accuracy)\n6. **Perceptual quality metrics** - DNSMOS, PESQ, STOI for evaluating reconstructed or enhanced speech\n\nFor IT domain applications with LLMs, emerging research suggests evaluating ASR based on how well errors can be corrected by downstream LLMs rather than just raw transcription accuracy, representing a paradigm shift toward task-specific evaluation.",
     "papers": [
       "2507.16456",
       "2601.18184",
@@ -157,6 +172,7 @@
   },
   {
     "query": "Is there any work that uses DPO to change the reasoning language a model uses?",
+    "answer": "Yes, there is work that uses preference optimization methods (including techniques related to DPO) to control the reasoning language a model uses. The most prominent example is DeepSeek-R1, which addresses language mixing issues during reinforcement learning training by incorporating a language consistency reward. When models trained on multiple languages (like DeepSeek-V3-Base with English and Chinese) undergo RL training for reasoning, they tend to mix languages within their reasoning chains. DeepSeek-R1 tackles this by adding a language consistency reward that penalizes language mixing during the RL process, helping ensure the model reasons in a consistent language throughout its chain-of-thought.",
     "papers": [
       "2501.12948",
       "2502.14768",
@@ -168,6 +184,7 @@
   },
   {
     "query": "Find me papers which introduce multi-object tracking in query based systems for outdoor lidar data like DIntr.",
+    "answer": "I found several papers that introduce query-based multi-object tracking systems for outdoor 3D/LiDAR data. While I did not find a specific paper called 'DIntr' in the database, the papers below represent state-of-the-art query-based tracking methods similar to what you described, particularly TQD-Track, ADA-Track++, MUTR3D, and 3DMOTFormer which are pioneering works in this area.",
     "papers": [
       "2504.03258",
       "2405.08909",
@@ -177,6 +194,7 @@
   },
   {
     "query": "I need research addressing the memory bottleneck of infinite-length generation by selectively evicting non-essential Key-Value pairs from the cache while strictly retaining specific \"heavy hitter\" or \"attention sink\" tokens to maintain coherence.",
+    "answer": "Research addressing memory bottleneck in infinite-length generation through selective KV cache eviction while retaining attention sinks/heavy hitters includes: StreamingLLM (pioneering work on attention sinks), H2O (heavy-hitter oracle), SnapKV (observation window-based selection), PyramidKV (layer-wise adaptive retention), DuoAttention and RazorAttention (retrieval head-aware compression), FastGen (adaptive head-wise strategies), LagKV (lag-relative importance scoring), and DynamicKV (task-aware adaptive compression). These methods enable efficient long-context inference by identifying and preserving critical tokens while evicting non-essential ones.",
     "papers": [
       "2309.17453",
       "2310.01801",
@@ -187,6 +205,7 @@
   },
   {
     "query": "List papers that use implicit neural representations (neural fields) for video compression.",
+    "answer": "Implicit neural representations (INRs) or neural fields for video compression is an emerging approach where videos are encoded as neural network parameters. Key methods include NeRV and its variants (E-NeRV, HNeRV, DNeRV, CNeRV), which represent videos as neural networks taking frame indices as input. Other approaches include PNVC, GSVC, and GIViC which combine INR techniques with autoencoder frameworks or generative priors. These methods offer advantages in compression efficiency, fast decoding speeds, and simplified pipelines compared to traditional codecs.",
     "papers": [
       "2110.13903",
       "2304.06544",
@@ -201,6 +220,7 @@
   },
   {
     "query": "SSMs for faster diffusion from the University of Parma",
+    "answer": "The University of Parma has published two key papers on using State Space Models (SSMs), specifically Mamba, for faster diffusion models. The main papers are 'U-Shape Mamba' (2025) which proposes a U-Net-like hierarchical structure with Mamba layers that achieves one-third the computational cost of existing Mamba-based diffusion models, and 'Mamba-ST' (2024) which applies Mamba to style transfer as an efficient alternative to transformers and diffusion models.",
     "papers": [
       "2504.13499",
       "2409.10385"
@@ -208,6 +228,7 @@
   },
   {
     "query": "Foundation model for multimodal understanding from OpenGVLab",
+    "answer": "OpenGVLab's primary foundation model for multimodal understanding is the **InternVL** series (InternVL 1.0, 1.5, 2.0, 2.5, 3, and 3.5), which progressively scales vision foundation models (InternViT) up to 6B parameters and aligns them with large language models. InternVL supports a wide range of visual-linguistic tasks including image-text retrieval, visual grounding, OCR, video understanding, and multimodal dialogue. The series also includes **InternVideo2** for video understanding and related components like InternViT (vision encoder) and InternImage (vision backbone).",
     "papers": [
       "2504.10479",
       "2508.18265",
@@ -219,6 +240,7 @@
   },
   {
     "query": "I need papers that describe a hybrid system combining a neural language model with a symbolic deduction engine or program search algorithm to solve high-level mathematical proofs, specifically achieving gold-medal performance in geometry.",
+    "answer": "The primary paper describing a hybrid system combining a neural language model with a symbolic deduction engine for geometry proofs with gold-medal performance is AlphaGeometry2 (2502.03544), which achieved 84% solving rate on IMO 2000-2024 geometry problems. The original AlphaGeometry paper (cited in many papers as Trinh et al. 2024, 'Solving olympiad geometry without human demonstrations') introduced the neuro-symbolic approach combining a neural language model trained on 100 million synthetic theorems with a DDAR (Deduction Database and Angle Reasoning) symbolic engine.",
     "papers": [
       "2502.03544",
       "2510.01346",
@@ -232,6 +254,7 @@
   },
   {
     "query": "What are techniques for sample-efficient pre-training of small language models?",
+    "answer": "Sample-efficient pre-training of small language models involves multiple complementary techniques: (1) Data optimization through filtering, deduplication, and quality scoring to select only the most useful tokens for training; (2) Curriculum learning and data mixture optimization using automated frameworks to find optimal domain proportions; (3) Selective language modeling that trains only on high-value tokens rather than uniformly on all tokens; (4) Efficient tokenization strategies like byte-level or dynamic patching approaches; (5) Knowledge distillation from larger models; (6) Synthetic data generation to augment training corpus; (7) Architecture innovations like hybrid models and dynamic depth; (8) Structured pruning to efficiently derive small models from larger ones; and (9) Continual pre-training with optimized learning rate schedules and replay ratios. These techniques can be combined to achieve significant performance improvements with dramatically reduced computational budgets.",
     "papers": [
       "2504.13161",
       "2404.07965",
@@ -244,12 +267,14 @@
   },
   {
     "query": "Matryoshka diffusion models paper from Apple",
+    "answer": "The Matryoshka Diffusion Models paper (arXiv:2310.15111) is from Apple researchers Jiatao Gu, Shuangfei Zhai, Yizhe Zhang, Josh Susskind, and Navdeep Jaitly, published at ICLR 2024. It introduces an end-to-end framework for high-resolution image and video synthesis that jointly denoises inputs at multiple resolutions using a NestedUNet architecture, enabling progressive training from lower to higher resolutions.",
     "papers": [
       "2310.15111"
     ]
   },
   {
     "query": "What are the most popular ways to create synthetic, high-quality math datasets?",
+    "answer": "The most popular ways to create synthetic, high-quality math datasets involve: (1) **MCTS-based self-evolution** where models generate step-by-step verified reasoning trajectories through Monte Carlo Tree Search with code execution verification (rStar-Math, Absolute Zero); (2) **LLM distillation from stronger models** like using GPT-4 or DeepSeek-R1 to generate solution traces with tool integration (OpenMathReasoning, NuminaMath); (3) **Rejection sampling** where models generate multiple solutions and keep only correct ones for training; (4) **Multi-step RL with synthetic data filtering** that breaks trajectories into sub-steps and applies step-wise verification (SWiRL); (5) **Web data mining with careful curation** to extract and filter math content from Common Crawl (DeepSeekMath); and (6) **Verifiable reward-based generation** where models learn from code execution feedback and rule-based verification without human annotations.",
     "papers": [
       "2501.04519",
       "2502.17387",
@@ -263,6 +288,7 @@
   },
   {
     "query": "Find algorithms that accelerate Large Language Model inference by using a small \"draft\" model to generate candidate tokens which are then verified in parallel by the larger target model, or by using multiple heads to predict future tokens simultaneously.",
+    "answer": "The two main algorithmic approaches you describe are: (1) Speculative Decoding - using a small draft model to generate candidate tokens verified in parallel by a larger target model, and (2) Multi-Head Prediction - using multiple heads to predict future tokens simultaneously. These methods can achieve 2-6x speedups while maintaining identical output distributions.",
     "papers": [
       "2211.17192",
       "2404.19737",
@@ -275,6 +301,7 @@
   },
   {
     "query": "Diffusion models for image synthesis from the Beihang University",
+    "answer": "Beihang University has produced significant contributions in diffusion models for image synthesis, including ultra-high-resolution 4K image generation (Diffusion-4K), personalized image generation with DiTs (Personalize Anything), vector graphics synthesis (SVGDreamer series, DiffSketcher, SVGFusion), continuous super-resolution (Implicit Diffusion Models), video generation acceleration (AccVideo), and unified generative-discriminative learning (DDAE++).",
     "papers": [
       "2503.12590",
       "2503.18352",
@@ -290,6 +317,7 @@
   },
   {
     "query": "Find me value-based reinforcement learning methods for continuous action-spaces.",
+    "answer": "Value-based reinforcement learning methods for continuous action spaces address the challenge that traditional Q-learning requires discrete actions. Key approaches include: (1) **QT-Opt** which uses the Cross-Entropy Method (CEM) to optimize over continuous actions; (2) **Flow Q-Learning (FQL)** which uses flow matching to model expressive action distributions; (3) **Normalized Advantage Functions (NAF)** which parameterize Q-functions as quadratic forms; (4) **Soft Q-learning** with energy-based policies; (5) **Actor-free methods** with structural maximization; (6) **Implicit Q-Learning (IQL)** for offline RL; and (7) **Q-Chunking** which applies action chunking to value-based methods. These methods either discretize actions, use optimization techniques to find optimal actions, or parameterize Q-functions in ways that enable efficient maximization.",
     "papers": [
       "2502.02538",
       "1806.10293",
@@ -300,6 +328,7 @@
   },
   {
     "query": "Identify methods where a Large Language Model acts as a meta-optimizer for another model's instructions, effectively treating prompt engineering as a black-box optimization problem without access to gradients.",
+    "answer": "Several methods use LLMs as meta-optimizers for prompt engineering as black-box optimization without gradients. Key approaches include OPRO (Optimization by PROmpting), which describes optimization problems in natural language and iteratively generates candidate prompts; TextGrad, which backpropagates textual feedback through computation graphs; APE (Automatic Prompt Engineer), which searches over LLM-generated instruction candidates; EvoPrompt, which connects LLMs with evolutionary algorithms; PromptBreeder, which uses self-referential evolution to improve both task-prompts and mutation-prompts; and PromptAgent, which uses Monte Carlo Tree Search for strategic prompt optimization.",
     "papers": [
       "2309.03409",
       "2406.07496",
@@ -315,6 +344,7 @@
   },
   {
     "query": "Attention-less diffusion models from Apple and Cornell",
+    "answer": "Based on my extensive search, I did not find a specific paper titled 'attention-less diffusion models from Apple and Cornell.' However, I found several highly relevant papers that address different aspects of efficient diffusion architectures and may be related to what you're looking for. The DDT paper explores MLP-based decoders, and Apple has published work on efficient diffusion generation, though not specifically labeled as 'attention-less.'",
     "papers": [
       "2504.05741",
       "2512.07829",
@@ -325,6 +355,7 @@
   },
   {
     "query": "What are the seminal papers that originally introduced the paradigm of combining a parametric generator with a non-parametric retrieval system to access external documents during the generation process?",
+    "answer": "The seminal papers that introduced the paradigm of combining parametric generators with non-parametric retrieval systems include: **RAG (Retrieval-Augmented Generation, 2020)** by Lewis et al., which combined a pre-trained seq2seq model with a dense vector index of Wikipedia; **REALM (2020)** by Guu et al., which introduced retrieval-augmented pre-training with end-to-end training of the retriever; **kNN-LM (2019)** by Khandelwal et al., which augmented language models with k-nearest neighbor retrieval; **DPR (Dense Passage Retrieval, 2020)** by Karpukhin et al., which introduced learned dense representations for retrieval; and **RETRO (2021)** by Borgeaud et al., which scaled retrieval to trillions of tokens using chunked cross-attention.",
     "papers": [
       "2005.11401",
       "2002.08909",
@@ -335,6 +366,7 @@
   },
   {
     "query": "Find papers that debate whether the sudden appearance of new capabilities in scaled-up models is a genuine \"phase transition\" or merely a statistical artifact resulting from the use of discontinuous evaluation metrics.",
+    "answer": "The debate centers on whether emergent capabilities in scaled-up models represent genuine phase transitions or are artifacts of discontinuous evaluation metrics. The 'mirage hypothesis' (Schaeffer et al., 2023) argues that sharp emergent abilities appear due to nonlinear/discontinuous metrics (like exact match or multiple-choice accuracy) that distort smooth underlying improvements in per-token performance. When using continuous metrics like Brier score or token-level accuracy, these seemingly emergent abilities often become smooth and predictable. Counter-arguments suggest genuine emergence exists: some argue that LLMs exhibit true phase transitions in internal representations, that metrics only partially explain the phenomenon (some tasks show sharp jumps even with continuous metrics), and that random seed variation reveals bimodal performance distributions indicating discrete concept learning rather than mere measurement artifacts. Recent work proposes intermediate positions, suggesting emergence involves both genuine capability thresholds and metric-induced artifacts, with performance depending on complex interactions between model capacity, training dynamics, and evaluation choices.",
     "papers": [
       "2304.15004",
       "2206.07682",
@@ -348,6 +380,7 @@
   },
   {
     "query": "What is the state of the art animation inbetweening character animation models? Are the newest ones mostly using diffusion models?",
+    "answer": "Yes, the newest animation inbetweening models are predominantly using diffusion models. The state-of-the-art approaches in 2025 have shifted from traditional frame interpolation methods to diffusion-based generative models that can handle complex, large motions and produce high-quality results. Key methods include ToonComposer (Aug 2025), which unifies inbetweening and colorization using video diffusion models; AnyMoLe (Mar 2025), leveraging video diffusion for character-agnostic motion inbetweening; and Generative Inbetweening (Aug 2024), adapting image-to-video diffusion models for keyframe interpolation. For character/skeletal animation specifically, diffusion models like AnyTop (Feb 2025) and motion diffusion models are dominant. However, these aren't the only approach—some methods also use transformer-based architectures and hybrid approaches combining diffusion with other techniques.",
     "papers": [
       "2508.10881",
       "2503.08417",
@@ -357,6 +390,7 @@
   },
   {
     "query": "What are some recent advances in using human demonstrations in online reinforcement learning for robotics?",
+    "answer": "Recent advances in using human demonstrations in online reinforcement learning for robotics have focused on three main paradigms: (1) **Human-in-the-loop RL** where humans provide real-time interventions and corrections during training (e.g., HIL-SERL, HACTS, SiLRI), enabling sample-efficient learning in 1-2 hours; (2) **Offline-to-online RL** that leverages demonstrations for offline pretraining followed by online fine-tuning with minimal real-world interaction (e.g., RLPD, ConRFT, RL-100); and (3) **Vision-Language-Action (VLA) model post-training** via RL, where pretrained generalist models are refined using demonstrations plus online RL (e.g., π*₀.₆, SimpleVLA-RL, RLDG, SOP). These methods achieve dramatically improved sample efficiency, robustness, and performance compared to pure imitation learning or traditional RL approaches.",
     "papers": [
       "2410.21845",
       "2511.14759",
@@ -372,6 +406,7 @@
   },
   {
     "query": "Find me papers that use manifold projection for medical image segmentation.",
+    "answer": "Several papers explore using manifold projection and manifold-based methods for medical image segmentation. The most relevant approaches include: (1) SPD matrix learning on Riemannian manifolds for neuroimaging, (2) diffeomorphic registration and shape modeling methods that operate on infinite-dimensional manifolds, (3) energy-based models using Langevin dynamics to traverse manifolds for domain generalization, (4) regression metric losses that learn low-dimensional manifolds isometric to label spaces, and (5) semi-supervised methods exploiting manifold assumptions. These methods leverage geometric constraints and manifold structure to improve segmentation accuracy and robustness.",
     "papers": [
       "2505.19659",
       "2207.05231",
@@ -380,6 +415,7 @@
   },
   {
     "query": "Flow-based generative foundation models from ByteDance",
+    "answer": "ByteDance has developed a comprehensive portfolio of flow-based generative foundation models across multiple modalities. Their flagship models include Goku (flow-based video generation achieving state-of-the-art results), DeepFlow (deeply supervised flow architecture with 8x faster convergence), Seaweed-7B (cost-effective 7B video model), and the Seedream/Seedance series (high-performance image and video generation using rectified flow). They've also innovated in specialized domains like CryoFM (flow-based model for protein structures), SplitMeanFlow (production-deployed speech synthesis with 20x speedup), and RayFlow (adaptive flow trajectories for acceleration). These models leverage rectified flow transformers, flow matching, and novel training techniques like deep supervision and integral velocity distillation.",
     "papers": [
       "2502.04896",
       "2503.14494",
@@ -395,6 +431,7 @@
   },
   {
     "query": "Wan video generative models from the Alibaba group",
+    "answer": "The Wan video generative models from Alibaba Group (Tongyi Lab) comprise a comprehensive suite of video foundation models and specialized applications built on the Wan base models. The main Wan series includes 1.3B and 14B parameter models for text-to-video, image-to-video, and video editing tasks, with the foundation models demonstrating state-of-the-art performance while being open-sourced.",
     "papers": [
       "2503.20314",
       "2509.14055",
@@ -411,6 +448,7 @@
   },
   {
     "query": "How can I edit factual knowledge in LLMs with MOE architectures?",
+    "answer": "Editing factual knowledge in LLMs with MoE architectures is an emerging research area that combines techniques from knowledge editing and expert-based architectures. Key approaches include: (1) **Locate-then-edit methods (ROME/MEMIT)** targeting feedforward networks where factual knowledge is stored - these can be extended to MoE by editing specific expert parameters; (2) **LEMoE** which uses MoE adaptors for lifelong editing with KV anchor routing and clustering-based ordering to prevent catastrophic forgetting; (3) **STEM** which replaces FFN up-projections with token-indexed embeddings enabling interpretable knowledge editing; (4) **Adapter-based approaches** using LoRA-MoE for continual learning while preserving prior knowledge; (5) **Expert specialization strategies** from DeepSeekMoE that segregate shared vs. specialized experts. The main challenges are routing consistency, catastrophic forgetting, and maintaining expert specialization during edits.",
     "papers": [
       "2406.20030",
       "2601.10639",
@@ -420,6 +458,7 @@
   },
   {
     "query": "Find research that uses standard diffusion-based video generation in favor of an autoregressive transformer approach, where video frames are tokenized into discrete units and treated as a sequence modeling task identical to text generation.",
+    "answer": "Research on autoregressive video generation with tokenized frames treats video as a sequence modeling task, where video frames are compressed into discrete tokens and predicted using transformer models similar to text generation. Key approaches include VideoGPT (using VQ-VAE for tokenization), Phenaki (variable-length video from text), CogVideo (large-scale pretraining with transformers), MAGVIT (masked generative video transformers), VideoPoet (large language model for zero-shot video), and recent works like Unified-IO 2 and VAR (Visual AutoRegressive modeling). These methods show that autoregressive approaches can compete with or even surpass diffusion models when paired with strong tokenizers, as demonstrated by papers showing \"autoregressive model beats diffusion\" and \"language model beats diffusion - tokenizer is key to visual generation.\"",
     "papers": [
       "2404.02905",
       "2312.17172",
@@ -433,156 +472,9 @@
   },
   {
     "query": "What do the KoLeo regularizer and Gram anchor loss do in DINOv3? What are their equations, what is their purpose, and why are they necessary?",
+    "answer": "The KoLeo regularizer and Gram anchor loss in DINOv3 are two important regularization techniques that serve distinct purposes. The **KoLeo regularizer** encourages uniform distribution of features in the embedding space to prevent collapse, with the equation: L_koleo = -1/n Σ log(d_{n,i}), where d_{n,i} is the minimum distance between feature x_i and any other feature in the batch after ℓ2-normalization. The **Gram anchor loss** addresses the degradation of dense features during long training by regularizing patch-level consistency. It operates on Gram matrices (matrices of pairwise dot products of patch features) and pushes the student's Gram matrix toward that of an earlier \"Gram teacher\" model that exhibits superior dense properties. The equation is: L_Gram = 1/N² ||P_s P_s^T - P_G P_G^T||²_F, where P_s and P_G are student and Gram-teacher patch matrices (after mean-centering), and ||·||_F denotes the Frobenius norm.",
     "papers": [
       "2508.10104"
     ]
-  },
-  {
-    "query": "Identify papers from Google DeepMind that propose hybrid architectures combining gated linear recurrences (SSMs) with local attention to achieve better efficiency than standard Transformers while maintaining competitive performance on long-context tasks.",
-    "papers": [
-      "2402.19427",
-      "2408.00118"
-    ]
-  },
-  {
-    "query": "Find research on 'Self-Rewarding Language Models' where the LLM is used to generate its own preference labels for RLHF, effectively creating a self-improving loop for alignment without human-labeled reward data.",
-    "papers": [
-      "2401.10020",
-      "2407.12665",
-      "2501.12948"
-    ]
-  },
-  {
-    "query": "I am looking for papers that introduce the 'Mixture-of-Depths' approach, where the model learns to dynamically skip computation for certain tokens to optimize FLOPs per forward pass, or similar early-exit strategies.",
-    "papers": [
-      "2404.02258",
-      "2404.16710"
-    ]
-  },
-  {
-    "query": "Find studies investigating the 'Lost in the Middle' phenomenon in long-context language models, specifically focusing on how retrieval performance drops when relevant information is placed in the center of the input window.",
-    "papers": [
-      "2307.03172",
-      "2401.18058"
-    ]
-  },
-  {
-    "query": "What are the papers that use Sparse Autoencoders (SAEs) to decompose LLM activations into millions of interpretable, monosemantic features for mechanistic interpretability?",
-    "papers": [
-      "2310.01423",
-      "2405.12250",
-      "2406.04093"
-    ]
-  },
-  {
-    "query": "Which papers from Microsoft Research introduce the 'phi' series of models (phi-1, phi-2, phi-3, phi-4) and demonstrate the 'textbook is all you need' philosophy for small language model pre-training?",
-    "papers": [
-      "2306.11644",
-      "2309.05463",
-      "2404.14219",
-      "2412.03516"
-    ]
-  },
-  {
-    "query": "Find techniques for KV cache compression that use 2-bit quantization or error-resilient strategies (like KIVI or GEAR) to allow for extremely long context generation on consumer hardware.",
-    "papers": [
-      "2402.01361"
-    ]
-  },
-  {
-    "query": "Identify research that moves away from fixed subword tokenization by proposing 'token-free' or byte-level models that operate directly on UTF-8 bytes while maintaining Transformer-level performance.",
-    "papers": [
-      "2105.13626",
-      "2305.07185",
-      "2401.13660"
-    ]
-  },
-  {
-    "query": "What are the seminal papers regarding 'Process-based Reward Models' (PRMs) as opposed to 'Outcome-based Reward Models' (ORMs) for improving reasoning in mathematical problem solving?",
-    "papers": [
-      "2305.20050",
-      "2402.01626",
-      "2406.14283"
-    ]
-  },
-  {
-    "query": "Find me papers that explore 'Activation Beaconing' or 'Infini-attention' to extend the effective context window of LLMs beyond their training length without fine-tuning on long sequences.",
-    "papers": [
-      "2401.03462",
-      "2404.06654"
-    ]
-  },
-  {
-    "query": "Find research from FAIR (Meta) that introduces the V-JEPA or I-JEPA architectures, focusing on non-generative, joint-embedding predictive architectures for self-supervised visual learning.",
-    "papers": [
-      "2301.08243",
-      "2404.08471"
-    ]
-  },
-  {
-    "query": "Identify papers that discuss the 'Reversal Curse,' where an LLM trained on 'A is B' cannot generalize to 'B is A,' and explore the implications for logical symmetry in language models.",
-    "papers": [
-      "2309.12288"
-    ]
-  },
-  {
-    "query": "Find papers that address 'task interference' in model merging by identifying and zeroing out redundant parameter shifts or using sign-consensus (like TIES-Merging or DARE) to combine multiple fine-tuned models into one without performance degradation.",
-    "papers": [
-      "2306.01708",
-      "2311.03099",
-      "2403.01753"
-    ]
-  },
-  {
-    "query": "Identify research proposing 'Contrastive Decoding' or 'DoLa' (Decoding by Contrasting Layers) where hallucinations are reduced by comparing the output distributions of mature layers against premature layers or smaller 'amateur' models.",
-    "papers": [
-      "2210.15097",
-      "2309.03883",
-      "2310.15091"
-    ]
-  },
-  {
-    "query": "Find theoretical and empirical studies on 'Grokking' in neural networks, specifically focusing on the phase transition where a model suddenly moves from memorization to perfect generalization long after the training loss has plateaued.",
-    "papers": [
-      "2201.02177",
-      "2210.01117",
-      "2303.01118"
-    ]
-  },
-  {
-    "query": "I need papers that introduce 'Ring Attention' or similar block-parallel attention mechanisms designed to scale context windows to millions of tokens by distributing the KV cache across a ring of GPUs.",
-    "papers": [
-      "2310.01803",
-      "2410.13840"
-    ]
-  },
-  {
-    "query": "Identify papers that propose preference optimization techniques which do not require paired rankings (A > B), but instead use 'Kahneman-Tversky Optimization' (KTO) to align models based on binary signals of utility and prospect theory.",
-    "papers": [
-      "2402.01306"
-    ]
-  },
-  {
-    "query": "Find research on 'Chameleon' or 'Unified Multimodal' architectures that treat images and text as a single sequence of discrete tokens, using a unified Transformer for both generation and understanding without separate vision encoders like CLIP.",
-    "papers": [
-      "2405.09818"
-    ]
-  },
-  {
-    "query": "Which papers propose 'Speculative Decoding' using multiple parallel 'medusa heads' or draft models to predict and verify multiple tokens per forward pass to accelerate inference speeds?",
-    "papers": [
-      "2211.17192",
-      "2401.10774",
-      "2310.06194"
-    ]
-  },
-  {
-    "query": "Identify studies that use 'Influence Functions' or 'Data Models' to trace an LLM's specific output back to its training data, attempting to find which training examples were most responsible for a particular model behavior.",
-    "papers": [
-      "2308.03296",
-      "2405.05364",
-      "2303.14139"
-    ]
   }
-
 ]
