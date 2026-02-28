@@ -5,8 +5,8 @@ import { getPaperByUniversalId } from "../../db/services/papers";
 const route = createRoute({
   method: "get",
   path: "/title",
-  summary: "Get the title and publication date of a paper",
-  description: "Retrieve the title and publication date by paper universal ID",
+  summary: "Get the title, abstract, and publication date of a paper",
+  description: "Retrieve the title, abstract, and publication date by paper universal ID",
   request: {
     query: z.object({
       universalId: z.string().openapi({ example: "2301.12345" }),
@@ -18,11 +18,12 @@ const route = createRoute({
         "application/json": {
           schema: z.object({
             title: z.string(),
+            abstract: z.string(),
             publicationDate: z.string(),
           }),
         },
       },
-      description: "Successful response with title and publication date",
+      description: "Successful response with title, abstract, and publication date",
     },
     404: {
       content: {
@@ -50,6 +51,7 @@ const handler: RouteHandler<typeof route> = async (c) => {
 
   return c.json({
     title: paper.title,
+    abstract: paper.abstract,
     publicationDate: paper.publicationDate.toISOString(),
   }, 200);
 };
